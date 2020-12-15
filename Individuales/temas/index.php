@@ -170,7 +170,7 @@
 								<div class="row" style="width: 100%; margin-bottom: 48px">
 									<div class="col-md-4 col-sm-6 col-xs-12">
 										<div class="card hovereffect2" style="width: 100%; min-height: 100%; margin-left: 55% !important">
-											<img class="card-img-top img-responsive" src="./images/cultura.jpg" alt="Sans &amp; Sans-Serif">
+											<img class="card-img-top img-responsive" src="./images/ISE.jpg" alt="Sans &amp; Sans-Serif">
 											<div class="overlay2">
 												<h2>Información sobre Estudiantes</h2>
 												<a class="info2" href="./index.php"></a>
@@ -180,7 +180,7 @@
 
 									<div class="col-md-4 col-sm-6 col-xs-12">
 										<div class="card hovereffect2" style="width: 100%; min-height: 100%; margin-left: 55% !important">
-											<img class="card-img-top img-responsive" src="./images/deportes.jpg" alt="Sans &amp; Sans-Serif">
+											<img class="card-img-top img-responsive" src="./images/FI.jpg" alt="Sans &amp; Sans-Serif">
 											<div class="overlay2">
 												<h2>Formación Integral</h2>
 												<a class="info2" href="./index.php"></a>
@@ -190,7 +190,7 @@
 
 									<div class="col-md-4 col-sm-6 col-xs-12">
 										<div class="card hovereffect2" style="width: 100%; min-height: 100%; margin-left: 55% !important">
-											<img class="card-img-top img-responsive" src="./images/becarios.jpg" alt="Sans &amp; Sans-Serif">
+											<img class="card-img-top img-responsive" src="./images/RDA.jpg" alt="Sans &amp; Sans-Serif">
 											<div class="overlay2">
 												<h2>Reconocimientos por Desempeño Académico</h2>
 												<a class="info2" href="./index.php"></a>
@@ -202,7 +202,7 @@
 								<div class="row" style="width: 100%; margin-bottom: 48px">
 									<div class="col-md-4 col-sm-6 col-xs-12">
 										<div class="card hovereffect2" style="width: 100%; min-height: 100%; margin-left: 55% !important">
-											<img class="card-img-top img-responsive" src="./images/auxiliares.jpg" alt="Sans &amp; Sans-Serif">
+											<img class="card-img-top img-responsive" src="./images/RPE.jpg" alt="Sans &amp; Sans-Serif">
 											<div class="overlay2">
 												<h2>Relación Profesor-Estudiante</h2>
 												<a class="info2" href="./index.php"></a>
@@ -271,9 +271,9 @@
 				<b>Contacto página web:</b><br /> Dirección .....<br /> Edificio ...<br /> Bogotá D.C., Colombia<br /> (+57 1) 316 5000 Ext.
 			</p>
 			<p class="col-sm-12 col-md-6 derechos">
-				&copy; Copyright 2014<br /> Algunos derechos reservados.<br />
+				&copy; Copyright 2020<br /> Algunos derechos reservados.<br />
 				<a title="Comuníquese con el administrador de este sitio web" href="mailto:EMAIL@unal.edu.co">EMAIL@unal.edu.co</a><br />
-				<a href="index.php#">Acerca de este sitio web</a><br /> Actualización:31/05/16
+				<a href="index.php#">Acerca de este sitio web</a><br /> Actualización:15/12/20
 			</p>
 		</div>
 

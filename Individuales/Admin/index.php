@@ -286,9 +286,9 @@
 				<b>Contacto página web:</b><br /> Dirección .....<br /> Edificio ...<br /> Bogotá D.C., Colombia<br /> (+57 1) 316 5000 Ext.
 			</p>
 			<p class="col-sm-12 col-md-6 derechos">
-				&copy; Copyright 2014<br /> Algunos derechos reservados.<br />
+				&copy; Copyright 2020<br /> Algunos derechos reservados.<br />
 				<a title="Comuníquese con el administrador de este sitio web" href="mailto:EMAIL@unal.edu.co">EMAIL@unal.edu.co</a><br />
-				<a href="index.php#">Acerca de este sitio web</a><br /> Actualización:31/05/16
+				<a href="index.php#">Acerca de este sitio web</a><br /> Actualización:15/12/20
 			</p>
 		</div>
 
