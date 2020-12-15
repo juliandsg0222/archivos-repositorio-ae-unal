@@ -25,7 +25,7 @@
 	<link rel="stylesheet" type="text/css" href="css/printer.css" media="print">
 	<script src="js/jquery.js" type="text/javascript"></script>
 	<script src="js/unal.js" type="text/javascript"></script>
-	<title>Repositorio Autoevaluación - Universidad Nacional de Colombia</title>
+	<title>Repositorio de Autoevaluación - Universidad Nacional de Colombia</title>
 	<!-- Fin head plantilla unal -->
 
 	<!-- Inicio head plantilla base -->
