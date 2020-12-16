@@ -19,8 +19,8 @@
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/log1.css">
+	<link rel="stylesheet" type="text/css" href="css/log2.css">
 	<!--===============================================================================================-->
 	<!-- Fin head plantilla login -->
 
@@ -310,9 +310,9 @@
 				<b>Contacto página web:</b><br> Dirección .....<br> Edificio ...<br> Bogotá D.C., Colombia<br> (+57 1) 316 5000 Ext.
 			</p>
 			<p class="col-sm-12 col-md-6 derechos">
-				© Copyright 2020<br> Algunos derechos reservados.<br>
+				© Copyright 2014<br> Algunos derechos reservados.<br>
 				<a title="Comuníquese con el administrador de este sitio web" href="mailto:EMAIL@unal.edu.co">EMAIL@unal.edu.co</a><br>
-				<a href="index.php#">Acerca de este sitio web</a><br> Actualización:15/12/20
+				<a href="index.php#">Acerca de este sitio web</a><br> Actualización:31/05/16
 			</p>
 		</div>
 
