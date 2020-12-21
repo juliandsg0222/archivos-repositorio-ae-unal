@@ -19,6 +19,7 @@ function checkBck() {
 }
 checkBck();
 jQuery(document).ready(function($) {
+    prepare_content_menu();
     $("#unalOpenMenuServicios, #unalOpenMenuPerfiles").on("click", function(e) {
         var $target = $(this).data("target");
         var $mOffset = $(this).offset();
@@ -65,3 +66,23 @@ jQuery(document).ready(function($) {
     });
     serviceMenuStatus();
 });
+
+function prepare_content_menu(){
+    var $content_subdominio = $( "#subdominio" ).html();
+    $( "#container_subdominio_mobil" ).html( $content_subdominio );
+
+    var $content_buscador = $( "#buscador" ).html();
+    $( "#container_buscador_mobil" ).html( $content_buscador );
+
+    var $content_mainmenu = $('#main_menu_container').clone().find(".menu_sedes").remove().end().html()
+    $( "#container_mainmenu_mobil" ).html( $content_mainmenu );
+
+    var $conten_sedes = $( "#sedes" ).html();
+    $( "#container_sedes_mobil" ).html( $conten_sedes );
+
+    var $conten_servicios = $( "#servicios" ).html();
+    $( "#container_servicios_mobil" ).html( "<ul>" + $conten_servicios + "</ul>");
+
+    var $conten_profiles = $( "#profiles" ).html();
+    $( "#container_profiles_mobil" ).html( $conten_profiles );
+}
