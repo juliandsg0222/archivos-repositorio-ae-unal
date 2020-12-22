@@ -207,17 +207,9 @@ iframe {
 }
 
 .login100-form-image {
-  font-family: "Ancizar sans", Tahoma, Geneva, sans-serif;
-  font-size: 35px;
-  font-style: italic;
-  color: #555555;
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   text-align: center;
   padding-left:0px;
   padding-bottom: 10px;
-
   width: 100%;
   display: block;
 }
@@ -397,6 +389,11 @@ input.input100 {
   .rs2-wrap-input100 {
     border-left: 1px solid #e6e6e6;
   }
+
+  .login100-form-image{
+    padding-top: 20px;
+  }
+
 }
 
 @media (max-width: 411px) {
@@ -431,6 +428,10 @@ input.input100 {
     padding-right: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
+  }
+
+  .login100-form-image{
+    padding-top: 20px;
   }
 
   .login100-form-title {
