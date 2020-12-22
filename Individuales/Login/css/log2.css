@@ -176,13 +176,14 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #f2f2f2;
+  /* background-color: rgb(177, 178, 176); */
+  background-image: url('../images/manizales.jpg');
+  background-repeat: no-repeat;
 }
 
 .wrap-login100 {
-  width: 875x;
-  height: 602px;
-  background: #fff;
+  width: 440px;
+  height: 550px;
   overflow: hidden;
   display: -webkit-box;
   display: -webkit-flex;
@@ -192,44 +193,33 @@ iframe {
   flex-wrap: wrap;
   align-items: stretch;
   flex-direction: row-reverse;
-
 }
-
-/*==================================================================
-[ login more ]*/
-.login100-more {
-  width: 440px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  z-index: 1;
-}
-
-.login100-more::before {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0,0,0,0.3);
-}
-
-/*==================================================================
-[ Form ]*/
 
 .login100-form {
-  width: 435px;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  padding: 50px 65px 40px 65px;
+  padding: 50px;
+}
+
+.login100-form-image {
+  font-family: "Ancizar sans", Tahoma, Geneva, sans-serif;
+  font-size: 35px;
+  font-style: italic;
+  color: #555555;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  padding-left:0px;
+  padding-bottom: 10px;
+
+  width: 100%;
+  display: block;
 }
 
 .login100-form-title {
@@ -241,12 +231,12 @@ iframe {
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
-  padding:0px 0px 0px 100px;
+  padding-left:0px;
+  padding-bottom: 50px;
 
   width: 100%;
   display: block;
 }
-
 
 /*------------------------------------------------------------------
 [ Input ]*/
@@ -275,7 +265,7 @@ iframe {
   font-size: 16px;
   color: #666666;
   line-height: 1.2;
-  padding: 17px 17px 0px 17px;
+  padding: 1.5em;
 }
 
 input.input100 {
@@ -349,6 +339,7 @@ input.input100 {
   height: 50px;
   border-radius: 3px;
   background: #94b43b;
+  margin-bottom: 30px;
 
   font-family: "Ancizar sans", Tahoma, Geneva, sans-serif;
   font-size: 17px;
@@ -364,7 +355,7 @@ input.input100 {
 }
 
 .login100-form-btn:hover {
-  background: #333333;
+  background: rgb(70, 107, 63);
 }
 
 
@@ -374,14 +365,10 @@ input.input100 {
 
 @media (max-width: 992px) {
   .login100-form {
-    width: 60%;
     padding-left: 30px;
     padding-right: 30px;
   }
 
-  .login100-more {
-    width: 40%;
-  }
 }
 
 @media (max-width: 768px) {
@@ -396,9 +383,10 @@ input.input100 {
 
 @media (max-width: 576px) {
   .login100-form {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 150px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   .rs1-wrap-input100,
@@ -409,6 +397,58 @@ input.input100 {
   .rs2-wrap-input100 {
     border-left: 1px solid #e6e6e6;
   }
+}
+
+@media (max-width: 411px) {
+  .login100-form {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .login100-form-title {
+    font-size: 27px;
+  }  
+}
+
+@media (max-width: 400px) {
+  .login100-form {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .login100-form-title {
+    font-size: 27px;
+  }  
+}
+
+@media (max-width: 375px) {
+  .login100-form {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .login100-form-title {
+    font-size: 27px;
+  }  
+}
+
+@media (max-width: 320px) {
+  .login100-form {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .login100-form-title {
+    font-size: 21px;
+  }  
 }
 
 
@@ -424,7 +464,7 @@ input.input100 {
   position: absolute;
   max-width: 70%;
   background-color: #fff;
-  border: 1px solid #c80000;
+  border: 1px solid rgb(166, 28, 49);
   border-radius: 2px;
   padding: 4px 25px 4px 10px;
   top: 50%;
@@ -437,7 +477,7 @@ input.input100 {
   pointer-events: none;
 
   font-family: "Ancizar sans", Tahoma, Geneva, sans-serif;
-  color: #c80000;
+  color: rgb(166, 28, 49);
   font-size: 13px;
   line-height: 1.4;
   text-align: left;
@@ -456,7 +496,7 @@ input.input100 {
   font-family: FontAwesome;
   display: block;
   position: absolute;
-  color: #c80000;
+  color: rgb(166, 28, 49);
   font-size: 16px;
   top: 50%;
   -webkit-transform: translateY(-50%);
