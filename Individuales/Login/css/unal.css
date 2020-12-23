@@ -345,7 +345,7 @@ ul.dropdown-menu a:focus {
 }
 
 #btn_hamburguer {
-	background-image: url("../Icons/menu.svg");
+	background-image: url("../icons/menu.svg");
 	background-repeat: no-repeat 95% 50%;
 	border: none;
 	height: 54px;

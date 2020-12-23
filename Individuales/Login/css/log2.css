@@ -1,87 +1,117 @@
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 @font-face {
-	font-family: 'Ancizar sans'; font-weight: bold; font-style: italic; src: url("../fonts/ancizarsans_bold_italic-webfont.eot"), url("../fonts/ancizarsans_bold_italic-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarsans_bold_italic-webfont.woff") format('woff'), url("../fonts/ancizarsans_bold_italic-webfont.ttf") format('truetype'), url("../fonts/ancizarsans_bold_italic-webfont.svg#ancizar_sansbold_italic") format('svg');
+  font-family: 'Ancizar sans';
+  font-weight: bold;
+  font-style: italic;
+  src: url("../fonts/ancizarsans_bold_italic-webfont.eot"), url("../fonts/ancizarsans_bold_italic-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarsans_bold_italic-webfont.woff") format('woff'), url("../fonts/ancizarsans_bold_italic-webfont.ttf") format('truetype'), url("../fonts/ancizarsans_bold_italic-webfont.svg#ancizar_sansbold_italic") format('svg');
 }
 
 @font-face {
-	font-family: 'Ancizar sans'; font-weight: bold; font-style: normal; src: url("../fonts/ancizarsans_bold-webfont.eot"), url("../fonts/ancizarsans_bold-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarsans_bold-webfont.woff") format('woff'), url("../fonts/ancizarsans_bold-webfont.ttf") format('truetype'), url("../fonts/ancizarsans_bold-webfont.svg#ancizar_sansbold_italic") format('svg');
+  font-family: 'Ancizar sans';
+  font-weight: bold;
+  font-style: normal;
+  src: url("../fonts/ancizarsans_bold-webfont.eot"), url("../fonts/ancizarsans_bold-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarsans_bold-webfont.woff") format('woff'), url("../fonts/ancizarsans_bold-webfont.ttf") format('truetype'), url("../fonts/ancizarsans_bold-webfont.svg#ancizar_sansbold_italic") format('svg');
 }
 
 @font-face {
-	font-family: 'Ancizar sans'; font-weight: normal; font-style: italic; src: url("../fonts/ancizarsans_italic-webfont.eot"), url("../fonts/ancizarsans_italic-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarsans_italic-webfont.woff") format('woff'), url("../fonts/ancizarsans_italic-webfont.ttf") format('truetype'), url("../fonts/ancizarsans_italic-webfont.svg#ancizar_sansbold_italic") format('svg');
+  font-family: 'Ancizar sans';
+  font-weight: normal;
+  font-style: italic;
+  src: url("../fonts/ancizarsans_italic-webfont.eot"), url("../fonts/ancizarsans_italic-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarsans_italic-webfont.woff") format('woff'), url("../fonts/ancizarsans_italic-webfont.ttf") format('truetype'), url("../fonts/ancizarsans_italic-webfont.svg#ancizar_sansbold_italic") format('svg');
 }
 
 @font-face {
-	font-family: 'Ancizar sans'; font-weight: normal; font-style: normal; src: url("../fonts/ancizarsans_regular-webfont.eot"), url("../fonts/ancizarsans_regular-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarsans_regular-webfont.woff") format('woff'), url("../fonts/ancizarsans_regular-webfont.ttf") format('truetype'), url("../fonts/ancizarsans_regular-webfont.svg#ancizar_sansbold_italic") format('svg');
+  font-family: 'Ancizar sans';
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/ancizarsans_regular-webfont.eot"), url("../fonts/ancizarsans_regular-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarsans_regular-webfont.woff") format('woff'), url("../fonts/ancizarsans_regular-webfont.ttf") format('truetype'), url("../fonts/ancizarsans_regular-webfont.svg#ancizar_sansbold_italic") format('svg');
 }
 
 @font-face {
-	font-family: 'Ancizar serif'; font-weight: bold; font-style: italic; src: url("../fonts/ancizarserif_bold_italic-webfont.eot"), url("../fonts/ancizarserif_bold_italic-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarserif_bold_italic-webfont.woff") format('woff'), url("../fonts/ancizarserif_bold_italic-webfont.ttf") format('truetype'), url("../fonts/ancizarserif_bold_italic-webfont.svg#ancizar_sansbold_italic") format('svg');
+  font-family: 'Ancizar serif';
+  font-weight: bold;
+  font-style: italic;
+  src: url("../fonts/ancizarserif_bold_italic-webfont.eot"), url("../fonts/ancizarserif_bold_italic-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarserif_bold_italic-webfont.woff") format('woff'), url("../fonts/ancizarserif_bold_italic-webfont.ttf") format('truetype'), url("../fonts/ancizarserif_bold_italic-webfont.svg#ancizar_sansbold_italic") format('svg');
 }
 
 @font-face {
-	font-family: 'Ancizar serif'; font-weight: bold; font-style: normal; src: url("../fonts/ancizarserif_bold-webfont.eot"), url("../fonts/ancizarserif_bold-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarserif_bold-webfont.woff") format('woff'), url("../fonts/ancizarserif_bold-webfont.ttf") format('truetype'), url("../fonts/ancizarserif_bold-webfont.svg#ancizar_sansbold_italic") format('svg');
+  font-family: 'Ancizar serif';
+  font-weight: bold;
+  font-style: normal;
+  src: url("../fonts/ancizarserif_bold-webfont.eot"), url("../fonts/ancizarserif_bold-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarserif_bold-webfont.woff") format('woff'), url("../fonts/ancizarserif_bold-webfont.ttf") format('truetype'), url("../fonts/ancizarserif_bold-webfont.svg#ancizar_sansbold_italic") format('svg');
 }
 
 @font-face {
-	font-family: 'Ancizar serif'; font-weight: normal; font-style: italic; src: url("../fonts/ancizarserif_italic-webfont.eot"), url("../fonts/ancizarserif_italic-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarserif_italic-webfont.woff") format('woff'), url("../fonts/ancizarserif_italic-webfont.ttf") format('truetype'), url("../fonts/ancizarserif_italic-webfont.svg#ancizar_sansbold_italic") format('svg');
+  font-family: 'Ancizar serif';
+  font-weight: normal;
+  font-style: italic;
+  src: url("../fonts/ancizarserif_italic-webfont.eot"), url("../fonts/ancizarserif_italic-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarserif_italic-webfont.woff") format('woff'), url("../fonts/ancizarserif_italic-webfont.ttf") format('truetype'), url("../fonts/ancizarserif_italic-webfont.svg#ancizar_sansbold_italic") format('svg');
 }
 
 @font-face {
-	font-family: 'Ancizar serif'; font-weight: normal; font-style: normal; src: url("../fonts/ancizarserif_regular-webfont.eot"), url("../fonts/ancizarserif_regular-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarserif_regular-webfont.woff") format('woff'), url("../fonts/ancizarserif_regular-webfont.ttf") format('truetype'), url("../fonts/ancizarserif_regular-webfont.svg#ancizar_sansbold_italic") format('svg');
+  font-family: 'Ancizar serif';
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/ancizarserif_regular-webfont.eot"), url("../fonts/ancizarserif_regular-webfont.eot?#iefix") format('embedded-opentype'), url("../fonts/ancizarserif_regular-webfont.woff") format('woff'), url("../fonts/ancizarserif_regular-webfont.ttf") format('truetype'), url("../fonts/ancizarserif_regular-webfont.svg#ancizar_sansbold_italic") format('svg');
 }
-
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
 * {
-	margin: 0px; 
-	padding: 0px; 
-	box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-body, html {
-	font-family: "Ancizar sans", Tahoma, Geneva, sans-serif;
+body,
+html {
+  font-family: "Ancizar sans", Tahoma, Geneva, sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-	color: #666666;
-	transition: all 0.4s;
-	-webkit-transition: all 0.4s;
+  color: #666666;
+  transition: all 0.4s;
+  -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
 }
 
 a:focus {
-	outline: none !important;
+  outline: none !important;
 }
 
 a:hover {
-	text-decoration: none;
+  text-decoration: none;
   color: #333333;
 }
 
 /*---------------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
-	margin: 0px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
 }
 
 p {
-	font-family: "Ancizar sans", Tahoma, Geneva, sans-serif;
-	margin: 0px;
+  font-family: "Ancizar sans", Tahoma, Geneva, sans-serif;
+  margin: 0px;
 }
 
-ul, li {
-	list-style-type: none;
+ul,
+li {
+  list-style-type: none;
 }
 
 /*---------------------------------------------*/
 input {
-	outline: none;
-	border: none;
+  outline: none;
+  border: none;
 }
 
 textarea {
@@ -89,33 +119,56 @@ textarea {
   border: none;
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
   border-color: transparent !important;
 }
 
-input::-webkit-input-placeholder { color: #999999;}
-input:-moz-placeholder { color: #999999;}
-input::-moz-placeholder { color: #999999;}
-input:-ms-input-placeholder { color: #999999;}
+input::-webkit-input-placeholder {
+  color: #999999;
+}
 
-textarea::-webkit-input-placeholder { color: #999999;}
-textarea:-moz-placeholder { color: #999999;}
-textarea::-moz-placeholder { color: #999999;}
-textarea:-ms-input-placeholder { color: #999999;}
+input:-moz-placeholder {
+  color: #999999;
+}
+
+input::-moz-placeholder {
+  color: #999999;
+}
+
+input:-ms-input-placeholder {
+  color: #999999;
+}
+
+textarea::-webkit-input-placeholder {
+  color: #999999;
+}
+
+textarea:-moz-placeholder {
+  color: #999999;
+}
+
+textarea::-moz-placeholder {
+  color: #999999;
+}
+
+textarea:-ms-input-placeholder {
+  color: #999999;
+}
 
 /*---------------------------------------------*/
 button {
-	outline: none !important;
-	border: none;
-	background: transparent;
+  outline: none !important;
+  border: none;
+  background: transparent;
 }
 
 button:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 iframe {
-	border: none !important;
+  border: none !important;
 }
 
 /*//////////////////////////////////////////////////////////////////
@@ -124,7 +177,7 @@ iframe {
 /*==================================================================
 [ Text ]*/
 .txt1 {
-  font-family:"Ancizar sans", Tahoma, Geneva, sans-serif;
+  font-family: "Ancizar sans", Tahoma, Geneva, sans-serif;
   font-size: 13px;
   line-height: 1.4;
   color: #999999;
@@ -166,7 +219,7 @@ iframe {
 }
 
 .container-login100 {
-  width: 100%;  
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -208,7 +261,7 @@ iframe {
 
 .login100-form-image {
   text-align: center;
-  padding-left:0px;
+  padding-left: 0px;
   padding-bottom: 10px;
   width: 100%;
   display: block;
@@ -223,7 +276,7 @@ iframe {
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
-  padding-left:0px;
+  padding-left: 0px;
   padding-bottom: 50px;
 
   width: 100%;
@@ -291,7 +344,7 @@ input.input100 {
   transform: scaleX(1.1) scaleY(1.3);
 }
 
-.input100:focus + .focus-input100 {
+.input100:focus+.focus-input100 {
   visibility: visible;
   opacity: 1;
 
@@ -390,7 +443,7 @@ input.input100 {
     border-left: 1px solid #e6e6e6;
   }
 
-  .login100-form-image{
+  .login100-form-image {
     padding-top: 20px;
   }
 
@@ -406,7 +459,7 @@ input.input100 {
 
   .login100-form-title {
     font-size: 27px;
-  }  
+  }
 }
 
 @media (max-width: 400px) {
@@ -419,7 +472,7 @@ input.input100 {
 
   .login100-form-title {
     font-size: 27px;
-  }  
+  }
 }
 
 @media (max-width: 375px) {
@@ -430,14 +483,13 @@ input.input100 {
     padding-bottom: 20px;
   }
 
-  .login100-form-image{
+  .login100-form-image {
     padding-top: 20px;
   }
 
   .login100-form-title {
     font-size: 27px;
-  }  
-
+  }
 }
 
 @media (max-width: 320px) {
@@ -450,7 +502,7 @@ input.input100 {
 
   .login100-form-title {
     font-size: 21px;
-  }  
+  }
 }
 
 

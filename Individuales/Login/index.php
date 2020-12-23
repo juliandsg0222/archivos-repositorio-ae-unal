@@ -24,6 +24,7 @@
     <meta name="robots" content="all">
 
     <link rel="stylesheet" type="text/css" href="css/frontend.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/accesibilidad.css" media="all">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" media="all">
     <link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
@@ -36,6 +37,7 @@
 
     <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/unal.js" type="text/javascript"></script>
+    <script src="js/accesibilidad.js" type="text/javascript"></script>
     <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
 
     <title>Inicio: Universidad Nacional de Colombia</title>
