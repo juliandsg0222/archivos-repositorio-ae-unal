@@ -40,7 +40,7 @@
     <script src="js/accesibilidad.js" type="text/javascript"></script>
     <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
 
-    <title>Inicio: Universidad Nacional de Colombia</title>
+    <title>Repositorio de Autoevaluación - Universidad Nacional de Colombia</title>
     <!-- Fin head plantilla unal -->
 
   </head>
