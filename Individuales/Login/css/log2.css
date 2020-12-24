@@ -246,6 +246,7 @@ iframe {
   flex-wrap: wrap;
   align-items: stretch;
   flex-direction: row-reverse;
+  margin-bottom: 50px;
 }
 
 .login100-form {

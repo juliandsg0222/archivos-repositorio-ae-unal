@@ -162,11 +162,11 @@
       <!-- Inicio menú inferior plantilla unal -->
       <div id="bs-navbar" class="navigation d-none d-md-block">
 
-        <!-- Inicio título del sitio plantilla unal -->
-        <div class="site-url" id="subdominio">
-          <a href="https://juliansg022.github.io/Repositorio-AE-UNAL/">juliansg022.github.io/Repositorio-AE-UNAL</a>
-        </div>
-        <!-- Fin título del sitio plantilla unal -->
+      <!-- Inicio título del sitio plantilla unal -->
+      <div class="site-url" id="subdominio">
+        <a href="http://subdominio.unal.edu.co/">subdominio.unal.edu.co</a>
+      </div>
+      <!-- Fin título del sitio plantilla unal -->
 
         <!-- Inicio buscador plantilla unal -->
         <div class="buscador" id="buscador">
