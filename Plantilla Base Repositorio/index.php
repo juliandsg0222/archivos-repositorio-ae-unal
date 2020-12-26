@@ -44,6 +44,7 @@
 
   <!-- Inicio head plantilla base -->
   <link rel="stylesheet" type="text/css" href="css/base1.css" media="all">
+  <link rel="stylesheet" type="text/css" href="fonts/fontawesome-free-5.15.1-web/css/all.min.css" media="all">
   <!-- Fin head plantilla base -->
 
 </head>
@@ -323,9 +324,21 @@
 
         <div class="card" style="margin: 40px 4% 0 4%; transform: translateX(0);">
         
-          <nav class="navbar navbar-dark card-nav" style="height:60px; color: white; font-size:3.2em; padding:20px; margin-bottom: 0">
-            <li class="nav-item"><a href="#" style="color: white">Página Principal</a></li>
-            <li class="nav-item"><a href="#" style="color: white;">Salir</a></li>
+          <nav class="navbar navbar-dark card-nav1">
+            <li class="nav-item"><a href="#" style="color: white;"><i class="fas fa-home"></i></a></li>
+            <li class="nav-item"><a href="#" style="color: white;"><i class="fas fa-sign-out-alt"></i></a></li>
+          </nav>
+
+          <nav class="navbar navbar-light card-nav2">
+            <li class="nav-item" id="li1a" style="color: white;"><i>Inicio</i></li>
+            <li class="nav-item"></li>
+            <li class="nav-item" id="li1b" style="color: white;"><i>Salir</i></li>
+          </nav>
+
+          <nav class="navbar navbar-light card-nav2">
+            <li class="nav-item"></li>
+            <li class="nav-item" id="li2" style="color: white;"><i  class="fas fa-user"> usuario_activo</i></li>
+            <li class="nav-item"></li>
           </nav>
 
           <div class="card-body" style="margin-bottom:0;">
