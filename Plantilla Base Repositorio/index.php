@@ -326,7 +326,7 @@
         
           <nav class="navbar navbar-dark card-nav1">
             <li class="nav-item"><a href="#" style="color: white;"><i class="fas fa-home" title="Inicio"></i></a></li>
-            <li class="nav-item" id="li2" style="color: white;"><i  class="fas fa-user"> usuario_activo</i></li>
+            <li class="nav-item" id="li2" style="color: white;"><i  class="fas fa-user" title="Usuario activo"> usuario_activo</i></li>
             <li class="nav-item"><a href="#" style="color: white;"><i class="fas fa-sign-out-alt" title="Salir"></i></a></li>
           </nav>
 
