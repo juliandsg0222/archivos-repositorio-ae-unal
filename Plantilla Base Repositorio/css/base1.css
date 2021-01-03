@@ -78,6 +78,7 @@
     font-size: 0.5em;
     display: inline-block;
     background-color: rgb(55, 183, 146);
+    cursor: pointer;
 }
 
 #li1a{
