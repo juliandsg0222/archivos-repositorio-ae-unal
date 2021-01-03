@@ -67,6 +67,7 @@
 .card-nav2 li{
     list-style: none;
     padding: 0px;
+    margin-top: 0px;
     /* font: bold 20px arial; */
     display: inline-block;
 }
@@ -74,7 +75,7 @@
 #li2{
     list-style: none;
     padding: 5px;
-    font-size: 30px;
+    font-size: 0.5em;
     display: inline-block;
     background-color: rgb(55, 183, 146);
 }
