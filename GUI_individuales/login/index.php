@@ -409,12 +409,12 @@
               (+57 1) 316 5000 Ext.
             </p>
             <p class="col-lg-6 col-md-12 col-sm-12 col-6 derechos">
-              &copy; Copyright 2019<br />
+              &copy; Copyright 2021<br />
               Algunos derechos reservados.<br />
               <a title="Comuníquese con el administrador de este sitio web"
                 href="mailto:EMAIL@unal.edu.co">EMAIL@unal.edu.co</a><br />
               <a href="#">Acerca de este sitio web</a><br />
-              Actualización:14/11/19
+              Actualización:07/01/21
             </p>
           </div>
         </div>
