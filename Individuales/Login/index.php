@@ -147,9 +147,9 @@
             <div class="collapse btn-group languageMenu d-none d-md-block">
               <div class="btn btn-default dropdown-toggle" data-toggle="dropdown">es<span class="caret"></span></div>
               <ul class="dropdown-menu dropdown-menu-right">
-                <li><a href="index.html#">EN - English</a></li>
-                <li><a href="index.html#">GUC - Wayuunaiki</a></li>
-                <li><a href="index.html#">PBB - Nasa yuwe</a></li>
+                <li><a href="#">EN - English</a></li>
+                <li><a href="#">GUC - Wayuunaiki</a></li>
+                <li><a href="#">PBB - Nasa yuwe</a></li>
               </ul>
             </div>
             <!-- Fin idioma plantilla unal -->
@@ -195,7 +195,7 @@
 
           <!-- Inicio items menú secundario plantilla unal -->
           <div class="btn-group">
-            <a href="index.html#" class="btn btn-default">Item menu ejemplo 2</a>
+            <a href="#" class="btn btn-default">Item menu ejemplo 2</a>
           </div>
           <!-- Fin items menú secundario plantilla unal -->
 
@@ -340,12 +340,12 @@
             </span>
 
             <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-30" data-validate="Ingrese usuario institucional sin @unal.edu.co">
-              <input class="input100" type="text" name="username" placeholder="Usuario">
+              <input class="input100" type="text" name="Usuario" placeholder="Usuario">
               <span class="focus-input100"></span>
             </div>
 
             <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-30" data-validate="Ingrese contraseña">
-              <input class="input100" type="password" name="pass" placeholder="Contraseña">
+              <input class="input100" type="password" name="Contrasena" placeholder="Contraseña">
               <span class="focus-input100"></span>
             </div>
 
@@ -389,15 +389,15 @@
         </nav>
         <nav class="col-lg-3 col-md-3 col-sm-4 col-6 gobiernoLinea">
           <a href="http://correo.unal.edu.co" target="_top">Correo institucional</a>
-          <a href="index.html#">Mapa del sitio</a>
+          <a href="#">Mapa del sitio</a>
           <a href="http://redessociales.unal.edu.co" target="_top">Redes Sociales</a>
-          <a href="index.html#">FAQ</a>
+          <a href="#">FAQ</a>
           <a href="http://unal.edu.co/quejas-y-reclamos/" target="_self">Quejas y reclamos</a>
           <a href="http://unal.edu.co/atencion-en-linea/" target="_self">Atención en línea</a>
           <a href="http://unal.edu.co/encuesta/" target="_self">Encuesta</a>
-          <a href="index.html#">Contáctenos</a>
+          <a href="#">Contáctenos</a>
           <a href="http://estadisticas.unal.edu.co/" target="_top">Estadísticas</a>
-          <a href="index.html#">Glosario</a>
+          <a href="#">Glosario</a>
         </nav>
         <div class="col-lg-4 col-md-4 col-sm-4 col-12 footer-info">
           <div class="row footer-info-spacing">
@@ -413,7 +413,7 @@
               Algunos derechos reservados.<br />
               <a title="Comuníquese con el administrador de este sitio web"
                 href="mailto:EMAIL@unal.edu.co">EMAIL@unal.edu.co</a><br />
-              <a href="index.html#">Acerca de este sitio web</a><br />
+              <a href="#">Acerca de este sitio web</a><br />
               Actualización:14/11/19
             </p>
           </div>
