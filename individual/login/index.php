@@ -340,12 +340,12 @@
             </span>
 
             <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-30" data-validate="Ingrese usuario institucional sin @unal.edu.co">
-              <input class="input100" type="text" name="Usuario" placeholder="Usuario">
+              <input class="input100" type="text" name="Usuario" placeholder="Usuario" autocomplete="off">
               <span class="focus-input100"></span>
             </div>
 
             <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-30" data-validate="Ingrese contraseña">
-              <input class="input100" type="password" name="Contrasena" placeholder="Contraseña">
+              <input class="input100" type="password" name="Contrasena" placeholder="Contraseña" autocomplete="off">
               <span class="focus-input100"></span>
             </div>
 
@@ -369,7 +369,7 @@
       </div>
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
     <!-- Fin body plantilla login -->
 
     <!-- Inicio footer plantilla unal -->
