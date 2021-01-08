@@ -1,0 +1,131 @@
+.fondo {
+    background-image: url("../images/fondo_base.jpg");
+}
+
+#panel{
+    border: none;
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+.container{
+    /* Altura Fija de 520px */
+    height: 520px;   
+
+    /* Altura Automática */
+    /* height: auto; */
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+    margin: 5%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    background-color: white;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+}
+
+.card-body {
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.card-nav1 {
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    background-color: rgb(30, 111, 193);
+    height:auto; 
+    font-size:3.2em; 
+    padding-right:10px; 
+    padding-left:10px; 
+
+}
+
+.card-nav1 li{
+    list-style: none;
+    padding: 0px;
+    /* font: bold 20px arial; */
+    display: inline-block;
+}
+
+.card-nav2 {
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    background-color: white;
+    height:auto; 
+    font-size:3.2em; 
+    padding-right:10px; 
+    padding-left:10px; 
+    padding: 0;
+}
+
+.card-nav2 li{
+    list-style: none;
+    padding: 0px;
+    margin-top: 0px;
+    /* font: bold 20px arial; */
+    display: inline-block;
+}
+
+#li2{
+    list-style: none;
+    padding: 5px;
+    font-size: 0.5em;
+    display: inline-block;
+    background-color: rgb(55, 183, 146);
+    cursor: pointer;
+}
+
+#li1a{
+    list-style: none;
+    padding: 5px;
+    font-size: 20px;
+    display: inline-block;
+    background-color: rgb(86, 90, 92);
+    margin-left: 10px;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+#li1b{
+    list-style: none;
+    padding: 5px;
+    font-size: 20px;
+    display: inline-block;
+    background-color: rgb(86, 90, 92);
+    margin-left: 10px;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.version2 {
+    background: #fafafa;
+}
+
+.fa-home:hover{
+    color: rgb(242, 231, 204);
+    
+}
+
+.fa-sign-out-alt:hover{
+    color: rgb(242, 231, 204);
+}
+
+@media only screen and (min-width: 1300px) {
+    .container {
+        margin-left: 10%;
+        max-width: 100%;
+    }
+}
+
+.jumbotron-fluid2 {
+    background: #fafafa;
+    margin-top: 0px;
+    padding: 0;
+    margin-bottom: 0;
+}

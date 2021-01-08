@@ -12,7 +12,7 @@ class Usuarios extends Conexion {
 
     public function login($user, $password)
     {
-        $statement = $this->db->prepare("SELECT * FROM usuarios WHERE idUsu = :Usuario AND pasUsu = :Password");
+        $statement = $this->db->prepare("SELECT * FROM usuario WHERE idUsu = :Usuario AND passUsu = :Password");
         $statement->bindParam(':Usuario', $user);
         $statement->bindParam(':Password', $password);
         $statement->execute();
