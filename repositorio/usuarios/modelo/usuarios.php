@@ -45,17 +45,17 @@ class Usuarios extends Conexion {
         }
     }
 
-    public function validateSessionAdministrator(){
+    public function validateSessionSuperAdmin(){
         if($_SESSION['ID'] != null){
-            if($_SESSION['ROL'] != 'ADMINISTRADOR'){
+            if($_SESSION['ROL'] != 'SUPERADMIN'){
                 header('Location: ../../rol-editar/vista/index.php');
             }
         }
     }
 
-    public function validateSessionEditor(){
+    public function validateSessionAdministrator(){
         if($_SESSION['ID'] != null){
-            if($_SESSION['ROL'] != 'EDITOR'){
+            if($_SESSION['ROL'] != 'ADMINISTRADOR'){
                 header('Location: ../../rol-editar/vista/index.php');
             }
         }
