@@ -6,8 +6,16 @@ CREATE TABLE usuario
     idUsu VARCHAR(15) NOT NULL,
     nomUsu VARCHAR(80) NOT NULL,
     passUsu VARCHAR(30) NOT NULL,
-    rolUsu VARCHAR(15) NOT NULL,
+    rolUsu INT NOT NULL,
     PRIMARY KEY (idUsu)
+)
+
+-- Tabla de roles
+CREATE TABLE rol 
+( 
+    idRol INT NOT NULL, 
+    nomRol VARCHAR(15) NOT NULL, 
+    PRIMARY KEY (idRol) 
 )
 
 -- ################# FIN AUTENTICACIÓN #################
@@ -175,5 +183,9 @@ ADD FOREIGN KEY (idReg) REFERENCES registro(idReg);
 
 ALTER TABLE reg_fue
 ADD FOREIGN KEY (idFue) REFERENCES fuente(idFue);
+
+-- Llave de Usuarios-Rol
+ALTER TABLE usuario
+ADD FOREIGN KEY (rolUsu) REFERENCES rol(idRol);
 
 -- ################# FIN LLAVES FORÁNEAS #################

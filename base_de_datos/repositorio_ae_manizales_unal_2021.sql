@@ -288,6 +288,30 @@ LOCK TABLES `registro` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `rol`
+--
+
+DROP TABLE IF EXISTS `rol`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rol` (
+  `idRol` int(11) NOT NULL,
+  `nomRol` varchar(15) NOT NULL,
+  PRIMARY KEY (`idRol`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rol`
+--
+
+LOCK TABLES `rol` WRITE;
+/*!40000 ALTER TABLE `rol` DISABLE KEYS */;
+INSERT INTO `rol` VALUES (1,'ADMINISTRADOR'),(2,'EDITOR'),(3,'VISUALIZADOR'),(996699,'SUPERADMIN');
+/*!40000 ALTER TABLE `rol` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tema`
 --
 
@@ -349,8 +373,10 @@ CREATE TABLE `usuario` (
   `idUsu` varchar(15) NOT NULL,
   `nomUsu` varchar(80) NOT NULL,
   `passUsu` varchar(30) NOT NULL,
-  `rolUsu` varchar(15) NOT NULL,
-  PRIMARY KEY (`idUsu`)
+  `rolUsu` int(11) NOT NULL,
+  PRIMARY KEY (`idUsu`),
+  KEY `rolUsu` (`rolUsu`),
+  CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`rolUsu`) REFERENCES `rol` (`idRol`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -360,7 +386,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES ('editor','SEÑOR USUARIO EDITOR','123456','EDITOR'),('judsanchezga','JULIAN DAVID SANCHEZ GALLEGO','916062','ADMINISTRADOR'),('visualizador','SEÑOR USUARIO VISUALIZADOR','123456','VISUALIZADOR');
+INSERT INTO `usuario` VALUES ('judsanchezga','JULIAN DAVID SANCHEZ GALLEGO','916062',1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -373,4 +399,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-08 10:53:34
+-- Dump completed on 2021-01-09 13:20:24
