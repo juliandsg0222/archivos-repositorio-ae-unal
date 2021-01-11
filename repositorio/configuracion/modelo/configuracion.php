@@ -18,8 +18,23 @@ class Configuracion extends Conexion{
         }
         return $rows;
     }
-
     // Fin métodos "Usuarios"
+
+    // Inicio métodos "Períodos"
+    public function getPeriodos(){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT nomPer FROM periodo ORDER BY nomPer DESC");
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+    // Fin métodos "Períodos"
+
+    
+
+
 
 }
 

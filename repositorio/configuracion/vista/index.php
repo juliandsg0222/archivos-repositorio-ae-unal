@@ -386,6 +386,14 @@ $ModeloConfiguracion = new Configuracion();
                     tablas.innerHTML ='<table class="table table-hover"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">USUARIO</th><th scope="col">NOMBRE</th><th scope="col">ROL</th><th scope="col">ACCIÓN</th></tr></thead><tbody><?php $Usuarios = $ModeloConfiguracion->getUsuarios(); $cont = 1; if ($Usuarios != null) { foreach($Usuarios as $usu) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $usu["idUsu"] ?></td><td><?php echo $usu["nomUsu"] ?></td><td><?php echo $usu["nomRol"] ?></td></tr><?php } } ?></tbody></table>';
                   }
 
+                  function llamarPeriodos(){
+                    EspacioConsulta.innerHTML ='<h1 id="titAdmin"><b>Períodos</b></h1><div id="tablas" style="height: 100%;"></div>';
+
+                    tablas.innerHTML ='<table class="table table-hover"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">PERÍODO</th><th scope="col">ACCIÓN</th></tr></thead><tbody><?php $Periodos = $ModeloConfiguracion->getPeriodos(); $cont = 1; if ($Periodos != null) { foreach ($Periodos as $peri) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $peri["nomPer"] ?></td></tr><?php } } ?></tbody></table>';
+                  }
+
+                  
+
                   $(document).ready(() => {
                     $('.BarraLateral').click(function() {
                       $('#EspacioConsulta').css('background-image', 'url(null)');
