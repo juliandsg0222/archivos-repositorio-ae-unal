@@ -34,20 +34,11 @@
 
 #tablas{
     float: left;
-    width: 68%;
+    width: 98%;
     /* border: pink 1px solid; */
     margin:0;
     margin-left:1%;
     margin-right:1%;
-}
-
-#botones{
-    width: 28%;
-    /* border: green 1px solid; */
-    margin:0;
-    margin-left:1%;
-    margin-right:1%;
-    float: right;
 }
 
 #titAdmin{
@@ -55,7 +46,7 @@
     font-style: italic;
     font-size:3.2em;
     text-align: center;
-    margin-right: 30%;
+    /* margin-right: 30%; */
 }
 
 .table{

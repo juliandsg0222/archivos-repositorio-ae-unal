@@ -12,7 +12,7 @@ class Usuarios extends Conexion {
 
     public function login($user, $password)
     {
-        $statement = $this->db->prepare("SELECT * FROM usuario WHERE idUsu = :Usuario AND passUsu = :Password");
+        $statement = $this->db->prepare("SELECT idUsu, nomUsu, passUsu, nomRol FROM usuario LEFT JOIN rol ON usuario.rolUsu = rol.idRol WHERE idUsu = :Usuario AND passUsu = :Password");
         $statement->bindParam(':Usuario', $user);
         $statement->bindParam(':Password', $password);
         $statement->execute();
@@ -20,7 +20,7 @@ class Usuarios extends Conexion {
             $result = $statement->fetch();
             $_SESSION['USUARIO'] = $result["nomUsu"];
             $_SESSION['ID'] = $result["idUsu"];
-            $_SESSION['ROL'] = $result["rolUsu"];
+            $_SESSION['ROL'] = $result["nomRol"];
             return true;
         }
 
