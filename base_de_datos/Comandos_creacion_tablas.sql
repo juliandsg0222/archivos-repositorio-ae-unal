@@ -27,9 +27,9 @@ CREATE TABLE rol
 CREATE TABLE categoria
 (
     idCat INT NOT NULL AUTO_INCREMENT,
-    nomCat VARCHAR(50),
-    desCat VARCHAR(400),
-    imaCat BLOB,
+    nomCat VARCHAR(50) NOT NULL,
+    desCat VARCHAR(400) NOT NULL,
+    imaCat BLOB NOT NULL,
     PRIMARY KEY (idCat)
 )
 
@@ -37,9 +37,9 @@ CREATE TABLE categoria
 CREATE TABLE tema
 (
     idTem INT NOT NULL AUTO_INCREMENT,
-    nomTem VARCHAR(50),
-    desTem VARCHAR(400),
-    imaTem BLOB,
+    nomTem VARCHAR(50) NOT NULL,
+    desTem VARCHAR(400) NOT NULL,
+    imaTem BLOB NOT NULL,
     PRIMARY KEY (idTem)
 )
 
@@ -47,7 +47,7 @@ CREATE TABLE tema
 CREATE TABLE indicador
 (
     idInd VARCHAR(11) NOT NULL,
-    nomInd VARCHAR(50),
+    nomInd VARCHAR(50) NOT NULL,
     PRIMARY KEY (idInd)
 )
 
@@ -55,9 +55,9 @@ CREATE TABLE indicador
 CREATE TABLE registro
 (
     idReg INT NOT NULL AUTO_INCREMENT,
-    nomReg VARCHAR(50),
-    desReg VARCHAR(400),
-    linkReg BLOB,
+    nomReg VARCHAR(50) NOT NULL,
+    desReg VARCHAR(400) NOT NULL,
+    linkReg BLOB NOT NULL,
     PRIMARY KEY (idReg)
 )
 
@@ -65,7 +65,7 @@ CREATE TABLE registro
 CREATE TABLE periodo
 (
     idPer INT NOT NULL AUTO_INCREMENT,
-    nomPer VARCHAR(7),
+    nomPer VARCHAR(7) NOT NULL,
     PRIMARY KEY (idPer)
 )
 
@@ -73,7 +73,7 @@ CREATE TABLE periodo
 CREATE TABLE fuente
 (
     idFue INT NOT NULL AUTO_INCREMENT,
-    nomFue VARCHAR(50),
+    nomFue VARCHAR(50) NOT NULL,
     PRIMARY KEY (idFue)
 )
 
@@ -81,7 +81,7 @@ CREATE TABLE fuente
 CREATE TABLE programa
 (
     idProg INT NOT NULL AUTO_INCREMENT,
-    nomProg VARCHAR(50),
+    nomProg VARCHAR(50) NOT NULL,
     PRIMARY KEY (idProg)
 )
 -- ################# FIN ENTIDADES #################

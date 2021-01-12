@@ -50,9 +50,9 @@ DROP TABLE IF EXISTS `categoria`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `categoria` (
   `idCat` int(11) NOT NULL AUTO_INCREMENT,
-  `nomCat` varchar(50) DEFAULT NULL,
-  `desCat` varchar(400) DEFAULT NULL,
-  `imaCat` blob DEFAULT NULL,
+  `nomCat` varchar(50) NOT NULL,
+  `desCat` varchar(400) NOT NULL,
+  `imaCat` blob NOT NULL,
   PRIMARY KEY (`idCat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -75,7 +75,7 @@ DROP TABLE IF EXISTS `fuente`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `fuente` (
   `idFue` int(11) NOT NULL AUTO_INCREMENT,
-  `nomFue` varchar(50) DEFAULT NULL,
+  `nomFue` varchar(50) NOT NULL,
   PRIMARY KEY (`idFue`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -124,7 +124,7 @@ DROP TABLE IF EXISTS `indicador`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `indicador` (
   `idInd` varchar(11) NOT NULL,
-  `nomInd` varchar(50) DEFAULT NULL,
+  `nomInd` varchar(50) NOT NULL,
   PRIMARY KEY (`idInd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -147,7 +147,7 @@ DROP TABLE IF EXISTS `periodo`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `periodo` (
   `idPer` int(11) NOT NULL AUTO_INCREMENT,
-  `nomPer` varchar(7) DEFAULT NULL,
+  `nomPer` varchar(7) NOT NULL,
   PRIMARY KEY (`idPer`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -171,7 +171,7 @@ DROP TABLE IF EXISTS `programa`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `programa` (
   `idProg` int(11) NOT NULL AUTO_INCREMENT,
-  `nomProg` varchar(50) DEFAULT NULL,
+  `nomProg` varchar(50) NOT NULL,
   PRIMARY KEY (`idProg`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -272,9 +272,9 @@ DROP TABLE IF EXISTS `registro`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `registro` (
   `idReg` int(11) NOT NULL AUTO_INCREMENT,
-  `nomReg` varchar(50) DEFAULT NULL,
-  `desReg` varchar(400) DEFAULT NULL,
-  `linkReg` blob DEFAULT NULL,
+  `nomReg` varchar(50) NOT NULL,
+  `desReg` varchar(400) NOT NULL,
+  `linkReg` blob NOT NULL,
   PRIMARY KEY (`idReg`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -321,9 +321,9 @@ DROP TABLE IF EXISTS `tema`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tema` (
   `idTem` int(11) NOT NULL AUTO_INCREMENT,
-  `nomTem` varchar(50) DEFAULT NULL,
-  `desTem` varchar(400) DEFAULT NULL,
-  `imaTem` blob DEFAULT NULL,
+  `nomTem` varchar(50) NOT NULL,
+  `desTem` varchar(400) NOT NULL,
+  `imaTem` blob NOT NULL,
   PRIMARY KEY (`idTem`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
