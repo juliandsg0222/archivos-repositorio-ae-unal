@@ -52,7 +52,7 @@ CREATE TABLE `categoria` (
   `idCat` int(11) NOT NULL AUTO_INCREMENT,
   `nomCat` varchar(50) NOT NULL,
   `desCat` varchar(400) NOT NULL,
-  `imaCat` longblob NOT NULL,
+  `imaCat` longblob DEFAULT NULL,
   PRIMARY KEY (`idCat`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -78,7 +78,7 @@ CREATE TABLE `fuente` (
   `idFue` int(11) NOT NULL AUTO_INCREMENT,
   `nomFue` varchar(50) NOT NULL,
   PRIMARY KEY (`idFue`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,6 +87,7 @@ CREATE TABLE `fuente` (
 
 LOCK TABLES `fuente` WRITE;
 /*!40000 ALTER TABLE `fuente` DISABLE KEYS */;
+INSERT INTO `fuente` VALUES (1,'ORI'),(2,'BIENESTAR UNIVERSITARIO');
 /*!40000 ALTER TABLE `fuente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -99,7 +100,7 @@ DROP TABLE IF EXISTS `indicador`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `indicador` (
   `idInd` varchar(11) NOT NULL,
-  `nomInd` varchar(50) NOT NULL,
+  `nomInd` varchar(700) NOT NULL,
   PRIMARY KEY (`idInd`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -110,6 +111,7 @@ CREATE TABLE `indicador` (
 
 LOCK TABLES `indicador` WRITE;
 /*!40000 ALTER TABLE `indicador` DISABLE KEYS */;
+INSERT INTO `indicador` VALUES ('2.5.8','Número de homologaciones y oportunidades de doble titulación que han adelantado en el programa'),('2.6.11','Número de  estudiantes que participan de los espacios y estrategias ofrecidos por la universidad (centros de estudio, proyectos de desarrollo empresarial y demás actividades académicas y culturales etc.) que contribuyan a su formación integral');
 /*!40000 ALTER TABLE `indicador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,7 +126,7 @@ CREATE TABLE `periodo` (
   `idPer` int(11) NOT NULL AUTO_INCREMENT,
   `nomPer` varchar(7) NOT NULL,
   PRIMARY KEY (`idPer`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,7 +135,7 @@ CREATE TABLE `periodo` (
 
 LOCK TABLES `periodo` WRITE;
 /*!40000 ALTER TABLE `periodo` DISABLE KEYS */;
-INSERT INTO `periodo` VALUES (1,'2016-1'),(2,'2016-3'),(3,'2017-1'),(4,'2017-3'),(5,'2018-1'),(6,'2018-3'),(7,'2019-1'),(8,'2019-3'),(9,'2020-1'),(10,'2020-3');
+INSERT INTO `periodo` VALUES (1,'2016-1'),(2,'2016-3'),(3,'2017-1'),(4,'2017-3'),(5,'2018-1'),(6,'2018-3'),(7,'2019-1'),(8,'2019-3'),(9,'2020-1'),(10,'2020-3'),(11,'2021-12');
 /*!40000 ALTER TABLE `periodo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -224,7 +226,7 @@ CREATE TABLE `registro` (
   `idReg` int(11) NOT NULL AUTO_INCREMENT,
   `nomReg` varchar(50) NOT NULL,
   `desReg` varchar(400) NOT NULL,
-  `linkReg` blob NOT NULL,
+  `linkReg` mediumtext NOT NULL,
   `idInd` varchar(11) NOT NULL,
   `idFue` int(11) NOT NULL,
   PRIMARY KEY (`idReg`),
@@ -232,7 +234,7 @@ CREATE TABLE `registro` (
   KEY `idFue` (`idFue`),
   CONSTRAINT `registro_ibfk_1` FOREIGN KEY (`idInd`) REFERENCES `indicador` (`idInd`),
   CONSTRAINT `registro_ibfk_2` FOREIGN KEY (`idFue`) REFERENCES `fuente` (`idFue`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -241,6 +243,7 @@ CREATE TABLE `registro` (
 
 LOCK TABLES `registro` WRITE;
 /*!40000 ALTER TABLE `registro` DISABLE KEYS */;
+INSERT INTO `registro` VALUES (1,'Guía de Autoevaluación de Pregrado','Guía de Autoevaluación de Pregrado V2013','https://drive.google.com/file/d/1cK7K_TVZr4LrGEQTyQuDjlotloSyzxDX/view?usp=sharing','2.5.8',1);
 /*!40000 ALTER TABLE `registro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -264,7 +267,7 @@ CREATE TABLE `rol` (
 
 LOCK TABLES `rol` WRITE;
 /*!40000 ALTER TABLE `rol` DISABLE KEYS */;
-INSERT INTO `rol` VALUES (1,'ADMINISTRADOR'),(2,'EDITOR'),(3,'VISUALIZADOR'),(996699,'SUPERADMIN');
+INSERT INTO `rol` VALUES (1,'ADMINISTRADOR'),(2,'EDITOR'),(3,'VISUALIZADOR');
 /*!40000 ALTER TABLE `rol` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -279,9 +282,9 @@ CREATE TABLE `tema` (
   `idTem` int(11) NOT NULL AUTO_INCREMENT,
   `nomTem` varchar(50) NOT NULL,
   `desTem` varchar(400) NOT NULL,
-  `imaTem` blob NOT NULL,
+  `imaTem` longblob DEFAULT NULL,
   PRIMARY KEY (`idTem`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -290,6 +293,7 @@ CREATE TABLE `tema` (
 
 LOCK TABLES `tema` WRITE;
 /*!40000 ALTER TABLE `tema` DISABLE KEYS */;
+INSERT INTO `tema` VALUES (1,'HOMOLOGACIONES','Información de homologaciones',NULL),(2,'DOBLE TITULACIÓN','Información de Doble Titulación',NULL);
 /*!40000 ALTER TABLE `tema` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -343,7 +347,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES ('editor','SEÑOR USUARIO EDITOR','123456',2),('judsanchezga','JULIAN DAVID SANCHEZ GALLEGO','916062',1),('superadmin','USUARIO SUPERADMINISTRADOR','1053868914',996699),('usupru01','USUARIO DE PRUEBA 01','098765',2),('visu','SEÑOR USUARIO VISUALIZADOR','123456',3);
+INSERT INTO `usuario` VALUES ('EDITOR','USUARIO EDITOR','123456',2),('judsanchezga','JULIÁN DAVID SÁNCHEZ GALLEGO','99022213926',1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -356,4 +360,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-13 22:50:18
+-- Dump completed on 2021-01-14 17:00:39

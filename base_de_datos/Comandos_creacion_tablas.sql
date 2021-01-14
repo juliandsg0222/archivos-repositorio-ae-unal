@@ -57,7 +57,7 @@ CREATE TABLE registro
     idReg INT NOT NULL AUTO_INCREMENT,
     nomReg VARCHAR(50) NOT NULL,
     desReg VARCHAR(400) NOT NULL,
-    linkReg BLOB NOT NULL,
+    linkReg TEXT NOT NULL,
     idInd VARCHAR(11) NOT NULL,
     idFue INT NOT NULL,
     PRIMARY KEY (idReg)
