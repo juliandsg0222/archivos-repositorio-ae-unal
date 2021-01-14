@@ -52,3 +52,11 @@
 .table{
     font-size: 1.5em;
 }
+
+.btn-success{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 23px;
+    float:left;
+    margin-left: 1%;
+}
