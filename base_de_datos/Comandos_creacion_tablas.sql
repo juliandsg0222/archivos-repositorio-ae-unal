@@ -58,6 +58,8 @@ CREATE TABLE registro
     nomReg VARCHAR(50) NOT NULL,
     desReg VARCHAR(400) NOT NULL,
     linkReg BLOB NOT NULL,
+    idInd VARCHAR(11) NOT NULL,
+    idFue INT NOT NULL,
     PRIMARY KEY (idReg)
 )
 
@@ -105,14 +107,6 @@ CREATE TABLE tema_ind
     PRIMARY KEY (idTem, idInd)
 )
 
--- Tabla de Indicadores-Registros
-CREATE TABLE ind_reg
-(
-    idInd VARCHAR(11) NOT NULL,
-    idReg INT NOT NULL,
-    PRIMARY KEY (idInd, idReg)
-)
-
 -- Tabla de Registros-Períodos
 CREATE TABLE reg_per
 (
@@ -129,18 +123,17 @@ CREATE TABLE reg_prog
     PRIMARY KEY (idReg, idProg)
 )
 
--- Tabla de Registros-Fuentes
-CREATE TABLE reg_fue
-(
-    idReg INT NOT NULL,
-    idFue INT NOT NULL,
-    PRIMARY KEY (idReg, idFue)
-)
-
 -- ################# FIN RELACIONES #################
 
 
 -- ################# INICIO LLAVES FORÁNEAS #################
+
+-- Llaves de Registros
+ALTER TABLE registro
+ADD FOREIGN KEY (idInd) REFERENCES indicador(idInd);
+
+ALTER TABLE registro
+ADD FOREIGN KEY idFue REFERENCES fuente(idFue);
 
 -- Llaves de Categorías-Temas
 ALTER TABLE cat_tema
@@ -156,13 +149,6 @@ ADD FOREIGN KEY (idTem) REFERENCES tema(idTem);
 ALTER TABLE tema_ind
 ADD FOREIGN KEY (idInd) REFERENCES indicador(idInd);
 
--- Llaves de Indicadores-Registros
-ALTER TABLE ind_reg
-ADD FOREIGN KEY (idInd) REFERENCES indicador(idInd);
-
-ALTER TABLE ind_reg
-ADD FOREIGN KEY (idReg) REFERENCES registro(idReg);
-
 -- Llaves de Registros-Períodos
 ALTER TABLE reg_per
 ADD FOREIGN KEY (idReg) REFERENCES registro(idReg);
@@ -176,13 +162,6 @@ ADD FOREIGN KEY (idReg) REFERENCES registro(idReg);
 
 ALTER TABLE reg_prog
 ADD FOREIGN KEY (idProg) REFERENCES programa(idProg);
-
--- Llaves de Registros-Fuentes
-ALTER TABLE reg_fue
-ADD FOREIGN KEY (idReg) REFERENCES registro(idReg);
-
-ALTER TABLE reg_fue
-ADD FOREIGN KEY (idFue) REFERENCES fuente(idFue);
 
 -- Llave de Usuarios-Rol
 ALTER TABLE usuario
