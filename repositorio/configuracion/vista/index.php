@@ -419,6 +419,12 @@ $ModeloConfiguracion = new Configuracion();
                     tablas.innerHTML ='<table class="table table-hover"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">INDICADOR</th><th scope="col">DESCRIPCION</th><th scope="col" style="size:500px">ACCIÓN</th></tr></thead><tbody><?php $Indicadores = $ModeloConfiguracion->getIndicadores(); $cont = 1; if ($Indicadores != null) { foreach ($Indicadores as $ind) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $ind["numInd"] ?></td><td style="text-align: justify"><?php echo $ind["nomInd"] ?></td><td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Uindicador.php?transaction=<?php echo $ind['idInd']?>"><i class="fas fa-edit" title="Editar"></i></a>   <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dindicador.php?transaction=<?php echo $ind['idInd']?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td></tr><?php } } ?></tbody></table>';                   
                   }
 
+                  function llamarRelaciones(){
+                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Tabla de Relaciones</b></h1><div id="tablas" style="height: auto;"></div>';
+
+                    tablas.innerHTML ='<table class="table table-hover"><thead class="thead-dark"><tr><th scope="col">CATEGORÍA</th><th scope="col">TEMA</th><th scope="col">INDICADOR</th></tr></thead><tbody><?php $Relaciones = $ModeloConfiguracion->getRelaciones(); $cont = 1; if ($Relaciones != null) { foreach ($Relaciones as $rela) { ?><tr><th scope="row"><?php echo $rela['nomCat'] ?></th><td><?php echo $rela['nomTem'] ?></td><td><?php echo $rela['numInd'] ?></td></tr><?php } } ?></tbody></table>';                   
+                  }
+
                   function llamarFuentes(){
                     EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Fuentes de Información</b></h1><button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Cfuente.php"><i class="fas fa-chart-bar"></i>  Nueva Fuente de Información</a></button><div id="tablas" style="height: auto;"></div>';
 
