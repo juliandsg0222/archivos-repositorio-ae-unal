@@ -401,7 +401,7 @@ $ModeloConfiguracion = new Configuracion();
 
                   
                   function llamarCategorias(){
-                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Categorías</b></h1><div id="tablas" style="height: auto;"></div>';
+                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Categorías</b></h1><button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Ccategoria.php"><i class="fas fa-book"></i>  Nueva Categoría</a></button><div id="tablas" style="height: auto;"></div>';
 
                     tablas.innerHTML ='<table class="table table-hover"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">CATEGORÍA</th><th scope="col">DESCRIPCIÓN</th><th scope="col">ACCIÓN</th></tr></thead><tbody><?php $Categorias = $ModeloConfiguracion->getCategorias(); $cont = 1; if ($Categorias != null) { foreach ($Categorias as $cate) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $cate["nomCat"] ?></td><td><?php echo $cate["desCat"] ?></td><td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Ucategoria.php?transaction=<?php echo $cate['idCat']?>"><i class="fas fa-edit" title="Editar"></i></a>   <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dcategoria.php?transaction=<?php echo $cate['idCat']?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td></tr><?php } } ?></tbody></table>';                   
                   }

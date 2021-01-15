@@ -204,7 +204,54 @@ class Configuracion extends Conexion{
         }
         return $rows;
     }
+
+    public function addCategoria($Categoria, $Descripcion){
+        $statement = $this->db->prepare("INSERT INTO categoria (nomCat, descat) VALUE (:Categoria, :Descripcion)");
+        $statement->bindParam(':Categoria', $Categoria);
+        $statement->bindParam(':Descripcion', $Descripcion);
+        
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Ccategoria.php');
+        }
+    }
+
+    public function updateCategoria($Id, $Categoria, $Descripcion){
+        $statement = $this->db->prepare("UPDATE categoria SET nomCat = :Categoria, desCat = :Descripcion WHERE idCat = :Id");
+        $statement->bindParam(':Id', $Id);
+        $statement->bindParam(':Categoria', $Categoria);
+        $statement->bindParam(':Descripcion', $Descripcion);
+        
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Ucategoria.php');
+        }
+    }
+
+    public function getByIdCategoria($Id){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT * FROM categoria WHERE idCat = :Id");
+        $statement->bindParam(':Id', $Id);
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+
+    public function deleteCategoria($Id){
+        $statement = $this->db->prepare("DELETE FROM categoria WHERE idCat = :Id");
+        $statement->bindParam(':Id', $Id);
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Dcategoria.php');
+        }
+    }
     // Fin métodos "Categorías"
+    
 
     // Inicio métodos "Temas"
     public function getTemas(){
