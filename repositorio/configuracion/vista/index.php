@@ -420,7 +420,7 @@ $ModeloConfiguracion = new Configuracion();
                   }
 
                   function llamarFuentes(){
-                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Fuentes de Información</b></h1><div id="tablas" style="height: auto;"></div>';
+                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Fuentes de Información</b></h1><button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Cfuente.php"><i class="fas fa-chart-bar"></i>  Nueva Fuente de Información</a></button><div id="tablas" style="height: auto;"></div>';
 
                     tablas.innerHTML ='<table class="table table-hover"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">FUENTE</th><th scope="col">ACCIÓN</th></tr></thead><tbody><?php $Fuentes = $ModeloConfiguracion->getFuentes(); $cont = 1; if ($Fuentes != null) { foreach ($Fuentes as $fue) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $fue["nomFue"] ?></td><td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Ufuente.php?transaction=<?php echo $fue['idFue']?>"><i class="fas fa-edit" title="Editar"></i></a>   <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dfuente.php?transaction=<?php echo $fue['idFue']?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td></tr><?php } } ?></tbody></table>';                   
                   }

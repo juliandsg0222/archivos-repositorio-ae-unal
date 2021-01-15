@@ -380,6 +380,50 @@ class Configuracion extends Conexion{
         }
         return $rows;
     }
+
+    public function addFuente($Fuente){
+        $statement = $this->db->prepare("INSERT INTO fuente (nomFue) VALUE (:Fuente)");
+        $statement->bindParam(':Fuente', $Fuente);
+        
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Cfuente.php');
+        }
+    }
+
+    public function updateFuente($Id, $Fuente){
+        $statement = $this->db->prepare("UPDATE fuente SET nomFue = :Fuente WHERE idFue = :Id");
+        $statement->bindParam(':Id', $Id);
+        $statement->bindParam(':Fuente', $Fuente);
+        
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Ufuente.php');
+        }
+    }
+
+    public function getByIdFuente($Id){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT * FROM fuente WHERE idFue = :Id");
+        $statement->bindParam(':Id', $Id);
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+
+    public function deleteFuente($Id){
+        $statement = $this->db->prepare("DELETE FROM fuente WHERE idFue = :Id");
+        $statement->bindParam(':Id', $Id);
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Dfuente.php');
+        }
+    }
     // Fin métodos "Fuentes"
     
 
