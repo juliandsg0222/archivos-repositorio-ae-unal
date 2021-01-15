@@ -4,7 +4,7 @@ require_once('../modelo/configuracion.php');
 
 $ModeloConfiguracion = new Configuracion();
 $Id = $_GET['transaction'];
-$InformacionCategoria = $ModeloConfiguracion->getByIdCategoria($Id);
+$InformacionTemas = $ModeloConfiguracion->getByIdTema($Id);
 
 ?>
 
@@ -24,31 +24,31 @@ $InformacionCategoria = $ModeloConfiguracion->getByIdCategoria($Id);
 
 <body>
     <div class="container" id="advanced-search-form">
-        <h2><b>Asociar Temas a una Categoría<b></h2>
-        <form method="POST" action="../controlador/Acategoria.php">
+        <h2><b>Asociar Indicadores a un Tema<b></h2>
+        <form method="POST" action="../controlador/Atema.php">
             <input type="hidden" name="Id" value="<?php echo $Id ?>">
 
             <?php
-            if ($InformacionCategoria != null) {
-                foreach ($InformacionCategoria as $info) {
+            if ($InformacionTemas != null) {
+                foreach ($InformacionTemas as $info) {
             ?>
                     <div class="form-group">
-                        <label>Categoría</label>
-                        <input type="text" class="form-control" placeholder="Categoría" name="categoria" autocomplete="off" value="<?php echo $info['nomCat'] ?>" disabled>
+                        <label>Tema</label>
+                        <input type="text" class="form-control" placeholder="Tema" name="tema" autocomplete="off" value="<?php echo $info['nomTem'] ?>" disabled>
                     </div>
 
                     <div class="clearfix"></div>
 
                     <div class="form-group">
-                        <label>Temas</label>
-                        <select name="tema" class="form-control">
+                        <label>Indicadores</label>
+                        <select name="indicador" class="form-control">
                             <option disabled selected="selected">--Seleccione--</option>
                             <?php
-                            $Temas = $ModeloConfiguracion->getAsociadosDisponiblesCategorias($Id);
-                            if ($Temas != null) {
-                                foreach ($Temas as $tem) {
+                            $Indicadores = $ModeloConfiguracion->getAsociadosDisponiblesTemas($Id);
+                            if ($Indicadores != null) {
+                                foreach ($Indicadores as $ind) {
                             ?>
-                                    <option value="<?php echo $tem['idTem'] ?>"><?php echo $tem['nomTem'] ?></option>
+                                    <option value="<?php echo $ind['idInd'] ?>"><?php echo $ind['numInd'] ?></option>
                             <?php
                                 }
                             }
@@ -69,17 +69,17 @@ $InformacionCategoria = $ModeloConfiguracion->getByIdCategoria($Id);
         <table class="table table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col" style="text-align: center;">TEMA</th>
+                    <th scope="col" style="text-align: center;">INDICADOR</th>
                     <th scope="col" style="text-align: center;">DESCRIPCION</th>
                     <th scope="col" style="text-align: center;">ACCIÓN</th>
                 </tr>
             </thead>
-            <tbody><?php $Temas = $ModeloConfiguracion->getAsociadosACategorias($Id);
-                    if ($Temas != null) {
-                        foreach ($Temas as $tem) { ?><tr>
-                            <td style="text-align: center;"><?php echo $tem["nomTem"] ?></td>
-                            <td style="text-align: justify"><?php echo $tem["desTem"] ?></td>
-                            <td><a style="text-decoration: none; color: rgb(166, 28, 49)" href="../controlador/DAcategoria.php?transaction=<?php echo $tem['idTem'] ?>&transporte=<?php echo $Id ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td>
+            <tbody><?php $Indicador = $ModeloConfiguracion->getAsociadosATemas($Id);
+                    if ($Indicador != null) {
+                        foreach ($Indicador as $ind) { ?><tr>
+                            <td style="text-align: center;"><?php echo $ind["numInd"] ?></td>
+                            <td style="text-align: justify"><?php echo $ind["nomInd"] ?></td>
+                            <td><a style="text-decoration: none; color: rgb(166, 28, 49)" href="../controlador/DAtema.php?transaction=<?php echo $ind['idInd'] ?>&transporte=<?php echo $Id ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td>
                         </tr>
                 <?php
                         }

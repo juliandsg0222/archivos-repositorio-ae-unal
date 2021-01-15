@@ -33,9 +33,9 @@ class Configuracion extends Conexion{
         }
     }
 
-    public function updateUsuario($Usuario, $Nombre, $Contrasena, $Rol){
-        $statement = $this->db->prepare("UPDATE usuario SET nomUsu = :Nombre, passUsu = :Contrasena, rolUsu = :Rol WHERE usuUsu = :Usuario");
-        $statement->bindParam(':Usuario', $Usuario);
+    public function updateUsuario($Id, $Nombre, $Contrasena, $Rol){
+        $statement = $this->db->prepare("UPDATE usuario SET nomUsu = :Nombre, passUsu = :Contrasena, rolUsu = :Rol WHERE idUsu = :Id");
+        $statement->bindParam(':Id', $Id);
         $statement->bindParam(':Nombre', $Nombre);
         $statement->bindParam(':Contrasena', $Contrasena);
         $statement->bindParam(':Rol', $Rol);
@@ -48,13 +48,19 @@ class Configuracion extends Conexion{
     }
 
     public function deleteUsuario($Id){
-        $statement = $this->db->prepare("DELETE FROM usuario WHERE idUsu = :Id");
-        $statement->bindParam(':Id', $Id);
-        if($statement->execute()){
-            header('Location: ../vista/index.php');
-        } else{
-            header('Location: ../vista/Dusuario.php');
+
+        try{
+            $statement = $this->db->prepare("DELETE FROM usuario WHERE idUsu = :Id");
+            $statement->bindParam(':Id', $Id);
+            if($statement->execute()){
+                header('Location: ../vista/index.php');
+            } else{
+                header('Location: ../vista/Dusuario.php');
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
         }
+
     }
 
     public function getByIdUsuario($Id){
@@ -126,13 +132,19 @@ class Configuracion extends Conexion{
     }
 
     public function deletePeriodo($Id){
-        $statement = $this->db->prepare("DELETE FROM periodo WHERE idPer = :Id");
-        $statement->bindParam(':Id', $Id);
-        if($statement->execute()){
-            header('Location: ../vista/index.php');
-        } else{
-            header('Location: ../vista/Dperiodo.php');
+
+        try{
+            $statement = $this->db->prepare("DELETE FROM periodo WHERE idPer = :Id");
+            $statement->bindParam(':Id', $Id);
+            if($statement->execute()){
+                header('Location: ../vista/index.php');
+            } else{
+                header('Location: ../vista/Dperiodo.php');
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
         }
+
     }
     // Fin métodos "Períodos"
 
@@ -183,14 +195,20 @@ class Configuracion extends Conexion{
     }
 
     public function deletePrograma($Id){
-        $statement = $this->db->prepare("DELETE FROM programa WHERE idProg = :Id");
-        $statement->bindParam(':Id', $Id);
-        if($statement->execute()){
-            header('Location: ../vista/index.php');
-        } else{
-            header('Location: ../vista/Dprograma.php');
+
+        try{
+            $statement = $this->db->prepare("DELETE FROM programa WHERE idProg = :Id");
+            $statement->bindParam(':Id', $Id);
+            if($statement->execute()){
+                header('Location: ../vista/index.php');
+            } else{
+                header('Location: ../vista/Dprograma.php');
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
         }
     }
+
     // Fin métodos "Programas"
     
 
@@ -242,13 +260,18 @@ class Configuracion extends Conexion{
     }
 
     public function deleteCategoria($Id){
-        $statement = $this->db->prepare("DELETE FROM categoria WHERE idCat = :Id");
-        $statement->bindParam(':Id', $Id);
-        if($statement->execute()){
-            header('Location: ../vista/index.php');
-        } else{
-            header('Location: ../vista/Dcategoria.php');
+        try{
+            $statement = $this->db->prepare("DELETE FROM categoria WHERE idCat = :Id");
+            $statement->bindParam(':Id', $Id);
+            if($statement->execute()){
+                header('Location: ../vista/index.php');
+            } else{
+                header('Location: ../vista/Dcategoria.php');
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
         }
+
     }
     // Fin métodos "Categorías"
     
@@ -301,14 +324,19 @@ class Configuracion extends Conexion{
     }
 
     public function deleteTema($Id){
-        $statement = $this->db->prepare("DELETE FROM tema WHERE idTem = :Id");
-        $statement->bindParam(':Id', $Id);
-        if($statement->execute()){
-            header('Location: ../vista/index.php');
-        } else{
-            header('Location: ../vista/Dtema.php');
+        try{
+            $statement = $this->db->prepare("DELETE FROM tema WHERE idTem = :Id");
+            $statement->bindParam(':Id', $Id);
+            if($statement->execute()){
+                header('Location: ../vista/index.php');
+            } else{
+                header('Location: ../vista/Dtema.php');
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
         }
     }
+
     // Fin métodos "Temas"
 
 
@@ -360,12 +388,16 @@ class Configuracion extends Conexion{
     }
 
     public function deleteIndicador($Id){
-        $statement = $this->db->prepare("DELETE FROM indicador WHERE idInd = :Id");
-        $statement->bindParam(':Id', $Id);
-        if($statement->execute()){
-            header('Location: ../vista/index.php');
-        } else{
-            header('Location: ../vista/Dindicador.php');
+        try{
+            $statement = $this->db->prepare("DELETE FROM indicador WHERE idInd = :Id");
+            $statement->bindParam(':Id', $Id);
+            if($statement->execute()){
+                header('Location: ../vista/index.php');
+            } else{
+                header('Location: ../vista/Dindicador.php');
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
         }
     }
     // Fin métodos "Indicadores"
@@ -416,12 +448,16 @@ class Configuracion extends Conexion{
     }
 
     public function deleteFuente($Id){
-        $statement = $this->db->prepare("DELETE FROM fuente WHERE idFue = :Id");
-        $statement->bindParam(':Id', $Id);
-        if($statement->execute()){
-            header('Location: ../vista/index.php');
-        } else{
-            header('Location: ../vista/Dfuente.php');
+        try{
+            $statement = $this->db->prepare("DELETE FROM fuente WHERE idFue = :Id");
+            $statement->bindParam(':Id', $Id);
+            if($statement->execute()){
+                header('Location: ../vista/index.php');
+            } else{
+                header('Location: ../vista/Dfuente.php');
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
         }
     }
     // Fin métodos "Fuentes"
@@ -463,33 +499,99 @@ class Configuracion extends Conexion{
 
     
     public function addTemaACategoria($Categoria, $Tema){
-        $statement = $this->db->prepare("INSERT INTO cat_tema (idCat, idTem) VALUE (:Categoria, :Tema)");
-        $statement->bindParam(':Categoria', $Categoria);
-        $statement->bindParam(':Tema', $Tema);
-        
-        if($statement->execute()){
-            header('Location: ../vista/index.php');
-        } else{
-            header('Location: ../vista/Acategoria.php');
+
+        try{
+            $statement = $this->db->prepare("INSERT INTO cat_tema (idCat, idTem) VALUE (:Categoria, :Tema)");
+            $statement->bindParam(':Categoria', $Categoria);
+            $statement->bindParam(':Tema', $Tema);
+            
+            if($statement->execute()){
+                header('Location: ../vista/index.php');
+            } else{
+                header('Location: ../vista/Acategoria.php');
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
         }
     }
 
         
     public function deleteTemaACategoria($IdCat, $IdTem){
-        $statement = $this->db->prepare("DELETE FROM cat_tema WHERE idCat = :IdCat AND idTem = :IdTem");
-        $statement->bindParam(':IdCat', $IdCat);
-        $statement->bindParam(':IdTem', $IdTem);
-        
-        if($statement->execute()){
-            header('Location: ../vista/index.php');
-        } else{
-            header('Location: ../vista/Acategoria.php');
+
+        try{
+            $statement = $this->db->prepare("DELETE FROM cat_tema WHERE idCat = :IdCat AND idTem = :IdTem");
+            $statement->bindParam(':IdCat', $IdCat);
+            $statement->bindParam(':IdTem', $IdTem);
+            
+            if($statement->execute()){
+                header('Location: ../vista/index.php');
+            } else{
+                header('Location: ../vista/Acategoria.php');
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
+        }
+    }
+    // Fin métodos "Asociar temas a categorías"
+
+    
+    // Inicio métodos "Asociar indicadores a temas"
+    public function getAsociadosATemas($Id){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT tema_ind.idInd, numInd, nomInd FROM tema_ind LEFT JOIN indicador ON indicador.idInd = tema_ind.idInd WHERE idTem = :Id ORDER BY numInd ASC");
+        $statement->bindParam(':Id', $Id);
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+
+    public function getAsociadosDisponiblesTemas($Id){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT indicador.* FROM indicador WHERE indicador.idInd NOT IN (SELECT idInd FROM tema_ind  WHERE idTem = :Id)");
+        $statement->bindParam(':Id', $Id);
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+
+    public function addIndicadorATema($Tema, $Indicador){
+
+        try{
+            $statement = $this->db->prepare("INSERT INTO tema_ind (idTem, idInd) VALUE (:Tema, :Indicador)");
+            $statement->bindParam(':Tema', $Tema);
+            $statement->bindParam(':Indicador', $Indicador);
+            
+            if($statement->execute()){
+                header('Location: ../vista/index.php');
+            } else{
+                header('Location: ../vista/Atema.php');
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
         }
     }
 
+    public function deleteIndicadorATema($IdTem, $IdInd){
 
-    // Fin métodos "Asociar temas a categorías"
-    
+        try{
+            $statement = $this->db->prepare("DELETE FROM tema_ind WHERE idTem = :IdTem AND idInd = :IdInd");
+            $statement->bindParam(':IdTem', $IdTem);
+            $statement->bindParam(':IdInd', $IdInd);
+            
+            if($statement->execute()){
+                header('Location: ../vista/index.php');
+            } else{
+                header('Location: ../vista/Atema.php');
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
+        }
+    }
+    // Fin métodos "Asociar indicadores a temas"
 
 
 

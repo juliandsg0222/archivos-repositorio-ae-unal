@@ -346,7 +346,14 @@ $ModeloUsuario->validateSession();
                         <div class="container" style="width: 100%; margin-left: 2%; padding-left: 0px; margin-right: 0px; padding-right: 0px">
                             <div id="EspacioConsulta" style="height: 400px;">
 
-                                <h1 id="titAdmin" style="text-align: left;"><i class="fas fa-caret-right"></i><b>Registro de Información</b></h1><button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Cregistro.php"><i class="fas fa-file-alt"></i> Nuevo Registro</a></button>
+                                <h1 id="titAdmin" style="text-align: left;"><i class="fas fa-caret-right"></i><b>Registro de Información</b></h1>
+                                <?php
+                                if ($ModeloUsuario->getPerfil() == "ADMINISTRADOR" || $ModeloUsuario->getPerfil() == "EDITOR") {
+                                ?>
+                                    <button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Cregistro.php"><i class="fas fa-file-alt"></i> Nuevo Registro</a></button>
+                                <?php
+                                }
+                                ?>
                                 <div id="tablas" style="height: 100%;">
                                     <table class="table table-hover">
                                         <thead class="thead-dark">
@@ -358,7 +365,7 @@ $ModeloUsuario->validateSession();
                                                 <th scope="col">INDICADOR ESPECÍFICO</th>
                                                 <th scope="col">FUENTE DE INFORMACIÓN</th>
                                                 <?php
-                                                if ($ModeloUsuario->getPerfil() == "ADMINISTRADOR" || $ModeloUsuario->getPerfil() == "ADMINISTRADOR") {
+                                                if ($ModeloUsuario->getPerfil() == "ADMINISTRADOR" || $ModeloUsuario->getPerfil() == "EDITOR") {
                                                 ?>
                                                     <th scope="col">ACCIÓN</th>
                                                 <?php
@@ -381,7 +388,7 @@ $ModeloUsuario->validateSession();
                                                         <td><?php echo $reg['numInd'] ?></td>
                                                         <td><?php echo $reg['nomFue'] ?></td>
                                                         <?php
-                                                        if ($ModeloUsuario->getPerfil() == "ADMINISTRADOR" || $ModeloUsuario->getPerfil() == "ADMINISTRADOR") {
+                                                        if ($ModeloUsuario->getPerfil() == "ADMINISTRADOR" || $ModeloUsuario->getPerfil() == "EDITOR") {
                                                         ?>
                                                             <td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Uregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-edit" title="Editar"></i></a> <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td>
                                                         <?php

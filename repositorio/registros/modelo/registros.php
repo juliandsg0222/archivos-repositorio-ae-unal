@@ -34,21 +34,22 @@ class Registros extends Conexion{
         }
     }
 
-    public function updateRegistro($Usuario, $Nombre, $Contrasena, $Rol){
-        $statement = $this->db->prepare("UPDATE registro SET nomReg = :Nombre, desReg = :Descripcion, linkReg = :Link, idInd = :Indicador, idFue = :Fuente WHERE idUsu = :Usuario");
-        $statement->bindParam(':Usuario', $Usuario);
+    public function updateRegistro($Id, $Nombre, $Descripcion, $Link, $Indicador, $Fuente){
+        $statement = $this->db->prepare("UPDATE registro SET nomReg = :Nombre, desReg = :Descripcion, linkReg = :Link, idInd = :Indicador, idFue = :Fuente WHERE idReg = :Id");
         $statement->bindParam(':Nombre', $Nombre);
-        $statement->bindParam(':Contrasena', $Contrasena);
-        $statement->bindParam(':Rol', $Rol);
+        $statement->bindParam(':Descripcion', $Descripcion);
+        $statement->bindParam(':Link', $Link);
+        $statement->bindParam(':Indicador', $Indicador);
+        $statement->bindParam(':Fuente', $Fuente);
         
         if($statement->execute()){
             header('Location: ../vista/index.php');
         } else{
-            header('Location: ../vista/Uusuario.php');
+            header('Location: ../vista/Uregistro.php');
         }
     }
 
-    public function deleteUsuario($Id){
+    public function deleteRegistro($Id){
         $statement = $this->db->prepare("DELETE FROM usuario WHERE idUsu = :Id");
         $statement->bindParam(':Id', $Id);
         if($statement->execute()){
