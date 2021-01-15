@@ -3,7 +3,8 @@
 -- Tabla de usuarios
 CREATE TABLE usuario
 (
-    idUsu VARCHAR(15) NOT NULL,
+    idUsu INT NOT NULL AUTO_INCREMENT,
+    usuUsu VARCHAR(15) NOT NULL,
     nomUsu VARCHAR(80) NOT NULL,
     passUsu VARCHAR(30) NOT NULL,
     rolUsu INT NOT NULL,
@@ -46,8 +47,9 @@ CREATE TABLE tema
 -- Tabla Indicadores
 CREATE TABLE indicador
 (
-    idInd VARCHAR(11) NOT NULL,
-    nomInd VARCHAR(50) NOT NULL,
+    idInd INT NOT NULL AUTO_INCREMENT,
+    numInd VARCHAR(11) NOT NULL,
+    nomInd VARCHAR(400) NOT NULL,
     PRIMARY KEY (idInd)
 )
 
@@ -58,7 +60,7 @@ CREATE TABLE registro
     nomReg VARCHAR(50) NOT NULL,
     desReg VARCHAR(400) NOT NULL,
     linkReg TEXT NOT NULL,
-    idInd VARCHAR(11) NOT NULL,
+    idInd INT NOT NULL,
     idFue INT NOT NULL,
     PRIMARY KEY (idReg)
 )
@@ -103,7 +105,7 @@ CREATE TABLE cat_tema
 CREATE TABLE tema_ind
 (
     idTem INT NOT NULL,
-    idInd VARCHAR(11) NOT NULL,
+    idInd INT NOT NULL,
     PRIMARY KEY (idTem, idInd)
 )
 
@@ -133,7 +135,7 @@ ALTER TABLE registro
 ADD FOREIGN KEY (idInd) REFERENCES indicador(idInd);
 
 ALTER TABLE registro
-ADD FOREIGN KEY idFue REFERENCES fuente(idFue);
+ADD FOREIGN KEY (idFue) REFERENCES fuente(idFue);
 
 -- Llaves de Categorías-Temas
 ALTER TABLE cat_tema
