@@ -1,8 +1,11 @@
 <?php
 
 require_once('../modelo/registros.php');
+require_once('../../usuarios/modelo/usuarios.php');
 
 $ModeloRegistros = new Registros();
+$ModeloUsuario = new Usuarios();
+$ModeloUsuario->validateSession();
 
 ?>
 
@@ -332,9 +335,9 @@ $ModeloRegistros = new Registros();
             <div class="card" style="margin: 40px 4% 0 4%; transform: translateX(0);">
 
                 <nav class="navbar navbar-dark card-nav1">
-                    <li class="nav-item"><a href="#" style="color: white;"><i class="fas fa-home" title="Inicio"></i></a></li>
-                    <li class="nav-item" id="li2" style="color: white;" title="Usuario activo"><i class="fas fa-user" title="Usuario activo"> usuario_activo</i></li>
-                    <li class="nav-item"><a href="#" style="color: white;"><i class="fas fa-sign-out-alt" title="Salir"></i></a></li>
+                    <li class="nav-item"><a href="../../rol-editar/vista/index.php" style="color: white;"><i class="fas fa-home" title="Inicio"></i></a></li>
+                    <li class="nav-item" id="li2" style="color: white;" title="Usuario activo"><i class="fas fa-user" title="Usuario activo"> <?php echo $ModeloUsuario->getNombre() ?></i></li>
+                    <li class="nav-item"><a href="../../usuarios/controlador/Salir.php" style="color: white;"><i class="fas fa-sign-out-alt" title="Salir"></i></a></li>
                 </nav>
 
                 <div class="card-body" style="margin-bottom:0;">
@@ -343,7 +346,7 @@ $ModeloRegistros = new Registros();
                         <div class="container" style="width: 100%; margin-left: 2%; padding-left: 0px; margin-right: 0px; padding-right: 0px">
                             <div id="EspacioConsulta" style="height: 400px;">
 
-                                <h1 id="titAdmin" style="text-align: left;"><i class="fas fa-caret-right"></i><b>Registro de Información</b></h1><button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Cusuario.php"><i class="fas fa-file-alt"></i> Nuevo Registro</a></button>
+                                <h1 id="titAdmin" style="text-align: left;"><i class="fas fa-caret-right"></i><b>Registro de Información</b></h1><button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Cregistro.php"><i class="fas fa-file-alt"></i> Nuevo Registro</a></button>
                                 <div id="tablas" style="height: 100%;">
                                     <table class="table table-hover">
                                         <thead class="thead-dark">
@@ -354,25 +357,37 @@ $ModeloRegistros = new Registros();
                                                 <th scope="col">LINK DE ACCESO</th>
                                                 <th scope="col">INDICADOR ESPECÍFICO</th>
                                                 <th scope="col">FUENTE DE INFORMACIÓN</th>
-                                                <th scope="col">ACCIÓN</th>
+                                                <?php
+                                                if ($ModeloUsuario->getPerfil() == "ADMINISTRADOR" || $ModeloUsuario->getPerfil() == "ADMINISTRADOR") {
+                                                ?>
+                                                    <th scope="col">ACCIÓN</th>
+                                                <?php
+                                                }
+                                                ?>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php 
+                                            <?php
                                             $Registros = $ModeloRegistros->getRegistros();
                                             $cont = 1;
-                                            if($Registros != null){
-                                                foreach ($Registros as $reg) {                                        
-                                        ?>
-                                            <tr>
-                                                <th scope="row"><?php echo $cont++?></th>
-                                                <td><?php echo $reg['nomReg']?></td>
-                                                <td><?php echo $reg['desReg']?></td>
-                                                <td><a style="text-decoration: none; color: rgb(182, 17, 127)" href="<?php echo $reg['linkReg'] ?>" target="_blank"><i class="fas fa-link" litle="Acceso"></i></a>
-                                                <td><?php echo $reg['idInd']?></td>
-                                                <td><?php echo $reg['nomFue']?></td>
-                                                <td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Uregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-edit" title="Editar"></i></a> <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td>
-                                            </tr>
+                                            if ($Registros != null) {
+                                                foreach ($Registros as $reg) {
+                                            ?>
+                                                    <tr>
+                                                        <th scope="row"><?php echo $cont++ ?></th>
+                                                        <td><?php echo $reg['nomReg'] ?></td>
+                                                        <td><?php echo $reg['desReg'] ?></td>
+                                                        <td><a style="text-decoration: none; color: rgb(182, 17, 127)" href="<?php echo $reg['linkReg'] ?>" target="_blank"><i class="fas fa-link" litle="Acceso"></i></a>
+                                                        <td><?php echo $reg['numInd'] ?></td>
+                                                        <td><?php echo $reg['nomFue'] ?></td>
+                                                        <?php
+                                                        if ($ModeloUsuario->getPerfil() == "ADMINISTRADOR" || $ModeloUsuario->getPerfil() == "ADMINISTRADOR") {
+                                                        ?>
+                                                            <td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Uregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-edit" title="Editar"></i></a> <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </tr>
                                             <?php
                                                 }
                                             }

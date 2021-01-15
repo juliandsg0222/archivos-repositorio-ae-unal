@@ -426,7 +426,7 @@ class Configuracion extends Conexion{
     }
     // Fin métodos "Fuentes"
 
-    // Inicio método "Relaciones"
+    // Inicio métodos "Relaciones"
     public function getRelaciones(){
         $rows = null;
         $statement = $this->db->prepare("SELECT f.nomCat, f.nomTem, numInd FROM (SELECT p.nomCat, p.nomTem, idInd FROM (SELECT nomCat, nomTem, tema.idTem FROM cat_tema LEFT JOIN categoria ON cat_tema.idCat = categoria.idCat LEFT JOIN tema ON cat_tema.idTem = tema.idTem) p LEFT JOIN tema_ind ON p.idTem = tema_ind.idTem) f LEFT JOIN indicador ON f.idInd = indicador.idInd ORDER BY f.nomCat DESC, f.nomTem ASC, numInd ASC");
@@ -436,9 +436,59 @@ class Configuracion extends Conexion{
         }
         return $rows;
     }
-    // Inicio método "Relaciones"
+    // Fin métodos "Relaciones"
+
+    // Inicio métodos "Asociar temas a categorías"
+    public function getAsociadosACategorias($Id){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT cat_tema.idTem, nomTem, desTem FROM cat_tema LEFT JOIN tema ON tema.idTem = cat_tema.idTem WHERE idCat = :Id ORDER BY nomTem ASC");
+        $statement->bindParam(':Id', $Id);
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+
+    public function getAsociadosDisponiblesCategorias($Id){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT tema.* FROM tema WHERE tema.idTem NOT IN (SELECT idTem FROM cat_tema  WHERE idCat = :Id)");
+        $statement->bindParam(':Id', $Id);
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+
+    
+    public function addTemaACategoria($Categoria, $Tema){
+        $statement = $this->db->prepare("INSERT INTO cat_tema (idCat, idTem) VALUE (:Categoria, :Tema)");
+        $statement->bindParam(':Categoria', $Categoria);
+        $statement->bindParam(':Tema', $Tema);
+        
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Acategoria.php');
+        }
+    }
+
+        
+    public function deleteTemaACategoria($IdCat, $IdTem){
+        $statement = $this->db->prepare("DELETE FROM cat_tema WHERE idCat = :IdCat AND idTem = :IdTem");
+        $statement->bindParam(':IdCat', $IdCat);
+        $statement->bindParam(':IdTem', $IdTem);
+        
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Acategoria.php');
+        }
+    }
 
 
+    // Fin métodos "Asociar temas a categorías"
     
 
 

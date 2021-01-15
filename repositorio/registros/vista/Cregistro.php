@@ -1,6 +1,6 @@
 <?php
 
-require_once('../modelo/configuracion.php');
+require_once('../../configuracion/modelo/configuracion.php');
 
 $ModeloConfiguracion = new Configuracion();
 
@@ -21,42 +21,60 @@ $ModeloConfiguracion = new Configuracion();
 
 <body>
     <div class="container" id="advanced-search-form">
-        <h2><b>Nuevo Usuario<b></h2>
-        <form method="POST" action="../controlador/addUsuario.php">
+        <h2><b>Nuevo Registro<b></h2>
+        <form method="POST" action="../controlador/addRegistro.php">
             <div class="form-group">
-                <label>Nombre de Usuario</label>
-                <input type="text" class="form-control" placeholder="Nombre de usuario" name="username" autocomplete="off">
+                <label>Nombre del Registro</label>
+                <input type="text" class="form-control" placeholder="Nombre del Registro" name="nombre" autocomplete="off" required="">
             </div>
             <div class="clearfix"></div>
 
             <div class="form-group">
-                <label>Nombre Completo</label>
-                <input type="text" class="form-control" placeholder="Nombre Completo" name="nombre" autocomplete="off">
+                <label>Descripción</label>
+                <textarea class="form-control" placeholder="Descripción" name="descripcion" autocomplete="off" required=""></textarea>
             </div>
             <div class="clearfix"></div>
 
             <div class="form-group">
-                <label>Contraseña</label>
-                <input type="password" class="form-control" placeholder="Contraseña" name="contrasena" autocomplete="off">
+                <label>Link de Acceso</label>
+                <input type="url" class="form-control" placeholder="Link de acceso" name="acceso" autocomplete="off" required="">
             </div>
             <div class="clearfix"></div>
 
             <div class="form-group">
-                <label>Rol</label>
-                <select name="rol" required="" class="form-control">
-                <option>--Seleccione--</option>
-                <?php
-                $Roles = $ModeloConfiguracion->getRoles();
-                if ($Roles != null) {
-                    foreach ($Roles as $rol) {
-                ?>
-                        <option value="<?php echo $rol['idRol'] ?>"><?php echo $rol['nomRol'] ?></option>
-                <?php
+                <label>Indicador Asociado</label>
+                <select name="indicador" class="form-control">
+                    <option>--Seleccione--</option>
+                    <?php
+                    $Indicadores = $ModeloConfiguracion->getIndicadores();
+                    if ($Indicadores != null) {
+                        foreach ($Indicadores as $ind) {
+                    ?>
+                            <option value="<?php echo $ind['idInd'] ?>"><?php echo $ind['numInd'] ?></option>
+                    <?php
+                        }
                     }
-                }
-                ?>
-            </select>
+                    ?>
+                </select>
             </div>
+
+            <div class="form-group">
+                <label>Fuente de Información</label>
+                <select name="fuente" class="form-control">
+                    <option>--Seleccione--</option>
+                    <?php
+                    $Fuentes = $ModeloConfiguracion->getFuentes();
+                    if ($Fuentes != null) {
+                        foreach ($Fuentes as $fue) {
+                    ?>
+                            <option value="<?php echo $fue['idFue'] ?>"><?php echo $fue['nomFue'] ?></option>
+                    <?php
+                        }
+                    }
+                    ?>
+                </select>
+            </div>
+
             <div class="clearfix"></div>
 
             <button type="submit" class="btn btn-info btn-lg btn-responsive">Crear</button>

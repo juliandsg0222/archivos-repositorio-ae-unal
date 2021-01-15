@@ -373,7 +373,7 @@ $Perfil = $ModeloUsuario->getPerfil();
                                             <img class="card-img-top img-responsive" src="../../estilos/images/editor.jpg" alt="Sans &amp; Sans-Serif">
                                             <div class="overlay2">
                                                 <h2>Registro de Información</h2>
-                                                <a class="info2" href="../../categorias/vista/index.php"></a>
+                                                <a class="info2" href="../../registros/vista/index.php"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -389,7 +389,7 @@ $Perfil = $ModeloUsuario->getPerfil();
                                             <img class="card-img-top img-responsive" src="../../estilos/images/editor.jpg" alt="Sans &amp; Sans-Serif">
                                             <div class="overlay2">
                                                 <h2>Registro de Información</h2>
-                                                <a class="info2" href="../../categorias/vista/index.php"></a>
+                                                <a class="info2" href="../../registros/vista/index.php"></a>
                                             </div>
                                         </div>
                                     </div>

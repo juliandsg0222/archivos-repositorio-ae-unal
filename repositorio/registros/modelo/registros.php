@@ -11,7 +11,7 @@ class Registros extends Conexion{
     // Inicio métodos "Registros"
     public function getRegistros(){
         $rows = null;
-        $statement = $this->db->prepare("SELECT idReg, nomReg, desReg, linkReg, idInd, nomFue FROM registro LEFT JOIN fuente ON registro.idFue = fuente.idFue");
+        $statement = $this->db->prepare("SELECT idReg, nomReg, desReg, linkReg, numInd, nomFue FROM registro LEFT JOIN fuente ON registro.idFue = fuente.idFue LEFT JOIN indicador ON indicador.idInd = registro.idInd");
         $statement->execute();
         while($result = $statement->fetch()){
             $rows[] = $result;
@@ -19,22 +19,23 @@ class Registros extends Conexion{
         return $rows;
     }
 
-    public function addUsuario($Usuario, $Nombre, $Contrasena, $Rol){
-        $statement = $this->db->prepare("INSERT INTO usuario (idUsu, nomUsu, passUsu, rolUsu) VALUE (:Usuario, :Nombre, :Contrasena, :Rol)");
-        $statement->bindParam(':Usuario', $Usuario);
+    public function addRegistro($Nombre, $Descripcion, $Link, $Indicador, $Fuente){
+        $statement = $this->db->prepare("INSERT INTO registro (nomReg, desReg, linkReg, idInd, idFue) VALUE (:Nombre, :Descripcion, :Link, :Indicador, :Fuente)");
         $statement->bindParam(':Nombre', $Nombre);
-        $statement->bindParam(':Contrasena', $Contrasena);
-        $statement->bindParam(':Rol', $Rol);
+        $statement->bindParam(':Descripcion', $Descripcion);
+        $statement->bindParam(':Link', $Link);
+        $statement->bindParam(':Indicador', $Indicador);
+        $statement->bindParam(':Fuente', $Fuente);
         
         if($statement->execute()){
             header('Location: ../vista/index.php');
         } else{
-            header('Location: ../vista/Cusuario.php');
+            header('Location: ../vista/Cregistro.php');
         }
     }
 
-    public function updateUsuario($Usuario, $Nombre, $Contrasena, $Rol){
-        $statement = $this->db->prepare("UPDATE usuario SET nomUsu = :Nombre, passUsu = :Contrasena, rolUsu = :Rol WHERE idUsu = :Usuario");
+    public function updateRegistro($Usuario, $Nombre, $Contrasena, $Rol){
+        $statement = $this->db->prepare("UPDATE registro SET nomReg = :Nombre, desReg = :Descripcion, linkReg = :Link, idInd = :Indicador, idFue = :Fuente WHERE idUsu = :Usuario");
         $statement->bindParam(':Usuario', $Usuario);
         $statement->bindParam(':Nombre', $Nombre);
         $statement->bindParam(':Contrasena', $Contrasena);
