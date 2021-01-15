@@ -169,7 +169,7 @@
 							<div class="container" style="width: 100%;">
 								<div class="row" style="width: 100%; margin-bottom: 48px">
 									<div class="col-md-4 col-sm-6 col-xs-12">
-										<div class="card hovereffect2" style="width: 100%; min-height: 100%; margin-left: 55% !important">
+										<div class="card hovereffect2" style="width: 400px; height:230px; margin-left: 55% !important">
 											<img class="card-img-top img-responsive" src="./images/ISE.jpg" alt="Sans &amp; Sans-Serif">
 											<div class="overlay2">
 												<h2>Información sobre Estudiantes</h2>
@@ -179,7 +179,7 @@
 									</div>
 
 									<div class="col-md-4 col-sm-6 col-xs-12">
-										<div class="card hovereffect2" style="width: 100%; min-height: 100%; margin-left: 55% !important">
+										<div class="card hovereffect2" style="width: 400px; height:230px; margin-left: 55% !important">
 											<img class="card-img-top img-responsive" src="./images/FI.jpg" alt="Sans &amp; Sans-Serif">
 											<div class="overlay2">
 												<h2>Formación Integral</h2>
@@ -189,7 +189,7 @@
 									</div>
 
 									<div class="col-md-4 col-sm-6 col-xs-12">
-										<div class="card hovereffect2" style="width: 100%; min-height: 100%; margin-left: 55% !important">
+										<div class="card hovereffect2" style="width: 400px; height:230px; margin-left: 55% !important">
 											<img class="card-img-top img-responsive" src="./images/RDA.jpg" alt="Sans &amp; Sans-Serif">
 											<div class="overlay2">
 												<h2>Reconocimientos por Desempeño Académico</h2>
@@ -201,7 +201,7 @@
 
 								<div class="row" style="width: 100%; margin-bottom: 48px">
 									<div class="col-md-4 col-sm-6 col-xs-12">
-										<div class="card hovereffect2" style="width: 100%; min-height: 100%; margin-left: 55% !important">
+										<div class="card hovereffect2" style="width: 400px; height:230px; margin-left: 55% !important">
 											<img class="card-img-top img-responsive" src="./images/RPE.jpg" alt="Sans &amp; Sans-Serif">
 											<div class="overlay2">
 												<h2>Relación Profesor-Estudiante</h2>
@@ -211,7 +211,7 @@
 									</div>
 
 									<div class="col-md-4 col-sm-6 col-xs-12">
-										<div class="card hovereffect2" style="width: 100%; min-height: 100%; margin-left: 55% !important">
+										<div class="card hovereffect2" style="width: 400px; height:230px; margin-left: 55% !important">
 											<img class="card-img-top img-responsive" src="./images/II.jpg" alt="Sans &amp; Sans-Serif">
 											<div class="overlay2">
 												<h2>Movilidad Estudiantil Saliente</h2>
@@ -221,7 +221,7 @@
 									</div>
 
 									<div class="col-md-4 col-sm-6 col-xs-12">
-										<div class="card hovereffect2" style="width: 100%; min-height: 100%; margin-left: 55% !important">
+										<div class="card hovereffect2" style="width: 400px; height:230px; margin-left: 55% !important">
 											<img class="card-img-top img-responsive" src="./images/IQ.jpg" alt="Sans &amp; Sans-Serif">
 											<div class="overlay2">
 												<h2>Comisión Docentes</h2>
