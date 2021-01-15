@@ -1,6 +1,7 @@
 <?php
 
 $Error = $_GET['exception'];
+$Mensaje = $_GET['mensaje'];
 
 ?>
 
@@ -40,7 +41,8 @@ $Error = $_GET['exception'];
 				<h1>Oops!</h1>
 			</div>
 			<h2>Error</h2>
-			<p><?php echo $Error ?></p>
+			<p><?php echo $Mensaje ?></p>
+			<p>DETALLE: <?php echo $Error ?></p>
 			<a href="../rol-editar/vista/index.php">Volver a la Página Principal</a>
 		</div>
 	</div>

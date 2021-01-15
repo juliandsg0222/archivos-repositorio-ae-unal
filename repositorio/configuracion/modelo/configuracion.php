@@ -48,7 +48,7 @@ class Configuracion extends Conexion{
     }
 
     public function deleteUsuario($Id){
-
+        $mensajeEliminado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento aún no puede ser eliminado, parece que otros registros dependen de este";
         try{
             $statement = $this->db->prepare("DELETE FROM usuario WHERE idUsu = :Id");
             $statement->bindParam(':Id', $Id);
@@ -58,7 +58,7 @@ class Configuracion extends Conexion{
                 header('Location: ../vista/Dusuario.php');
             }
         }catch(Exception $e){
-            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeEliminado);
         }
 
     }
@@ -132,7 +132,7 @@ class Configuracion extends Conexion{
     }
 
     public function deletePeriodo($Id){
-
+        $mensajeEliminado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento aún no puede ser eliminado, parece que otros registros dependen de este";
         try{
             $statement = $this->db->prepare("DELETE FROM periodo WHERE idPer = :Id");
             $statement->bindParam(':Id', $Id);
@@ -142,7 +142,7 @@ class Configuracion extends Conexion{
                 header('Location: ../vista/Dperiodo.php');
             }
         }catch(Exception $e){
-            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeEliminado);
         }
 
     }
@@ -195,7 +195,7 @@ class Configuracion extends Conexion{
     }
 
     public function deletePrograma($Id){
-
+        $mensajeEliminado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento aún no puede ser eliminado, parece que otros registros dependen de este";
         try{
             $statement = $this->db->prepare("DELETE FROM programa WHERE idProg = :Id");
             $statement->bindParam(':Id', $Id);
@@ -205,7 +205,7 @@ class Configuracion extends Conexion{
                 header('Location: ../vista/Dprograma.php');
             }
         }catch(Exception $e){
-            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeEliminado);
         }
     }
 
@@ -260,6 +260,7 @@ class Configuracion extends Conexion{
     }
 
     public function deleteCategoria($Id){
+        $mensajeEliminado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento aún no puede ser eliminado, parece que otros registros dependen de este";
         try{
             $statement = $this->db->prepare("DELETE FROM categoria WHERE idCat = :Id");
             $statement->bindParam(':Id', $Id);
@@ -269,7 +270,7 @@ class Configuracion extends Conexion{
                 header('Location: ../vista/Dcategoria.php');
             }
         }catch(Exception $e){
-            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeEliminado);
         }
 
     }
@@ -324,6 +325,7 @@ class Configuracion extends Conexion{
     }
 
     public function deleteTema($Id){
+        $mensajeEliminado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento aún no puede ser eliminado, parece que otros registros dependen de este";
         try{
             $statement = $this->db->prepare("DELETE FROM tema WHERE idTem = :Id");
             $statement->bindParam(':Id', $Id);
@@ -333,7 +335,7 @@ class Configuracion extends Conexion{
                 header('Location: ../vista/Dtema.php');
             }
         }catch(Exception $e){
-            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeEliminado);
         }
     }
 
@@ -388,6 +390,7 @@ class Configuracion extends Conexion{
     }
 
     public function deleteIndicador($Id){
+        $mensajeEliminado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento aún no puede ser eliminado, parece que otros registros dependen de este";
         try{
             $statement = $this->db->prepare("DELETE FROM indicador WHERE idInd = :Id");
             $statement->bindParam(':Id', $Id);
@@ -397,7 +400,7 @@ class Configuracion extends Conexion{
                 header('Location: ../vista/Dindicador.php');
             }
         }catch(Exception $e){
-            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeEliminado);
         }
     }
     // Fin métodos "Indicadores"
@@ -448,6 +451,7 @@ class Configuracion extends Conexion{
     }
 
     public function deleteFuente($Id){
+        $mensajeEliminado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento aún no puede ser eliminado, parece que otros registros dependen de este";
         try{
             $statement = $this->db->prepare("DELETE FROM fuente WHERE idFue = :Id");
             $statement->bindParam(':Id', $Id);
@@ -457,7 +461,7 @@ class Configuracion extends Conexion{
                 header('Location: ../vista/Dfuente.php');
             }
         }catch(Exception $e){
-            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeEliminado);
         }
     }
     // Fin métodos "Fuentes"
@@ -499,7 +503,7 @@ class Configuracion extends Conexion{
 
     
     public function addTemaACategoria($Categoria, $Tema){
-
+        $mensajeAdicionado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento '--Seleccione--' no puede asociarse";
         try{
             $statement = $this->db->prepare("INSERT INTO cat_tema (idCat, idTem) VALUE (:Categoria, :Tema)");
             $statement->bindParam(':Categoria', $Categoria);
@@ -511,13 +515,13 @@ class Configuracion extends Conexion{
                 header('Location: ../vista/Acategoria.php');
             }
         }catch(Exception $e){
-            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeAdicionado);
         }
     }
 
         
     public function deleteTemaACategoria($IdCat, $IdTem){
-
+        $mensajeEliminado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento aún no puede ser eliminado, parece que otros registros dependen de este";
         try{
             $statement = $this->db->prepare("DELETE FROM cat_tema WHERE idCat = :IdCat AND idTem = :IdTem");
             $statement->bindParam(':IdCat', $IdCat);
@@ -529,7 +533,7 @@ class Configuracion extends Conexion{
                 header('Location: ../vista/Acategoria.php');
             }
         }catch(Exception $e){
-            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeEliminado);
         }
     }
     // Fin métodos "Asociar temas a categorías"
@@ -559,7 +563,7 @@ class Configuracion extends Conexion{
     }
 
     public function addIndicadorATema($Tema, $Indicador){
-
+        $mensajeAdicionado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento '--Seleccione--' no puede asociarse";
         try{
             $statement = $this->db->prepare("INSERT INTO tema_ind (idTem, idInd) VALUE (:Tema, :Indicador)");
             $statement->bindParam(':Tema', $Tema);
@@ -571,12 +575,12 @@ class Configuracion extends Conexion{
                 header('Location: ../vista/Atema.php');
             }
         }catch(Exception $e){
-            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeAdicionado);
         }
     }
 
     public function deleteIndicadorATema($IdTem, $IdInd){
-
+        $mensajeEliminado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento aún no puede ser eliminado, parece que otros registros dependen de este";
         try{
             $statement = $this->db->prepare("DELETE FROM tema_ind WHERE idTem = :IdTem AND idInd = :IdInd");
             $statement->bindParam(':IdTem', $IdTem);
@@ -588,7 +592,7 @@ class Configuracion extends Conexion{
                 header('Location: ../vista/Atema.php');
             }
         }catch(Exception $e){
-            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53));
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeEliminado);
         }
     }
     // Fin métodos "Asociar indicadores a temas"

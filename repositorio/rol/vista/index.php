@@ -356,7 +356,6 @@ $Perfil = $ModeloUsuario->getPerfil();
                             <?php
                             if ($Perfil == 'ADMINISTRADOR') {
                             ?>
-                             ?>
                                 <div class="row" style="width: 100%; margin-bottom: 48px">
                                     <div class="col-md-4 col-sm-8 col-xs-12">
                                         <div class="card hovereffect2" style="width: 100%;">
@@ -381,7 +380,6 @@ $Perfil = $ModeloUsuario->getPerfil();
                                 </div>
                             <?php
                             } elseif ($Perfil == 'EDITOR' || $Perfil == 'VISUALIZADOR') {
-                                # code...
                             ?>
                                 <div class="row" style="width: 100%; margin-bottom: 48px">
                                     <div class="col-md-4 col-sm-8 col-xs-12">
