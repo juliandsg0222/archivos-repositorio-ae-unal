@@ -5,6 +5,8 @@ require_once('../../usuarios/modelo/usuarios.php');
 $ModeloUsuario = new Usuarios();
 $ModeloUsuario->validateSession();
 
+$Perfil = $ModeloUsuario->getPerfil();
+
 ?>
 
 
@@ -338,7 +340,7 @@ $ModeloUsuario->validateSession();
 
                 <nav class="navbar navbar-dark card-nav1">
                     <li class="nav-item"><a href="../../rol-editar/vista/index.php" style="color: white;"><i class="fas fa-home" title="Inicio"></i></a></li>
-                    <li class="nav-item" id="li2" style="color: white;" title="Usuario activo"><i class="fas fa-user" title="Usuario activo"> <?php echo $ModeloUsuario->getNombre()?></i></li>
+                    <li class="nav-item" id="li2" style="color: white;" title="Usuario activo"><i class="fas fa-user" title="Usuario activo"> <?php echo $ModeloUsuario->getNombre() ?></i></li>
                     <li class="nav-item"><a href="../../usuarios/controlador/Salir.php" style="color: white;"><i class="fas fa-sign-out-alt" title="Salir"></i></a></li>
                 </nav>
 
@@ -351,37 +353,50 @@ $ModeloUsuario->validateSession();
 
                             <div class="row" style="width: 100%; margin-bottom: 48px"></div>
 
-                            <div class="row" style="width: 100%; margin-bottom: 48px">
-                                <div class="col-md-4 col-sm-8 col-xs-12">
-                                    <div class="card hovereffect2" style="width: 100%;">
-                                        <img class="card-img-top img-responsive" src="../../estilos/images/admin.jpg" alt="Sans &amp; Sans-Serif">
-                                        <div class="overlay2">
-                                            <h2>Administrador</h2>
-                                            <a class="info2" href="../../configuracion/vista/index.php"></a>
+                            <?php
+                            if ($Perfil == 'ADMINISTRADOR') {
+                            ?>
+                             ?>
+                                <div class="row" style="width: 100%; margin-bottom: 48px">
+                                    <div class="col-md-4 col-sm-8 col-xs-12">
+                                        <div class="card hovereffect2" style="width: 100%;">
+                                            <img class="card-img-top img-responsive" src="../../estilos/images/admin.jpg" alt="Sans &amp; Sans-Serif">
+                                            <div class="overlay2">
+                                                <h2>Ajustes de Administrador</h2>
+                                                <a class="info2" href="../../configuracion/vista/index.php"></a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="col-md-4 col-sm-8 col-xs-12">
-                                    <div class="card hovereffect2" style="width: 100%;">
-                                        <img class="card-img-top img-responsive" src="../../estilos/images/editor.jpg" alt="Sans &amp; Sans-Serif">
-                                        <div class="overlay2">
-                                            <h2>Editor</h2>
-                                            <a class="info2" href="../../categorias/vista/index.php"></a>
+                                    <div class="col-md-4 col-sm-8 col-xs-12">
+                                        <div class="card hovereffect2" style="width: 100%;">
+                                            <img class="card-img-top img-responsive" src="../../estilos/images/editor.jpg" alt="Sans &amp; Sans-Serif">
+                                            <div class="overlay2">
+                                                <h2>Registro de Información</h2>
+                                                <a class="info2" href="../../categorias/vista/index.php"></a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="col-md-4 col-sm-8 col-xs-12">
-                                    <div class="card hovereffect2" style="width: 100%;">
-                                        <img class="card-img-top img-responsive" src="../../estilos/images/visualizador.jpg" alt="Sans &amp; Sans-Serif">
-                                        <div class="overlay2">
-                                            <h2>Visualizador</h2>
-                                            <a class="info2" href="../../categorias/vista/index.php"></a>
+                                </div>
+                            <?php
+                            } elseif ($Perfil == 'EDITOR' || $Perfil == 'VISUALIZADOR') {
+                                # code...
+                            ?>
+                                <div class="row" style="width: 100%; margin-bottom: 48px">
+                                    <div class="col-md-4 col-sm-8 col-xs-12">
+                                        <div class="card hovereffect2" style="width: 100%;">
+                                            <img class="card-img-top img-responsive" src="../../estilos/images/editor.jpg" alt="Sans &amp; Sans-Serif">
+                                            <div class="overlay2">
+                                                <h2>Registro de Información</h2>
+                                                <a class="info2" href="../../categorias/vista/index.php"></a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+
+                            <?php
+                            } 
+                            ?>
 
                         </div>
                     </div>

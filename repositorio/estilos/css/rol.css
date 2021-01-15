@@ -95,9 +95,9 @@
     font-size: 40px;
     padding: 10px;
     background: rgba(0, 0, 0, 0.6);
-    -webkit-transform: translateY(90px);
-    -ms-transform: translateY(90px);
-    transform: translateY(90px);
+    -webkit-transform: translateY(60px);
+    -ms-transform: translateY(60px);
+    transform: translateY(60px);
     -webkit-transition: all 0.4s cubic-bezier(0.88, -0.99, 0, 1.81);
     transition: all 0.4s cubic-bezier(0.88, -0.99, 0, 1.81);
 }
@@ -120,8 +120,8 @@
     transition: all 0.4s cubic-bezier(0.88, -0.99, 0, 1.81);
     font-size: 30px;
     font-weight: normal;
-    padding: 22% 0px;
-    margin-top: -10%;
+    padding: 20% 0px;
+    margin-top: -20%;
 }
 
 .hovereffect2 a.info21 {
@@ -164,19 +164,4 @@
 
 .hovereffect2 a.info2:hover {
     box-shadow: 0 0 5px #fff;
-}
-
-@media (max-width: 1366px) {
-
-    .hovereffect2 h2 {
-        font-size: 25px;
-        -webkit-transform: translateY(60px);
-        -ms-transform: translateY(60px);
-        transform: translateY(60px);
-    }
-
-    .hovereffect2 a.info2 {
-        padding: 20% 0px;
-    }
-
 }

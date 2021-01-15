@@ -370,7 +370,7 @@ $ModeloUsuario->validateSession();
 											<img class="card-img-top img-responsive" src="../../estilos/images/config.jpg" alt="Sans &amp; Sans-Serif">
 											<div class="overlay2">
 												<h2>Editar Perfil</h2>
-												<a class="info2" href="../../configuracion/vista/index.php"></a>
+												<a class="info2" href="../../perfil/vista/index.php"></a>
 											</div>
 										</div>
 									</div>

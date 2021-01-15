@@ -19,6 +19,7 @@ class Usuarios extends Conexion {
         if($statement->rowCount() == 1){
             $result = $statement->fetch();
             $_SESSION['USUARIO'] = $result["nomUsu"];
+            $_SESSION['NICK'] = $result["usuUsu"];
             $_SESSION['ID'] = $result["idUsu"];
             $_SESSION['ROL'] = $result["nomRol"];
             return true;
@@ -29,6 +30,10 @@ class Usuarios extends Conexion {
 
     public function getNombre(){
         return $_SESSION['USUARIO'];
+    }
+
+    public function getNick(){
+        return $_SESSION['NICK'];
     }
 
     public function getId(){
