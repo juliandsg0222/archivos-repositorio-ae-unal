@@ -10,10 +10,10 @@
 
 .container{
     /* Altura Fija de 520px */
-    height: 520px;   
+    min-height: 520px;
 
     /* Altura Automática */
-    /* height: auto; */
+    height: auto;
 }
 
 .card {
@@ -49,7 +49,6 @@
 .card-nav1 li{
     list-style: none;
     padding: 0px;
-    /* font: bold 20px arial; */
     display: inline-block;
 }
 
@@ -68,7 +67,6 @@
     list-style: none;
     padding: 0px;
     margin-top: 0px;
-    /* font: bold 20px arial; */
     display: inline-block;
 }
 
@@ -103,10 +101,6 @@
     border-radius: 5px;
 }
 
-.version2 {
-    background: #fafafa;
-}
-
 .fa-home:hover{
     color: rgb(242, 231, 204);
     
@@ -133,6 +127,6 @@
 @media (max-width: 1366px) {
 
     .container{
-        height: 390px;
+        min-height: 390px;
     }
 }

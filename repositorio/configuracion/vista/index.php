@@ -346,10 +346,10 @@ $ModeloConfiguracion = new Configuracion();
         <div class="card-body" style="margin-bottom:0;">
           <div class="version2">
             <div class="jumbotron jumbotron-fluid2"></div>
-            <div class="container" style="width: 100%; margin-left: 0px; padding-left: 0px; margin-right: 0px; padding-right: 0px">
+            <div class="container" style="width: 100%; margin-left: 0px; padding-left: 0px; margin-right: 0px; padding-right: 0px;">
 
               <!--Menú barra lateral-->
-              <div class="BarraLateral" style="width: 272px; height: 520px;">
+              <div class="BarraLateral">
                 <!--Icono y texto Usuarios-->
                 <li onclick="llamarUsuarios()"><span class="lnr lnr-users"> Usuarios</span></li>
 
@@ -378,47 +378,48 @@ $ModeloConfiguracion = new Configuracion();
               <!--Fin barra lateral-->
 
               <!-- Inicio espacio de consulta -->
-              <div id="EspacioConsulta" style="height: 520px;">
+              <div id="EspacioConsulta">
               <script>
                   function llamarUsuarios(){
-                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Usuarios del Sistema</b></h1><button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Cusuario.php"><i class="fas fa-user-plus"></i>  Nuevo Usuario</a></button><div id="tablas" style="height: 100%;"></div>';
+
+                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Usuarios del Sistema</b></h1><button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Cusuario.php"><i class="fas fa-user-plus"></i>  Nuevo Usuario</a></button><div id="tablas" style="height: auto;"></div>';
 
                     tablas.innerHTML ='<table class="table table-hover"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">USUARIO</th><th scope="col">NOMBRE</th><th scope="col">ROL</th><th scope="col">ACCIÓN</th></tr></thead><tbody><?php $Usuarios = $ModeloConfiguracion->getUsuarios(); $cont = 1; if ($Usuarios != null) { foreach($Usuarios as $usu) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $usu["idUsu"] ?></td><td><?php echo $usu["nomUsu"] ?></td><td><?php echo $usu["nomRol"] ?></td><td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Uusuario.php?transaction=<?php echo $usu['idUsu']?>"><i class="fas fa-edit" title="Editar"></i></a>   <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dusuario.php?transaction=<?php echo $usu['idUsu']?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td></tr><?php } } ?></tbody></table>';
                   }
 
                   function llamarPeriodos(){
-                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Períodos Académicos</b></h1><button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Cperiodo.php"><i class="far fa-calendar-alt"></i></i>  Nuevo Período Académico</a></button><div id="tablas" style="height: 100%;"></div>';
+                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Períodos Académicos</b></h1><button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Cperiodo.php"><i class="far fa-calendar-alt"></i></i>  Nuevo Período Académico</a></button><div id="tablas" style="height: auto;"></div>';
 
                     tablas.innerHTML ='<table class="table table-hover"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">PERÍODO</th><th scope="col">ACCIÓN</th></tr></thead><tbody><?php $Periodos = $ModeloConfiguracion->getPeriodos(); $cont = 1; if ($Periodos != null) { foreach ($Periodos as $peri) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $peri["nomPer"] ?></td><td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Uperiodo.php?transaction=<?php echo $peri['idPer']?>"><i class="fas fa-edit" title="Editar"></i></a>   <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dperiodo.php?transaction=<?php echo $peri['idPer']?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td></tr><?php } } ?></tbody></table>';
                   }
 
                   function llamarProgramas(){
-                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Programas Académicos</b></h1><div id="tablas" style="height: 100%;"></div>';
+                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Programas Académicos</b></h1><div id="tablas" style="height: auto;"></div>';
 
                     tablas.innerHTML ='<table class="table table-hover"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">PROGRAMA</th><th scope="col">ACCIÓN</th></tr></thead><tbody><?php $Programas = $ModeloConfiguracion->getProgramas(); $cont = 1; if ($Programas != null) { foreach ($Programas as $prog) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $prog["nomProg"] ?></td></tr><?php } } ?></tbody></table>';                   
                   }
 
                   
                   function llamarCategorias(){
-                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Categorías</b></h1><div id="tablas" style="height: 100%;"></div>';
+                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Categorías</b></h1><div id="tablas" style="height: auto;"></div>';
 
                     tablas.innerHTML ='<table class="table table-hover"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">CATEGORÍA</th><th scope="col">DESCRIPCIÓN</th><th scope="col">ACCIÓN</th></tr></thead><tbody><?php $Categorias = $ModeloConfiguracion->getCategorias(); $cont = 1; if ($Categorias != null) { foreach ($Categorias as $cate) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $cate["nomCat"] ?></td><td><?php echo $cate["desCat"] ?></td></tr><?php } } ?></tbody></table>';                   
                   }
 
                   function llamarTemas(){
-                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Temas</b></h1><div id="tablas" style="height: 100%;"></div>';
+                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Temas</b></h1><div id="tablas" style="height: auto;"></div>';
 
                     tablas.innerHTML ='<table class="table table-hover"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">TEMA</th><th scope="col">DESCRIPCIÓN</th><th scope="col">ACCIÓN</th></tr></thead><tbody><?php $Temas = $ModeloConfiguracion->getTemas(); $cont = 1; if ($Temas != null) { foreach ($Temas as $tem) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $tem["nomTem"] ?></td><td><?php echo $tem["desTem"] ?></td></tr><?php } } ?></tbody></table>';                   
                   }
 
                   function llamarIndicadores(){
-                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Indicadores</b></h1><div id="tablas" style="height: 100%;"></div>';
+                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Indicadores</b></h1><div id="tablas" style="height: auto;"></div>';
 
                     tablas.innerHTML ='<table class="table table-hover"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">INDICADOR</th><th scope="col">DESCRIPCION</th><th scope="col">ACCIÓN</th></tr></thead><tbody><?php $Indicadores = $ModeloConfiguracion->getIndicadores(); $cont = 1; if ($Indicadores != null) { foreach ($Indicadores as $ind) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $ind["idInd"] ?></td><td style= "text-align: left;"><?php echo $ind["nomInd"] ?></td></tr><?php } } ?></tbody></table>';                   
                   }
 
                   function llamarFuentes(){
-                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Fuentes de Información</b></h1><div id="tablas" style="height: 100%;"></div>';
+                    EspacioConsulta.innerHTML ='<h1 id="titAdmin" style="text-align: left; margin-left: 1%;"><i class="fas fa-caret-right"></i><b>Fuentes de Información</b></h1><div id="tablas" style="height: auto;"></div>';
 
                     tablas.innerHTML ='<table class="table table-hover"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">FUENTE</th><th scope="col">ACCIÓN</th></tr></thead><tbody><?php $Fuentes = $ModeloConfiguracion->getFuentes(); $cont = 1; if ($Fuentes != null) { foreach ($Fuentes as $fue) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $fue["nomFue"] ?></td></tr><?php } } ?></tbody></table>';                   
                   }

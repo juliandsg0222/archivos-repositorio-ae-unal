@@ -6,6 +6,8 @@
 .BarraLateral{
     float: left;
     /* border: green 1px solid; */
+    width: 272px; 
+    height: 520px;
 }
 
 .BarraLateral li{
@@ -29,7 +31,8 @@
     background-image: url('../images/portada_manizales.png');
     margin-left: 274px;
     margin-right: 0px;
-    /* border: orange 1px solid; */
+    height: auto;
+    min-height: 520px;
 }
 
 #tablas{
