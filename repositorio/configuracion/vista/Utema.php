@@ -50,8 +50,10 @@ $InformacionTema = $ModeloConfiguracion->getByIdTema($Id);
 
             <div class="clearfix"></div>
 
-            <button type="submit" class="btn btn-info btn-lg btn-responsive">Actualizar</button>
+            <button type="submit" class="btn btn-lg btn-success">Actualizar</button>
         </form>
+
+        <a href="index.php" style="text-decoration: none;"><button type="submit" class="btn btn-info btn-lg btn-responsive" style="color: white">Volver</button></a>
     </div>
 </body>
 

@@ -60,7 +60,8 @@ $Id = $ModeloUsuarios->getId();
             <button type="submit" class="btn btn-lg btn-success">Actualizar Contraseña</button>
         </form>
 
-        <a href="../../rol-editar/vista/index.php" style="text-decoration: none;"><button class="btn btn-lg btn-warning" style="color: white">Volver</button></a>
+        <a href="../../rol-editar/vista/index.php"" style="text-decoration: none;"><button type="submit" class="btn btn-info btn-lg btn-responsive" style="color: white">Volver</button></a>
+
     </div>
 </body>
 
