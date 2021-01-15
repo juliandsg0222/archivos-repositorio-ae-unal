@@ -263,6 +263,52 @@ class Configuracion extends Conexion{
         }
         return $rows;
     }
+
+    public function addTema($Tema, $Descripcion){
+        $statement = $this->db->prepare("INSERT INTO tema (nomTem, desTem) VALUE (:Tema, :Descripcion)");
+        $statement->bindParam(':Tema', $Tema);
+        $statement->bindParam(':Descripcion', $Descripcion);
+        
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Ctema.php');
+        }
+    }
+
+    public function updateTema($Id, $Tema, $Descripcion){
+        $statement = $this->db->prepare("UPDATE tema SET nomTem = :Tema, desTem = :Descripcion WHERE idTem = :Id");
+        $statement->bindParam(':Id', $Id);
+        $statement->bindParam(':Tema', $Tema);
+        $statement->bindParam(':Descripcion', $Descripcion);
+        
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Utema.php');
+        }
+    }
+
+    public function getByIdTema($Id){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT * FROM tema WHERE idTem = :Id");
+        $statement->bindParam(':Id', $Id);
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+
+    public function deleteTema($Id){
+        $statement = $this->db->prepare("DELETE FROM tema WHERE idTem = :Id");
+        $statement->bindParam(':Id', $Id);
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Dtema.php');
+        }
+    }
     // Fin métodos "Temas"
 
     // Inicio métodos "Indicadores"
