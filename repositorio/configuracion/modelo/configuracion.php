@@ -79,6 +79,7 @@ class Configuracion extends Conexion{
     }
     // Fin métodos "Usuarios"
 
+
     // Inicio métodos "Períodos"
     public function getPeriodos(){
         $rows = null;
@@ -135,22 +136,68 @@ class Configuracion extends Conexion{
     }
     // Fin métodos "Períodos"
 
+
     // Inicio métodos "Programas"
     public function getProgramas(){
         $rows = null;
-        $statement = $this->db->prepare("SELECT nomProg FROM programa ORDER BY nomProg ASC");
+        $statement = $this->db->prepare("SELECT idProg, nomProg FROM programa ORDER BY nomProg ASC");
         $statement->execute();
         while($result = $statement->fetch()){
             $rows[] = $result;
         }
         return $rows;
     }
+
+    public function addPrograma($Programa){
+        $statement = $this->db->prepare("INSERT INTO programa (nomProg) VALUE (:Programa)");
+        $statement->bindParam(':Programa', $Programa);
+        
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Cprograma.php');
+        }
+    }
+
+    public function updatePrograma($Id, $Programa){
+        $statement = $this->db->prepare("UPDATE programa SET nomProg = :Programa WHERE idProg = :Id");
+        $statement->bindParam(':Id', $Id);
+        $statement->bindParam(':Programa', $Programa);
+        
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Uprograma.php');
+        }
+    }
+
+    public function getByIdPrograma($Id){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT * FROM programa WHERE idProg = :Id");
+        $statement->bindParam(':Id', $Id);
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+
+    public function deletePrograma($Id){
+        $statement = $this->db->prepare("DELETE FROM programa WHERE idProg = :Id");
+        $statement->bindParam(':Id', $Id);
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Dprograma.php');
+        }
+    }
     // Fin métodos "Programas"
+    
 
     // Inicio métodos "Categorías"
     public function getCategorias(){
         $rows = null;
-        $statement = $this->db->prepare("SELECT nomCat, desCat FROM categoria ORDER BY nomCat ASC");
+        $statement = $this->db->prepare("SELECT idCat, nomCat, desCat FROM categoria ORDER BY nomCat ASC");
         $statement->execute();
         while($result = $statement->fetch()){
             $rows[] = $result;
@@ -162,7 +209,7 @@ class Configuracion extends Conexion{
     // Inicio métodos "Temas"
     public function getTemas(){
         $rows = null;
-        $statement = $this->db->prepare("SELECT nomTem, desTem FROM tema ORDER BY nomTem ASC");
+        $statement = $this->db->prepare("SELECT idTem, nomTem, desTem FROM tema ORDER BY nomTem ASC");
         $statement->execute();
         while($result = $statement->fetch()){
             $rows[] = $result;
@@ -174,7 +221,7 @@ class Configuracion extends Conexion{
     // Inicio métodos "Indicadores"
     public function getIndicadores(){
         $rows = null;
-        $statement = $this->db->prepare("SELECT idInd, nomInd FROM indicador ORDER BY idInd ASC");
+        $statement = $this->db->prepare("SELECT idInd, numInd, nomInd FROM indicador ORDER BY numInd ASC");
         $statement->execute();
         while($result = $statement->fetch()){
             $rows[] = $result;
@@ -186,7 +233,7 @@ class Configuracion extends Conexion{
     // Inicio métodos "Fuentes"
     public function getFuentes(){
         $rows = null;
-        $statement = $this->db->prepare("SELECT nomFue FROM fuente ORDER BY nomFue ASC");
+        $statement = $this->db->prepare("SELECT idFue, nomFue FROM fuente ORDER BY nomFue ASC");
         $statement->execute();
         while($result = $statement->fetch()){
             $rows[] = $result;
