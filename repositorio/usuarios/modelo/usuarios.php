@@ -12,7 +12,7 @@ class Usuarios extends Conexion {
 
     public function login($user, $password)
     {
-        $statement = $this->db->prepare("SELECT idUsu, nomUsu, passUsu, nomRol FROM usuario LEFT JOIN rol ON usuario.rolUsu = rol.idRol WHERE idUsu = :Usuario AND passUsu = :Password");
+        $statement = $this->db->prepare("SELECT idUsu, usuUsu, nomUsu, passUsu, nomRol FROM usuario LEFT JOIN rol ON usuario.rolUsu = rol.idRol WHERE usuUsu = :Usuario AND passUsu = :Password");
         $statement->bindParam(':Usuario', $user);
         $statement->bindParam(':Password', $password);
         $statement->execute();
@@ -42,14 +42,6 @@ class Usuarios extends Conexion {
     public function validateSession(){
         if($_SESSION['ID'] == null){
             header('Location: ../../index.php');
-        }
-    }
-
-    public function validateSessionSuperAdmin(){
-        if($_SESSION['ID'] != null){
-            if($_SESSION['ROL'] != 'SUPERADMIN'){
-                header('Location: ../../rol-editar/vista/index.php');
-            }
         }
     }
 

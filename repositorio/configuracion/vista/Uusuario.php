@@ -35,7 +35,7 @@ $InformacionUsuario = $ModeloConfiguracion->getByIdUsuario($Id);
 
             <div class="form-group">
                 <label>Nombre de Usuario</label>
-                <input type="text" class="form-control" placeholder="Nombre de usuario" name="username" autocomplete="off" value="<?php echo $info['idUsu'] ?>" disabled>
+                <input type="text" class="form-control" placeholder="Nombre de usuario" name="username" autocomplete="off" value="<?php echo $info['usuUsu'] ?>" disabled>
             </div>
             <div class="clearfix"></div>
 

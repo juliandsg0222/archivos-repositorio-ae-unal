@@ -11,7 +11,7 @@ class Configuracion extends Conexion{
     // Inicio métodos "Usuarios"
     public function getUsuarios(){
         $rows = null;
-        $statement = $this->db->prepare("SELECT idUsu, nomUsu, nomRol FROM usuario LEFT JOIN rol ON usuario.rolUsu = rol.idRol ORDER BY idUsu");
+        $statement = $this->db->prepare("SELECT idUsu, usuUsu, nomUsu, nomRol FROM usuario LEFT JOIN rol ON usuario.rolUsu = rol.idRol ORDER BY usuUsu");
         $statement->execute();
         while($result = $statement->fetch()){
             $rows[] = $result;
@@ -20,7 +20,7 @@ class Configuracion extends Conexion{
     }
 
     public function addUsuario($Usuario, $Nombre, $Contrasena, $Rol){
-        $statement = $this->db->prepare("INSERT INTO usuario (idUsu, nomUsu, passUsu, rolUsu) VALUE (:Usuario, :Nombre, :Contrasena, :Rol)");
+        $statement = $this->db->prepare("INSERT INTO usuario (usuUsu, nomUsu, passUsu, rolUsu) VALUE (:Usuario, :Nombre, :Contrasena, :Rol)");
         $statement->bindParam(':Usuario', $Usuario);
         $statement->bindParam(':Nombre', $Nombre);
         $statement->bindParam(':Contrasena', $Contrasena);
@@ -34,7 +34,7 @@ class Configuracion extends Conexion{
     }
 
     public function updateUsuario($Usuario, $Nombre, $Contrasena, $Rol){
-        $statement = $this->db->prepare("UPDATE usuario SET nomUsu = :Nombre, passUsu = :Contrasena, rolUsu = :Rol WHERE idUsu = :Usuario");
+        $statement = $this->db->prepare("UPDATE usuario SET nomUsu = :Nombre, passUsu = :Contrasena, rolUsu = :Rol WHERE usuUsu = :Usuario");
         $statement->bindParam(':Usuario', $Usuario);
         $statement->bindParam(':Nombre', $Nombre);
         $statement->bindParam(':Contrasena', $Contrasena);
@@ -122,6 +122,16 @@ class Configuracion extends Conexion{
             $rows[] = $result;
         }
         return $rows;
+    }
+
+    public function deletePeriodo($Id){
+        $statement = $this->db->prepare("DELETE FROM periodo WHERE idPer = :Id");
+        $statement->bindParam(':Id', $Id);
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Dperiodo.php');
+        }
     }
     // Fin métodos "Períodos"
 
