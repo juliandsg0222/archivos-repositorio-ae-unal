@@ -311,6 +311,7 @@ class Configuracion extends Conexion{
     }
     // Fin métodos "Temas"
 
+
     // Inicio métodos "Indicadores"
     public function getIndicadores(){
         $rows = null;
@@ -320,6 +321,52 @@ class Configuracion extends Conexion{
             $rows[] = $result;
         }
         return $rows;
+    }
+
+    public function addIndicador($Indicador, $Descripcion){
+        $statement = $this->db->prepare("INSERT INTO indicador (numInd, nomInd) VALUE (:Indicador, :Descripcion)");
+        $statement->bindParam(':Indicador', $Indicador);
+        $statement->bindParam(':Descripcion', $Descripcion);
+        
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Cindicador.php');
+        }
+    }
+
+    public function updateindicador($Id, $Indicador, $Descripcion){
+        $statement = $this->db->prepare("UPDATE indicador SET numInd= :Indicador, nomInd = :Descripcion WHERE idInd = :Id");
+        $statement->bindParam(':Id', $Id);
+        $statement->bindParam(':Indicador', $Indicador);
+        $statement->bindParam(':Descripcion', $Descripcion);
+        
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Uindicador.php');
+        }
+    }
+
+    public function getByIdIndicador($Id){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT * FROM indicador WHERE idInd = :Id");
+        $statement->bindParam(':Id', $Id);
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+
+    public function deleteIndicador($Id){
+        $statement = $this->db->prepare("DELETE FROM indicador WHERE idInd = :Id");
+        $statement->bindParam(':Id', $Id);
+        if($statement->execute()){
+            header('Location: ../vista/index.php');
+        } else{
+            header('Location: ../vista/Dindicador.php');
+        }
     }
     // Fin métodos "Indicadores"
 
