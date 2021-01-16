@@ -10,10 +10,10 @@
 
 .container{
     /* Altura Fija de 520px */
-    height: 520px;   
+    min-height: 520px;   
 
     /* Altura Automática */
-    /* height: auto; */
+    height: auto;
 }
 
 .card {
