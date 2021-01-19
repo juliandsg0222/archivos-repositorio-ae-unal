@@ -9,9 +9,21 @@ class Registros extends Conexion{
     }
 
     // Inicio métodos "Registros"
-    public function getRegistros(){
+    public function getRegistros($IdTema){
         $rows = null;
-        $statement = $this->db->prepare("SELECT idReg, nomReg, desReg, linkReg, numInd, nomFue FROM registro LEFT JOIN fuente ON registro.idFue = fuente.idFue LEFT JOIN indicador ON indicador.idInd = registro.idInd");
+        $statement = $this->db->prepare("SELECT idReg, nomReg, desReg, linkReg, registro.idInd, numInd, nomFue FROM registro LEFT JOIN fuente ON registro.idFue = fuente.idFue LEFT JOIN indicador ON indicador.idInd = registro.idInd WHERE registro.idInd IN (SELECT tema_ind.idInd FROM tema LEFT JOIN tema_ind ON tema.idTem = tema_ind.idTem LEFT JOIN indicador ON tema_ind.idInd = indicador.idInd WHERE tema_ind.idTem = :IdTema)");
+        $statement->bindParam(':IdTema', $IdTema);
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+
+    public function getIndicadoresDeRegistro($IdTemas){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT tema_ind.idTem, nomTem, tema_ind.idInd, numInd, nomInd FROM tema LEFT JOIN tema_ind ON tema.idTem = tema_ind.idTem LEFT JOIN indicador ON tema_ind.idInd = indicador.idInd WHERE tema_ind.idTem = :IdTemas ORDER BY numInd ASC");
+        $statement->bindParam(':IdTemas', $IdTemas);
         $statement->execute();
         while($result = $statement->fetch()){
             $rows[] = $result;
@@ -41,6 +53,7 @@ class Registros extends Conexion{
         $statement->bindParam(':Link', $Link);
         $statement->bindParam(':Indicador', $Indicador);
         $statement->bindParam(':Fuente', $Fuente);
+        $statement->bindParam(':Id', $Id);
         
         if($statement->execute()){
             header('Location: ../vista/index.php');

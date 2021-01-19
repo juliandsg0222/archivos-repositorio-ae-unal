@@ -4,6 +4,7 @@ require_once('../modelo/registros.php');
 require_once('../../usuarios/modelo/usuarios.php');
 
 $ModeloRegistros = new Registros();
+$IdTemas = $_GET['transaction'];
 $ModeloUsuario = new Usuarios();
 $ModeloUsuario->validateSession();
 
@@ -346,24 +347,92 @@ $ModeloUsuario->validateSession();
                         <div class="container" style="width: 100%; margin-left: 2%; padding-left: 0px; margin-right: 0px; padding-right: 0px">
                             <div id="EspacioConsulta" style="height: 400px;">
 
-                                <h1 id="titAdmin" style="text-align: left;"><i class="fas fa-caret-right"></i><b>Registro de Información</b></h1>
+
+                                <!-- Inicio Título -->
+                                <h1 id="titAdmin"><i class="fas fa-caret-right"></i><b>Registro de Información</b></h1><br>
+                                <!-- Inicio Título -->
+
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                    Launch demo modal
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                ...
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Inicio Indicadores Asociados -->
+                                <script>
+                                    $(function() {
+                                        $('[data-toggle="popover"]').popover()
+                                    })
+                                </script>
+
+                                <div id="tablas2">
+                                    <table class="table table-hover table-dark">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th scope="col" colspan="2" style="color: rgb(232, 83, 53)"><i class="fas fa-link" style="margin-left: 0; margin-right: 0"></i> Indicador(es) Asociado(s)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $Indicadores = $ModeloRegistros->getIndicadoresDeRegistro($IdTemas);
+                                            if ($Indicadores != null) {
+                                                foreach ($Indicadores as $ind) {
+                                            ?>
+                                                    <tr>
+                                                        <td><?php echo $ind['numInd'] ?></td>
+                                                        <td style="color: rgb(232, 83, 53); cursor: pointer"> <a data-toggle="popover" title="Indicador <?php echo $ind['numInd'] ?>" data-content="<?php echo $ind['nomInd'] ?>"><i class="fas fa-eye"></i></a></td>
+                                                    </tr>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- Fin Indicadores Asociados -->
+
+                                <!-- Inicio Botón -->
                                 <?php
                                 if ($ModeloUsuario->getPerfil() == "ADMINISTRADOR" || $ModeloUsuario->getPerfil() == "EDITOR") {
                                 ?>
-                                    <button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Cregistro.php"><i class="fas fa-file-alt"></i> Nuevo Registro</a></button>
+                                    <br><br><br><br><br><button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Cregistro.php"><i class="fas fa-file-alt"></i> Nuevo Registro</a></button>
                                 <?php
                                 }
                                 ?>
-                                <div id="tablas" style="height: 100%;">
+                                <!-- Fin Botón -->
+
+                                <!-- Inicio Lista de registros -->
+                                <div id="tablas">
                                     <table class="table table-hover">
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">NOMBRE</th>
-                                                <th scope="col">DESCRIPCIÓN</th>
-                                                <th scope="col">LINK DE ACCESO</th>
+                                                <th scope="col">ARCHIVO</th>
                                                 <th scope="col">INDICADOR ESPECÍFICO</th>
                                                 <th scope="col">FUENTE DE INFORMACIÓN</th>
+                                                <th scope="col">PERÍODO</th>
+                                                <th scope="col">PROGRAMA</th>
+                                                <th scope="col">VISUALIZAR</th>
                                                 <?php
                                                 if ($ModeloUsuario->getPerfil() == "ADMINISTRADOR" || $ModeloUsuario->getPerfil() == "EDITOR") {
                                                 ?>
@@ -375,7 +444,7 @@ $ModeloUsuario->validateSession();
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $Registros = $ModeloRegistros->getRegistros();
+                                            $Registros = $ModeloRegistros->getRegistros($IdTemas);
                                             $cont = 1;
                                             if ($Registros != null) {
                                                 foreach ($Registros as $reg) {
@@ -383,14 +452,19 @@ $ModeloUsuario->validateSession();
                                                     <tr>
                                                         <th scope="row"><?php echo $cont++ ?></th>
                                                         <td><?php echo $reg['nomReg'] ?></td>
-                                                        <td><?php echo $reg['desReg'] ?></td>
-                                                        <td><a style="text-decoration: none; color: rgb(182, 17, 127)" href="<?php echo $reg['linkReg'] ?>" target="_blank"><i class="fas fa-link" litle="Acceso"></i></a>
+                                                        <td><a style="text-decoration: none; color: rgb(182, 17, 127)" href="<?php echo $reg['linkReg'] ?>" target="_blank"><i class="fas fa-link" title="Archivo"></i></a></td>
                                                         <td><?php echo $reg['numInd'] ?></td>
                                                         <td><?php echo $reg['nomFue'] ?></td>
+                                                        <td>Período</td>
+                                                        <td>Programa</td>
+                                                        <td><a style="text-decoration: none; color: rgb(70, 107, 63)" href="<?php echo $reg['linkReg'] ?>" target="_blank"><i class="far fa-eye" title="Visualizar"></i></a></td>
+                                                        <td><?php echo $ind['numInd'] ?></td>
+                                                        <td style="color: rgb(232, 83, 53); cursor: pointer"> <a data-toggle="modal" title="Indicador" data-target="#exampleModal" <?php echo $ind['numInd'] ?>" data-content="<?php echo $ind['nomInd'] ?>"><i class="fas fa-eye"></i></a></td>
+
                                                         <?php
                                                         if ($ModeloUsuario->getPerfil() == "ADMINISTRADOR" || $ModeloUsuario->getPerfil() == "EDITOR") {
                                                         ?>
-                                                            <td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Uregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-edit" title="Editar"></i></a> <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td>
+                                                            <td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Uregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-edit" title="Editar"></i></a> <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a> <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Aregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-graduation-cap" title="Asociar Período Académico"></i></a></td>
                                                         <?php
                                                         }
                                                         ?>
@@ -401,6 +475,8 @@ $ModeloUsuario->validateSession();
                                             ?>
                                         </tbody>
                                     </table>
+                                    <!-- Inicio Lista de registros -->
+
                                 </div>
                             </div>
                         </div>

@@ -1,12 +1,13 @@
 <?php
 
-require_once('../modelo/categorias.php');
+require_once('../modelo/temas.php');
 require_once('../../usuarios/modelo/usuarios.php');
 
-$ModeloCategorias = new Categorias();
+$ModeloTemas = new Temas();
+$IdCategoria = $_GET['transaction'];
 $ModeloUsuario = new Usuarios();
-?>
 
+?>
 
 <!DOCTYPE html>
 
@@ -343,10 +344,10 @@ $ModeloUsuario = new Usuarios();
             <div class="jumbotron jumbotron-fluid2"></div>
             <div class="container" style="width: 100%;">
               <?php
-              $Categorias = $ModeloCategorias->getCategorias();
-              if ($Categorias != null) {
+              $Temas = $ModeloTemas->getTemas($IdCategoria);
+              if ($Temas != null) {
                 $cont = 0;
-                foreach ($Categorias as $cat) {
+                foreach ($Temas as $tem) {
                   if ($cont % 3 == 0) {
               ?>
                     <div class="row" style="width: 100%; margin-bottom: 48px">
@@ -355,17 +356,17 @@ $ModeloUsuario = new Usuarios();
                           <?php
                           if ($cont % 2 == 0) {
                           ?>
-                            <img class="card-img-top img-responsive" src="../../estilos/images/ROJO.png" alt="Sans &amp; Sans-Serif">
+                            <img class="card-img-top img-responsive" src="../../estilos/images/GRIS.png" alt="Sans &amp; Sans-Serif">
                           <?php
                           } else {
                           ?>
-                            <img class="card-img-top img-responsive" src="../../estilos/images/GRIS.png" alt="Sans &amp; Sans-Serif">
+                            <img class="card-img-top img-responsive" src="../../estilos/images/NARANJA.png" alt="Sans &amp; Sans-Serif">
                           <?php
                           }
                           ?>
                           <div class="overlay2">
-                            <h2><?php echo $cat['nomCat'] ?></h2>
-                            <a class="info2" href="../../temas/vista/index.php?transaction=<?php echo $cat['idCat'] ?>" title="<?php echo $cat['desCat']?>"></a>
+                            <h2><?php echo $tem['nomTem'] ?></h2>
+                            <a class="info2" href="../../registros/vista/index.php?transaction=<?php echo $tem['idTem'] ?>" title="<?php echo $tem['desTem']?>"></a>
                           </div>
                         </div>
                       </div>
@@ -379,17 +380,17 @@ $ModeloUsuario = new Usuarios();
                           <?php
                           if ($cont % 2 == 0) {
                           ?>
-                            <img class="card-img-top img-responsive" src="../../estilos/images/ROJO.png" alt="Sans &amp; Sans-Serif">
+                            <img class="card-img-top img-responsive" src="../../estilos/images/GRIS.png" alt="Sans &amp; Sans-Serif">
                           <?php
                           } else {
                           ?>
-                            <img class="card-img-top img-responsive" src="../../estilos/images/GRIS.png" alt="Sans &amp; Sans-Serif">
+                            <img class="card-img-top img-responsive" src="../../estilos/images/NARANJA.png" alt="Sans &amp; Sans-Serif">
                           <?php
                           }
                           ?>
                           <div class="overlay2">
-                            <h2><?php echo $cat['nomCat'] ?></h2>
-                            <a class="info2" href="../../temas/vista/index.php?transaction=<?php echo $cat['idCat'] ?>" title="<?php echo $cat['desCat']?>"></a>
+                            <h2><?php echo $tem['nomTem'] ?></h2>
+                            <a class="info2" href="../../registros/vista/index.php?transaction=<?php echo $tem['idTem'] ?>" title="<?php echo $tem['desTem']?>"></a>
                           </div>
                         </div>
                       </div>
@@ -404,17 +405,17 @@ $ModeloUsuario = new Usuarios();
                         <?php
                         if ($cont % 2 == 0) {
                         ?>
-                          <img class="card-img-top img-responsive" src="../../estilos/images/ROJO.png" alt="Sans &amp; Sans-Serif">
+                          <img class="card-img-top img-responsive" src="../../estilos/images/GRIS.png" alt="Sans &amp; Sans-Serif">
                         <?php
                         } else {
                         ?>
-                          <img class="card-img-top img-responsive" src="../../estilos/images/GRIS.png" alt="Sans &amp; Sans-Serif">
+                          <img class="card-img-top img-responsive" src="../../estilos/images/NARANJA.png" alt="Sans &amp; Sans-Serif">
                         <?php
                         }
                         ?>
                         <div class="overlay2">
-                          <h2><?php echo $cat['nomCat'] ?></h2>
-                          <a class="info2" href="../../temas/vista/index.php?transaction=<?php echo $cat['idCat'] ?>" title="<?php echo $cat['desCat']?>"></a>
+                          <h2><?php echo $tem['nomTem'] ?></h2>
+                          <a class="info2" href="../../registros/vista/index.php?transaction=<?php echo $tem['idTem'] ?>" title="<?php echo $tem['desTem']?>"></a>
                         </div>
                       </div>
                     </div>
