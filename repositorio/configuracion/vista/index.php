@@ -344,6 +344,10 @@ $ModeloConfiguracion = new Configuracion();
           <li class="nav-item"><a href="../../usuarios/controlador/Salir.php" style="color: white;"><i class="fas fa-sign-out-alt" title="Salir"></i></a></li>
         </nav>
 
+        <nav class="navbar navbar-dark card-nav1">
+            <li class="nav-item"><a href="../../rol/vista/index.php" style="color: white;"><i class="fas fa-arrow-alt-circle-left" title="Atrás"></i></a></li>
+          </nav>
+
         <div class="card-body" style="margin-bottom:0;">
           <div class="version2">
             <div class="jumbotron jumbotron-fluid2"></div>
