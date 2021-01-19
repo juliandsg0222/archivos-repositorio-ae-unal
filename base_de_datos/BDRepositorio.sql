@@ -187,6 +187,7 @@ CREATE TABLE `reg_per` (
 
 LOCK TABLES `reg_per` WRITE;
 /*!40000 ALTER TABLE `reg_per` DISABLE KEYS */;
+INSERT INTO `reg_per` VALUES (1,7),(1,8),(1,9),(1,10),(2,1),(2,2);
 /*!40000 ALTER TABLE `reg_per` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -213,6 +214,7 @@ CREATE TABLE `reg_prog` (
 
 LOCK TABLES `reg_prog` WRITE;
 /*!40000 ALTER TABLE `reg_prog` DISABLE KEYS */;
+INSERT INTO `reg_prog` VALUES (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(1,7),(1,8),(1,9),(1,10),(1,11),(1,12),(2,4),(2,7);
 /*!40000 ALTER TABLE `reg_prog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -235,7 +237,7 @@ CREATE TABLE `registro` (
   KEY `idFue` (`idFue`),
   CONSTRAINT `registro_ibfk_1` FOREIGN KEY (`idInd`) REFERENCES `indicador` (`idInd`),
   CONSTRAINT `registro_ibfk_2` FOREIGN KEY (`idFue`) REFERENCES `fuente` (`idFue`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -340,7 +342,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`idUsu`),
   KEY `rolUsu` (`rolUsu`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`rolUsu`) REFERENCES `rol` (`idRol`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -362,4 +364,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-18 19:15:01
+-- Dump completed on 2021-01-19  9:15:27
