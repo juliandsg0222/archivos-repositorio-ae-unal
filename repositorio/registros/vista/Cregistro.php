@@ -27,6 +27,7 @@ $IdTemas = $_GET['tema'];
     <div class="container" id="advanced-search-form">
         <h2><b>Nuevo Registro<b></h2>
         <form method="POST" action="../controlador/addRegistro.php">
+        <input type="hidden" name="IdTemas" value="<?php echo $IdTemas ?>">
             <div class="form-group">
                 <label>Nombre del Registro</label>
                 <input type="text" class="form-control" placeholder="Nombre del Registro" name="nombre" autocomplete="off" required="">
@@ -48,7 +49,7 @@ $IdTemas = $_GET['tema'];
             <div class="form-group">
                 <label>Indicador Asociado</label>
                 <select name="indicador" class="form-control" required="">
-                    <option disabled>--Seleccione--</option>
+                    <option selected="selected" disabled>--Seleccione--</option>
                     <?php
                     $Indicadores = $ModeloRegistros->getIndicadoresDeRegistro($IdTemas);
                     if ($Indicadores != null) {
@@ -65,7 +66,7 @@ $IdTemas = $_GET['tema'];
             <div class="form-group">
                 <label>Fuente de Información</label>
                 <select name="fuente" class="form-control">
-                    <option>--Seleccione--</option>
+                    <option selected="selected" disabled="">--Seleccione--</option>
                     <?php
                     $Fuentes = $ModeloConfiguracion->getFuentes();
                     if ($Fuentes != null) {
@@ -81,8 +82,10 @@ $IdTemas = $_GET['tema'];
 
             <div class="clearfix"></div>
 
-            <button type="submit" class="btn btn-info btn-lg btn-responsive">Crear</button>
+            <button type="submit" class="btn btn-lg btn-success">Crear</button>
         </form>
+
+        <a href="index.php?transaction=<?php echo $IdTemas ?>" style="text-decoration: none;"><button type="submit" class="btn btn-info btn-lg btn-responsive" style="color: white">Volver</button></a>
     </div>
 </body>
 

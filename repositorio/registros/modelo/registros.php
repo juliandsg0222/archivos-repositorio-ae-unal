@@ -31,7 +31,7 @@ class Registros extends Conexion{
         return $rows;
     }
 
-    public function addRegistro($Nombre, $Descripcion, $Link, $Indicador, $Fuente){
+    public function addRegistro($Nombre, $Descripcion, $Link, $Indicador, $Fuente, $Ruta){
         $mensajeAdicionado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento '--Seleccione--' no puede asociarse";
         try{
             $statement = $this->db->prepare("INSERT INTO registro (nomReg, desReg, linkReg, idInd, idFue) VALUE (:Nombre, :Descripcion, :Link, :Indicador, :Fuente)");
@@ -42,7 +42,7 @@ class Registros extends Conexion{
             $statement->bindParam(':Fuente', $Fuente);
             
             if($statement->execute()){
-                header('Location: ../vista/index.php');
+                header('Location: ../vista/index.php' . $Ruta);
             } else{
                 header('Location: ../vista/Cregistro.php');
             }

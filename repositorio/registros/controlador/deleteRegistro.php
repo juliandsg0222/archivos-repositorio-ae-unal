@@ -8,7 +8,6 @@ if($_POST){
     $Id = $_POST['Id'];
 
     $ModeloRegistros->deleteRegistro($Id);
-    header('Location: ../vista/index.php?transaction=' . $IdTemas);
 }else{
-    header('Location: ../../index.php?transaction=' . $IdTemas);
+    header('Location: ../../index.php');
 }

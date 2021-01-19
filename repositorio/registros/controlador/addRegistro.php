@@ -10,9 +10,8 @@ if($_POST){
     $Acceso = $_POST['acceso'];
     $Indicador = $_POST['indicador'];
     $Fuente = $_POST['fuente'];
-
-    $ModeloRegistros->addRegistro($Nombre, $Descripcion, $Acceso, $Indicador, $Fuente);
-
+    $Ruta = "?transaction=" . $_POST['IdTemas'];
+    $ModeloRegistros->addRegistro($Nombre, $Descripcion, $Acceso, $Indicador, $Fuente, $Ruta);
 }else{
     header('Location: ../../index.php');
 }

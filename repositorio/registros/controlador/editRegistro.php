@@ -12,10 +12,10 @@ if($_POST){
     $Acceso = $_POST['acceso'];
     $Indicador = $_POST['indicador'];
     $Fuente = $_POST['fuente'];
-    $Ruta = '?tema=' . $IdTemas;
+    $Ruta = '?transaction=' . $IdTemas;
     $Ruta2 =  "?transaction=" . $Id .'&tema=' . $IdTemas;
     $ModeloRegistros->updateRegistro($Id, $Nombre, $Descripcion, $Acceso, $Indicador, $Fuente, $Ruta, $Ruta2);
 
 }else{
-    header('Location: ../../index.php?transaction=' . $IdTemas);
+    header('Location: ../../index.php');
 }
