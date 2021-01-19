@@ -34,14 +34,14 @@ $InformacionTemas = $ModeloConfiguracion->getByIdTema($Id);
             ?>
                     <div class="form-group">
                         <label>Tema</label>
-                        <input type="text" class="form-control" placeholder="Tema" name="tema" autocomplete="off" value="<?php echo $info['nomTem'] ?>" disabled>
+                        <input type="text" class="form-control" placeholder="Tema" name="tema" autocomplete="off" value="<?php echo $info['nomTem'] ?>" disabled required="">
                     </div>
 
                     <div class="clearfix"></div>
 
                     <div class="form-group">
                         <label>Indicadores</label>
-                        <select name="indicador" class="form-control">
+                        <select name="indicador" required="" class="form-control">
                             <option disabled selected="selected">--Seleccione--</option>
                             <?php
                             $Indicadores = $ModeloConfiguracion->getAsociadosDisponiblesTemas($Id);

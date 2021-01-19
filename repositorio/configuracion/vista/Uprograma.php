@@ -33,7 +33,7 @@ $InformacionPrograma = $ModeloConfiguracion->getByIdPrograma($Id);
         ?>
             <div class="form-group">
                 <label>Programa</label>
-                <input type="text" class="form-control" placeholder="Programa Académico" name="programa" autocomplete="off" value="<?php echo $info['nomProg'] ?>">
+                <input type="text" class="form-control" placeholder="Programa Académico" name="programa" autocomplete="off" value="<?php echo $info['nomProg'] ?>" required>
             </div>
 
         <?php

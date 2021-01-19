@@ -352,31 +352,6 @@ $ModeloUsuario->validateSession();
                                 <h1 id="titAdmin"><i class="fas fa-caret-right"></i><b>Registro de Información</b></h1><br>
                                 <!-- Inicio Título -->
 
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                    Launch demo modal
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                ...
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <!-- Inicio Indicadores Asociados -->
                                 <script>
                                     $(function() {
@@ -414,7 +389,7 @@ $ModeloUsuario->validateSession();
                                 <?php
                                 if ($ModeloUsuario->getPerfil() == "ADMINISTRADOR" || $ModeloUsuario->getPerfil() == "EDITOR") {
                                 ?>
-                                    <br><br><br><br><br><button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Cregistro.php"><i class="fas fa-file-alt"></i> Nuevo Registro</a></button>
+                                    <br><br><br><br><br><button type="button" class="btn btn-success"><a style="text-decoration: none; color:white;" href="Cregistro.php?tema=<?php echo $IdTemas?>"><i class="fas fa-file-alt"></i> Nuevo Registro</a></button>
                                 <?php
                                 }
                                 ?>
@@ -452,19 +427,42 @@ $ModeloUsuario->validateSession();
                                                     <tr>
                                                         <th scope="row"><?php echo $cont++ ?></th>
                                                         <td><?php echo $reg['nomReg'] ?></td>
-                                                        <td><a style="text-decoration: none; color: rgb(182, 17, 127)" href="<?php echo $reg['linkReg'] ?>" target="_blank"><i class="fas fa-link" title="Archivo"></i></a></td>
+                                                        <td><a style="text-decoration: none; color:black" href="<?php echo $reg['linkReg'] ?>" target="_blank"><i class="fas fa-link" title="Archivo"></i></a></td>
+
                                                         <td><?php echo $reg['numInd'] ?></td>
                                                         <td><?php echo $reg['nomFue'] ?></td>
-                                                        <td>Período</td>
-                                                        <td>Programa</td>
-                                                        <td><a style="text-decoration: none; color: rgb(70, 107, 63)" href="<?php echo $reg['linkReg'] ?>" target="_blank"><i class="far fa-eye" title="Visualizar"></i></a></td>
-                                                        <td><?php echo $ind['numInd'] ?></td>
-                                                        <td style="color: rgb(232, 83, 53); cursor: pointer"> <a data-toggle="modal" title="Indicador" data-target="#exampleModal" <?php echo $ind['numInd'] ?>" data-content="<?php echo $ind['nomInd'] ?>"><i class="fas fa-eye"></i></a></td>
+                                                        <td style="cursor: pointer">
+                                                            <a data-toggle="popover" 
+                                                                title="Períodos académicos asociados" data-content="<?php $Periodos = $ModeloRegistros->getPeriodos($reg['idReg']);
+                                                                    if($Periodos != null){
+                                                                        foreach($Periodos as $per){
+                                                                            echo $per['nomPer'] . " / ";
+                                                                        }
+                                                                    }
+                                                                ?>">
+                                                                <i class="fas fa-calendar-alt"></i>
+                                                            </a>
+                                                        </td>
+
+                                                        <td style="cursor: pointer">
+                                                            <a data-toggle="popover" 
+                                                                title="Programas académicos asociados" data-content="<?php $Programas = $ModeloRegistros->getProgramas($reg['idReg']);
+                                                                    if($Programas != null){
+                                                                        foreach($Programas as $prog){
+                                                                            echo $prog['nomProg'] . " - ";
+                                                                        }
+                                                                    }
+                                                                ?>">
+                                                                <i class="fas fa-user-graduate"></i>
+                                                            </a>
+                                                        </td>
+
+                                                        <td style="color: color: rgb(182, 17, 127); cursor: pointer"> <a data-toggle="popover" title="Nombre: <?php echo $reg['nomReg'] ?>" data-content="Descripción: <?php echo $reg['desReg']?><br>Indicador: <?php echo $reg['numInd'] ?>"><i class="fas fa-eye"></i></a></td>
 
                                                         <?php
                                                         if ($ModeloUsuario->getPerfil() == "ADMINISTRADOR" || $ModeloUsuario->getPerfil() == "EDITOR") {
                                                         ?>
-                                                            <td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Uregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-edit" title="Editar"></i></a> <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a> <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Aregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-graduation-cap" title="Asociar Período Académico"></i></a></td>
+                                                            <td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Uregistro.php?transaction=<?php echo $reg['idReg'] ?>&tema=<?php echo $IdTemas ?>"><i class="fas fa-edit" title="Editar"></i></a> <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dregistro.php?transaction=<?php echo $reg['idReg'] ?>&tema=<?php echo $IdTemas ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a> <a style="text-decoration: none; color: rgb(166, 28, 49)" href="AProgregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-graduation-cap" title="Asociar Programa Académico"></i></a> <a style="text-decoration: none; color: rgb(166, 28, 49)" href="APerregistro.php?transaction=<?php echo $reg['idReg'] ?>"><i class="fas fa-calendar-plus" title="Asociar Período Académico"></i></a></td>
                                                         <?php
                                                         }
                                                         ?>

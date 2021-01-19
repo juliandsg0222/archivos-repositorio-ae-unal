@@ -34,14 +34,14 @@ $InformacionCategoria = $ModeloConfiguracion->getByIdCategoria($Id);
             ?>
                     <div class="form-group">
                         <label>Categoría</label>
-                        <input type="text" class="form-control" placeholder="Categoría" name="categoria" autocomplete="off" value="<?php echo $info['nomCat'] ?>" disabled>
+                        <input type="text" class="form-control" placeholder="Categoría" name="categoria" autocomplete="off" value="<?php echo $info['nomCat'] ?>" disabled required="">
                     </div>
 
                     <div class="clearfix"></div>
 
                     <div class="form-group">
                         <label>Temas</label>
-                        <select name="tema" class="form-control">
+                        <select name="tema" required="" class="form-control">
                             <option disabled selected="selected">--Seleccione--</option>
                             <?php
                             $Temas = $ModeloConfiguracion->getAsociadosDisponiblesCategorias($Id);

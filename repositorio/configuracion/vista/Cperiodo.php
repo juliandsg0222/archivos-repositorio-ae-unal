@@ -25,7 +25,7 @@ $ModeloConfiguracion = new Configuracion();
         <form method="POST" action="../controlador/addPeriodo.php">
             <div class="form-group">
                 <label>Período</label>
-                <input type="text" class="form-control" placeholder="Período Académico" name="periodo" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Período Académico" name="periodo" autocomplete="off" required>
             </div>
 
             <div class="clearfix"></div>

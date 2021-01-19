@@ -25,26 +25,26 @@ $ModeloConfiguracion = new Configuracion();
         <form method="POST" action="../controlador/addUsuario.php">
             <div class="form-group">
                 <label>Nombre de Usuario</label>
-                <input type="text" class="form-control" placeholder="Nombre de usuario" name="username" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Nombre de usuario" name="username" autocomplete="off" required="">
             </div>
             <div class="clearfix"></div>
 
             <div class="form-group">
                 <label>Nombre Completo</label>
-                <input type="text" class="form-control" placeholder="Nombre Completo" name="nombre" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Nombre Completo" name="nombre" autocomplete="off" required="">
             </div>
             <div class="clearfix"></div>
 
             <div class="form-group">
                 <label>Contraseña</label>
-                <input type="password" class="form-control" placeholder="Contraseña" name="contrasena" autocomplete="off">
+                <input type="password" class="form-control" placeholder="Contraseña" name="contrasena" autocomplete="off" required="">
             </div>
             <div class="clearfix"></div>
 
             <div class="form-group">
                 <label>Rol</label>
                 <select name="rol" required="" class="form-control">
-                <option>--Seleccione--</option>
+                <option disabled selected="selected">--Seleccione--</option>
                 <?php
                 $Roles = $ModeloConfiguracion->getRoles();
                 if ($Roles != null) {

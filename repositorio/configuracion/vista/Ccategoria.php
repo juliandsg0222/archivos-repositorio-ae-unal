@@ -25,14 +25,14 @@ $ModeloConfiguracion = new Configuracion();
         <form method="POST" action="../controlador/addCategoria.php">
             <div class="form-group">
                 <label>Categoría</label>
-                <input type="text" class="form-control" placeholder="Categoría" name="categoria" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Categoría" name="categoria" autocomplete="off" required="">
             </div>
 
             <div class="clearfix"></div>
 
             <div class="form-group">
                 <label>Descripción</label>
-                <textarea class="form-control" placeholder="Descripción de la categoría" name="descripcion" autocomplete="off"></textarea>
+                <textarea class="form-control" placeholder="Descripción de la categoría" name="descripcion" autocomplete="off" required=""></textarea>
             </div>
 
             <div class="clearfix"></div>

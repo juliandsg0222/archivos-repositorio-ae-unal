@@ -20,30 +20,40 @@ class Configuracion extends Conexion{
     }
 
     public function addUsuario($Usuario, $Nombre, $Contrasena, $Rol){
-        $statement = $this->db->prepare("INSERT INTO usuario (usuUsu, nomUsu, passUsu, rolUsu) VALUE (:Usuario, :Nombre, :Contrasena, :Rol)");
-        $statement->bindParam(':Usuario', $Usuario);
-        $statement->bindParam(':Nombre', $Nombre);
-        $statement->bindParam(':Contrasena', $Contrasena);
-        $statement->bindParam(':Rol', $Rol);
-        
-        if($statement->execute()){
-            header('Location: ../vista/index.php');
-        } else{
-            header('Location: ../vista/Cusuario.php');
+        $mensajeAdicionado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento '--Seleccione--' no puede asociarse";
+        try{
+            $statement = $this->db->prepare("INSERT INTO usuario (usuUsu, nomUsu, passUsu, rolUsu) VALUE (:Usuario, :Nombre, :Contrasena, :Rol)");
+            $statement->bindParam(':Usuario', $Usuario);
+            $statement->bindParam(':Nombre', $Nombre);
+            $statement->bindParam(':Contrasena', $Contrasena);
+            $statement->bindParam(':Rol', $Rol);
+            
+            if($statement->execute()){
+                header('Location: ../vista/index.php');
+            } else{
+                header('Location: ../vista/Cusuario.php');
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeAdicionado);
         }
     }
 
     public function updateUsuario($Id, $Nombre, $Contrasena, $Rol){
-        $statement = $this->db->prepare("UPDATE usuario SET nomUsu = :Nombre, passUsu = :Contrasena, rolUsu = :Rol WHERE idUsu = :Id");
-        $statement->bindParam(':Id', $Id);
-        $statement->bindParam(':Nombre', $Nombre);
-        $statement->bindParam(':Contrasena', $Contrasena);
-        $statement->bindParam(':Rol', $Rol);
-        
-        if($statement->execute()){
-            header('Location: ../vista/index.php');
-        } else{
-            header('Location: ../vista/Uusuario.php');
+        $mensajeAdicionado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento '--Seleccione--' no puede asociarse";
+        try{
+            $statement = $this->db->prepare("UPDATE usuario SET nomUsu = :Nombre, passUsu = :Contrasena, rolUsu = :Rol WHERE idUsu = :Id");
+            $statement->bindParam(':Id', $Id);
+            $statement->bindParam(':Nombre', $Nombre);
+            $statement->bindParam(':Contrasena', $Contrasena);
+            $statement->bindParam(':Rol', $Rol);
+            
+            if($statement->execute()){
+                header('Location: ../vista/index.php');
+            } else{
+                header('Location: ../vista/Uusuario.php');
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeAdicionado);
         }
     }
 

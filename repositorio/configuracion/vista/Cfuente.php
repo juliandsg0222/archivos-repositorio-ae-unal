@@ -25,7 +25,7 @@ $ModeloConfiguracion = new Configuracion();
         <form method="POST" action="../controlador/addFuente.php">
             <div class="form-group">
                 <label>Nombre de la Fuente de Información</label>
-                <input type="text" class="form-control" placeholder="Fuente de Información" name="fuente" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Fuente de Información" name="fuente" autocomplete="off" required>
             </div>
 
             <div class="clearfix"></div>

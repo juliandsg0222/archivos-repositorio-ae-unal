@@ -25,14 +25,14 @@ $ModeloConfiguracion = new Configuracion();
         <form method="POST" action="../controlador/addTema.php">
             <div class="form-group">
                 <label>Tema</label>
-                <input type="text" class="form-control" placeholder="Tema" name="tema" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Tema" name="tema" autocomplete="off" required>
             </div>
 
             <div class="clearfix"></div>
 
             <div class="form-group">
                 <label>Descripción</label>
-                <textarea class="form-control" placeholder="Descripción del tema" name="descripcion" autocomplete="off"></textarea>
+                <textarea class="form-control" placeholder="Descripción del tema" name="descripcion" autocomplete="off" required></textarea>
             </div>
 
             <div class="clearfix"></div>

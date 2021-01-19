@@ -33,14 +33,14 @@ $InformacionIndicador = $ModeloConfiguracion->getByIdIndicador($Id);
         ?>
             <div class="form-group">
                 <label>Número de Indicador</label>
-                <input type="text" class="form-control" placeholder="Indicador" name="indicador" autocomplete="off" value="<?php echo $info['numInd'] ?>">
+                <input type="text" class="form-control" placeholder="Indicador" name="indicador" autocomplete="off" value="<?php echo $info['numInd'] ?>" required>
             </div>
 
             <div class="clearfix"></div>
 
             <div class="form-group">
                 <label>Descripción</label>
-                <textarea class="form-control" placeholder="Descripción del indicador" name="descripcion" autocomplete="off"><?php echo $info['nomInd'] ?></textarea>
+                <textarea class="form-control" placeholder="Descripción del indicador" name="descripcion" autocomplete="off" required><?php echo $info['nomInd'] ?></textarea>
             </div>
 
         <?php

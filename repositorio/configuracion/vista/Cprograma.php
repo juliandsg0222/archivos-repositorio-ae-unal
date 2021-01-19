@@ -25,7 +25,7 @@ $ModeloConfiguracion = new Configuracion();
         <form method="POST" action="../controlador/addPrograma.php">
             <div class="form-group">
                 <label>Programa</label>
-                <input type="text" class="form-control" placeholder="Programa Académico" name="programa" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Programa Académico" name="programa" autocomplete="off" required>
             </div>
 
             <div class="clearfix"></div>

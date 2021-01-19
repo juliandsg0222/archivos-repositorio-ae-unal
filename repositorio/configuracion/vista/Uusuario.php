@@ -35,26 +35,26 @@ $InformacionUsuario = $ModeloConfiguracion->getByIdUsuario($Id);
 
             <div class="form-group">
                 <label>Nombre de Usuario</label>
-                <input type="text" class="form-control" placeholder="Nombre de usuario" name="username" autocomplete="off" value="<?php echo $info['usuUsu'] ?>" disabled>
+                <input type="text" class="form-control" placeholder="Nombre de usuario" name="username" autocomplete="off" value="<?php echo $info['usuUsu'] ?>" disabled required="">
             </div>
             <div class="clearfix"></div>
 
             <div class="form-group">
                 <label>Nombre Completo</label>
-                <input type="text" class="form-control" placeholder="Nombre Completo" name="nombre" autocomplete="off" value="<?php echo $info['nomUsu'] ?>">
+                <input type="text" class="form-control" placeholder="Nombre Completo" name="nombre" autocomplete="off" value="<?php echo $info['nomUsu'] ?>" required="">
             </div>
             <div class="clearfix"></div>
 
             <div class="form-group">
                 <label>Contraseña</label>
-                <input type="password" class="form-control" placeholder="Contraseña" name="contrasena" autocomplete="off" value="<?php echo $info['passUsu'] ?>">
+                <input type="password" class="form-control" placeholder="Contraseña" name="contrasena" autocomplete="off" value="<?php echo $info['passUsu'] ?>" required="">
             </div>
             <div class="clearfix"></div>
 
             <div class="form-group">
                 <label>Rol</label>
                 <select name="rol" required="" class="form-control">
-                <option>--Seleccione--</option>
+                <option disabled>--Seleccione--</option>
                 <?php
                 $Roles = $ModeloConfiguracion->getRoles();
                 if ($Roles != null) {

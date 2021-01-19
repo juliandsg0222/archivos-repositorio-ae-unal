@@ -33,7 +33,7 @@ $InformacionFuente = $ModeloConfiguracion->getByIdFuente($Id);
         ?>
             <div class="form-group">
                 <label>Nombre de la Fuente de Información</label>
-                <input type="text" class="form-control" placeholder="Fuente de Información" name="fuente" autocomplete="off" value="<?php echo $info['nomFue'] ?>">
+                <input type="text" class="form-control" placeholder="Fuente de Información" name="fuente" autocomplete="off" value="<?php echo $info['nomFue'] ?>" required>
             </div>
 
         <?php

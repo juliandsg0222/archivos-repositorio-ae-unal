@@ -32,7 +32,7 @@ $ModeloConfiguracion = new Configuracion();
 
             <div class="form-group">
                 <label>Descripción</label>
-                <textarea class="form-control" placeholder="Descripción del indicador" name="descripcion" autocomplete="off"></textarea>
+                <textarea class="form-control" placeholder="Descripción del indicador" name="descripcion" autocomplete="off" required></textarea>
             </div>
 
             <div class="clearfix"></div>

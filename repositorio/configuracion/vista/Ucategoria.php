@@ -33,14 +33,14 @@ $InformacionCategoria = $ModeloConfiguracion->getByIdCategoria($Id);
         ?>
             <div class="form-group">
                 <label>Categoría</label>
-                <input type="text" class="form-control" placeholder="Categoría" name="categoria" autocomplete="off" value="<?php echo $info['nomCat'] ?>">
+                <input type="text" class="form-control" placeholder="Categoría" name="categoria" autocomplete="off" value="<?php echo $info['nomCat'] ?>" required>
             </div>
 
             <div class="clearfix"></div>
 
             <div class="form-group">
                 <label>Descripción</label>
-                <textarea class="form-control" placeholder="Descripción de la categoría" name="descripcion" autocomplete="off"><?php echo $info['desCat'] ?></textarea>
+                <textarea class="form-control" placeholder="Descripción de la categoría" name="descripcion" autocomplete="off" required><?php echo $info['desCat'] ?></textarea>
             </div>
 
         <?php

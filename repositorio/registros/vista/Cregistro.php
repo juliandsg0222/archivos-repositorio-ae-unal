@@ -1,8 +1,12 @@
 <?php
 
 require_once('../../configuracion/modelo/configuracion.php');
+require_once('../modelo/registros.php');
 
 $ModeloConfiguracion = new Configuracion();
+$ModeloRegistros = new Registros();
+
+$IdTemas = $_GET['tema'];
 
 ?>
 
@@ -43,10 +47,10 @@ $ModeloConfiguracion = new Configuracion();
 
             <div class="form-group">
                 <label>Indicador Asociado</label>
-                <select name="indicador" class="form-control">
-                    <option>--Seleccione--</option>
+                <select name="indicador" class="form-control" required="">
+                    <option disabled>--Seleccione--</option>
                     <?php
-                    $Indicadores = $ModeloConfiguracion->getIndicadores();
+                    $Indicadores = $ModeloRegistros->getIndicadoresDeRegistro($IdTemas);
                     if ($Indicadores != null) {
                         foreach ($Indicadores as $ind) {
                     ?>
