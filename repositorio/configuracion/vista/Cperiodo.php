@@ -1,6 +1,11 @@
 <?php
 
+require_once('../../usuarios/modelo/usuarios.php');
 require_once('../modelo/configuracion.php');
+
+$ModeloUsuario = new Usuarios();
+$ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionAdministrator();
 
 $ModeloConfiguracion = new Configuracion();
 
@@ -25,7 +30,7 @@ $ModeloConfiguracion = new Configuracion();
         <form method="POST" action="../controlador/addPeriodo.php">
             <div class="form-group">
                 <label>Período</label>
-                <input type="text" class="form-control" placeholder="Período Académico" name="periodo" autocomplete="off" required>
+                <input type="text" class="form-control" placeholder="Período Académico" name="periodo" autocomplete="off" required="">
             </div>
 
             <div class="clearfix"></div>

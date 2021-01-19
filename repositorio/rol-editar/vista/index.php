@@ -353,7 +353,7 @@ $ModeloUsuario->validateSession();
 										<div class="card hovereffect2" style="width: 100%;">
 											<img class="card-img-top img-responsive" src="../../estilos/images/rol.jpg" alt="Sans &amp; Sans-Serif">
 											<div class="overlay2">
-												<h2>Seleccionar Rol</h2>
+												<h2>Opciones</h2>
 												<a class="info2" href="../../rol/vista/index.php"></a>
 											</div>
 										</div>

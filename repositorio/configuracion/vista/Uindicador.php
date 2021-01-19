@@ -1,6 +1,11 @@
 <?php
 
+require_once('../../usuarios/modelo/usuarios.php');
 require_once('../modelo/configuracion.php');
+
+$ModeloUsuario = new Usuarios();
+$ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionAdministrator();
 
 $ModeloConfiguracion = new Configuracion();
 $Id = $_GET['transaction'];
@@ -33,14 +38,14 @@ $InformacionIndicador = $ModeloConfiguracion->getByIdIndicador($Id);
         ?>
             <div class="form-group">
                 <label>Número de Indicador</label>
-                <input type="text" class="form-control" placeholder="Indicador" name="indicador" autocomplete="off" value="<?php echo $info['numInd'] ?>" required>
+                <input type="text" class="form-control" placeholder="Indicador" name="indicador" autocomplete="off" value="<?php echo $info['numInd'] ?>" required="">
             </div>
 
             <div class="clearfix"></div>
 
             <div class="form-group">
                 <label>Descripción</label>
-                <textarea class="form-control" placeholder="Descripción del indicador" name="descripcion" autocomplete="off" required><?php echo $info['nomInd'] ?></textarea>
+                <textarea class="form-control" placeholder="Descripción del indicador" name="descripcion" autocomplete="off" required=""><?php echo $info['nomInd'] ?></textarea>
             </div>
 
         <?php

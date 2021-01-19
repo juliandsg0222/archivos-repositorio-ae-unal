@@ -84,3 +84,80 @@ h2{
         margin-left: 0;
     }
 }
+
+
+/*  */
+
+#advanced-search-form-2{
+    background-color: #fff;
+    max-width: 800px;
+    margin: 160px auto 0;
+    padding: 40px;
+    color: #858b8e;
+    box-shadow: 6px 6px 6px rgba(0,0,0,0.2);
+}
+
+#advanced-search-form-2 h2{
+    padding-bottom: 20px;
+    margin: 10px 20px;
+    font-size: 24px;
+}
+
+#advanced-search-form-2 hr{
+    margin-top: 38px;
+    margin-bottom: 54px;
+    margin-left:3px;
+    border: 1px solid #cccccc;
+
+}
+
+#advanced-search-form-2 .form-group{
+	margin-bottom: 20px;
+    margin-left:5%;
+	width: 90%;
+    float:left;
+    text-align: left;
+}
+
+#advanced-search-form-2 .form-control{
+    padding: 12px 20px;
+    height: auto;
+    border-radius: 2px;
+}
+
+#advanced-search-form-2 .radio-inline{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#advanced-search-form-2 .gender{
+    width: 30%;
+    margin-top: 30px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#advanced-search-form-2 .btn{
+    width: 46%;
+    margin: 20px auto 0;
+    display: block;
+    outline: none;
+}
+
+@media screen and (max-width: 800px){
+    #advanced-search-form-2 .form-group{
+        width: 45%;
+    }
+
+    #advanced-search-form-2{
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 560px){
+    #advanced-search-form-2 .form-group{
+        width: 100%;
+        margin-left: 0;
+    }
+}

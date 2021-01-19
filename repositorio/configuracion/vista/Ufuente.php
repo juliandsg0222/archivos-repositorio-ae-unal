@@ -1,6 +1,11 @@
 <?php
 
+require_once('../../usuarios/modelo/usuarios.php');
 require_once('../modelo/configuracion.php');
+
+$ModeloUsuario = new Usuarios();
+$ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionAdministrator();
 
 $ModeloConfiguracion = new Configuracion();
 $Id = $_GET['transaction'];
@@ -33,7 +38,7 @@ $InformacionFuente = $ModeloConfiguracion->getByIdFuente($Id);
         ?>
             <div class="form-group">
                 <label>Nombre de la Fuente de Información</label>
-                <input type="text" class="form-control" placeholder="Fuente de Información" name="fuente" autocomplete="off" value="<?php echo $info['nomFue'] ?>" required>
+                <input type="text" class="form-control" placeholder="Fuente de Información" name="fuente" autocomplete="off" value="<?php echo $info['nomFue'] ?>" required="">
             </div>
 
         <?php

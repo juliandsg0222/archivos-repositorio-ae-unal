@@ -6,8 +6,11 @@ if($_POST){
     $ModeloRegistros = new Registros();
     $IdTemas = $_POST['IdTemas'];
     $Id = $_POST['Id'];
+    
+    $Ruta = '?transaction=' . $IdTemas;
+    $Ruta2 =  "?transaction=" . $Id .'&tema=' . $IdTemas;
 
-    $ModeloRegistros->deleteRegistro($Id);
+    $ModeloRegistros->deleteRegistro($Id, $Ruta, $Ruta2);
 }else{
     header('Location: ../../index.php');
 }

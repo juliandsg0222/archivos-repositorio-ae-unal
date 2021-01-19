@@ -1,6 +1,11 @@
 <?php
 
+require_once('../../usuarios/modelo/usuarios.php');
 require_once('../modelo/configuracion.php');
+
+$ModeloUsuario = new Usuarios();
+$ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionAdministrator();
 
 $ModeloConfiguracion = new Configuracion();
 
@@ -25,7 +30,7 @@ $ModeloConfiguracion = new Configuracion();
         <form method="POST" action="../controlador/addFuente.php">
             <div class="form-group">
                 <label>Nombre de la Fuente de Información</label>
-                <input type="text" class="form-control" placeholder="Fuente de Información" name="fuente" autocomplete="off" required>
+                <input type="text" class="form-control" placeholder="Fuente de Información" name="fuente" autocomplete="off" required="">
             </div>
 
             <div class="clearfix"></div>

@@ -1,6 +1,11 @@
 <?php
 
+require_once('../../usuarios/modelo/usuarios.php');
 require_once('../modelo/configuracion.php');
+
+$ModeloUsuario = new Usuarios();
+$ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionAdministrator();
 
 $ModeloConfiguracion = new Configuracion();
 $Id = $_GET['transaction'];
@@ -70,7 +75,7 @@ $InformacionCategoria = $ModeloConfiguracion->getByIdCategoria($Id);
             <thead class="thead-dark">
                 <tr>
                     <th scope="col" style="text-align: center;">TEMA</th>
-                    <th scope="col" style="text-align: center;">DESCRIPCION</th>
+                    <th scope="col" style="text-align: center;">DESCRIPCIÓN</th>
                     <th scope="col" style="text-align: center;">ACCIÓN</th>
                 </tr>
             </thead>
@@ -79,7 +84,7 @@ $InformacionCategoria = $ModeloConfiguracion->getByIdCategoria($Id);
                         foreach ($Temas as $tem) { ?><tr>
                             <td style="text-align: center;"><?php echo $tem["nomTem"] ?></td>
                             <td style="text-align: justify"><?php echo $tem["desTem"] ?></td>
-                            <td><a style="text-decoration: none; color: rgb(166, 28, 49)" href="../controlador/DAcategoria.php?transaction=<?php echo $tem['idTem'] ?>&transporte=<?php echo $Id ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td>
+                            <td style="text-align: center;"><a style="text-decoration: none; color: rgb(166, 28, 49)" href="../controlador/DAcategoria.php?transaction=<?php echo $tem['idTem'] ?>&transporte=<?php echo $Id ?>"><i class="fas fa-trash-alt" title="Desasociar"></i></a></td>
                         </tr>
                 <?php
                         }

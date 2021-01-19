@@ -1,6 +1,11 @@
 <?php
 
+require_once('../../usuarios/modelo/usuarios.php');
 require_once('../modelo/configuracion.php');
+
+$ModeloUsuario = new Usuarios();
+$ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionAdministrator();
 
 $ModeloConfiguracion = new Configuracion();
 $Id = $_GET['transaction'];
@@ -33,7 +38,7 @@ $InformacionPeriodo = $ModeloConfiguracion->getByIdPeriodo($Id);
         ?>
             <div class="form-group">
                 <label>Período</label>
-                <input type="text" class="form-control" placeholder="Período Académico" name="periodo" autocomplete="off" value="<?php echo $info['nomPer'] ?>" required>
+                <input type="text" class="form-control" placeholder="Período Académico" name="periodo" autocomplete="off" value="<?php echo $info['nomPer'] ?>" required="">
             </div>
 
         <?php

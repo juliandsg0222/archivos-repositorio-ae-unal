@@ -1,6 +1,11 @@
 <?php
 
+require_once('../../usuarios/modelo/usuarios.php');
 require_once('../modelo/configuracion.php');
+
+$ModeloUsuario = new Usuarios();
+$ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionAdministrator();
 
 $ModeloConfiguracion = new Configuracion();
 
@@ -25,14 +30,14 @@ $ModeloConfiguracion = new Configuracion();
         <form method="POST" action="../controlador/addIndicador.php">
             <div class="form-group">
                 <label>Número de Indicador</label>
-                <input type="text" class="form-control" placeholder="Indicador" name="indicador" autocomplete="off">
+                <input type="text" class="form-control" placeholder="Indicador" name="indicador" autocomplete="off" required="">
             </div>
 
             <div class="clearfix"></div>
 
             <div class="form-group">
                 <label>Descripción</label>
-                <textarea class="form-control" placeholder="Descripción del indicador" name="descripcion" autocomplete="off" required></textarea>
+                <textarea class="form-control" placeholder="Descripción del indicador" name="descripcion" autocomplete="off" required=""></textarea>
             </div>
 
             <div class="clearfix"></div>

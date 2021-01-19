@@ -1,7 +1,11 @@
 <?php
 
+require_once('../../usuarios/modelo/usuarios.php');
 require_once('../modelo/configuracion.php');
 
+$ModeloUsuario = new Usuarios();
+$ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionAdministrator();
 $ModeloConfiguracion = new Configuracion();
 $Id = $_GET['transaction'];
 $InformacionFuente = $ModeloConfiguracion->getByIdFuente($Id);

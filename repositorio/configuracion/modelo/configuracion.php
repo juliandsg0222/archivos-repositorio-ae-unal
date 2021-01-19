@@ -607,8 +607,6 @@ class Configuracion extends Conexion{
     }
     // Fin métodos "Asociar indicadores a temas"
 
-
-
 }
 
 ?>

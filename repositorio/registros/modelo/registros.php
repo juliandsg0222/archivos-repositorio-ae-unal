@@ -72,15 +72,15 @@ class Registros extends Conexion{
         }
     }
 
-    public function deleteRegistro($Id){
+    public function deleteRegistro($Id, $Ruta, $Ruta2){
         $mensajeEliminado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento aún no puede ser eliminado, parece que otros registros dependen de este";
         try{
             $statement = $this->db->prepare("DELETE FROM registro WHERE idReg = :Id");
             $statement->bindParam(':Id', $Id);
             if($statement->execute()){
-                header('Location: ../vista/index.php');
+                header('Location: ../vista/index.php' .$Ruta);
             } else{
-                header('Location: ../vista/Dregistro.php');
+                header('Location: ../vista/Dregistro.php' . $Ruta2);
             }
         }catch(Exception $e){
             header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeEliminado);
@@ -122,13 +122,103 @@ class Registros extends Conexion{
 
     public function getPeriodos($idReg){
         $rows = null;
-        $statement = $this->db->prepare("SELECT reg_per.idPer, nomPer FROM reg_per LEFT JOIN periodo ON periodo.idPer = reg_per.idPer WHERE idReg = :idReg ORDER BY nomPer ASC");
+        $statement = $this->db->prepare("SELECT reg_per.idPer, nomPer FROM reg_per LEFT JOIN periodo ON periodo.idPer = reg_per.idPer WHERE idReg = :idReg ORDER BY nomPer DESC");
         $statement->bindParam(':idReg', $idReg);
         $statement->execute();
         while($result = $statement->fetch()){
             $rows[] = $result;
         }
         return $rows;
+    }
+
+    public function getProgramasDisponibles($idReg){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT programa.* FROM programa WHERE programa.idProg NOT IN (SELECT idProg FROM reg_prog  WHERE idReg = :idReg) ORDER BY nomProg ASC");
+        $statement->bindParam(':idReg', $idReg);
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+
+    public function addProgramaARegistro($Registro, $Programa, $Ruta){
+        $mensajeAdicionado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento '--Seleccione--' no puede asociarse";
+        try{
+            $statement = $this->db->prepare("INSERT INTO reg_prog (idReg, idProg) VALUE (:Registro, :Programa)");
+            $statement->bindParam(':Registro', $Registro);
+            $statement->bindParam(':Programa', $Programa);
+            
+            if($statement->execute()){
+                header('Location: ../vista/AProgregistro.php' . $Ruta);
+            } else{
+                header('Location: ../vista/AProgregistro.php' . $Ruta);
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeAdicionado);
+        }
+    }
+
+    public function deleteProgramaARegistro($Registro, $Programa, $Ruta){
+        $mensajeEliminado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento aún no puede ser eliminado, parece que otros registros dependen de este";
+        try{
+            $statement = $this->db->prepare("DELETE FROM reg_prog WHERE idReg = :Registro AND idProg = :Programa");
+            $statement->bindParam(':Registro', $Registro);
+            $statement->bindParam(':Programa', $Programa);
+            
+            if($statement->execute()){
+                header('Location: ../vista/AProgregistro.php' . $Ruta);
+            } else{
+                header('Location: ../vista/AProgregistro.php' . $Ruta);
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeEliminado);
+        }
+    }
+
+    public function getPeriodosDisponibles($idReg){
+        $rows = null;
+        $statement = $this->db->prepare("SELECT periodo.* FROM periodo WHERE periodo.idPer NOT IN (SELECT idPer FROM reg_per  WHERE idReg = :idReg) ORDER BY nomPer DESC");
+        $statement->bindParam(':idReg', $idReg);
+        $statement->execute();
+        while($result = $statement->fetch()){
+            $rows[] = $result;
+        }
+        return $rows;
+    }
+
+    public function addPeriodoARegistro($Registro, $Periodo, $Ruta){
+        $mensajeAdicionado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento '--Seleccione--' no puede asociarse";
+        try{
+            $statement = $this->db->prepare("INSERT INTO reg_per (idReg, idPer) VALUE (:Registro, :Periodo)");
+            $statement->bindParam(':Registro', $Registro);
+            $statement->bindParam(':Periodo', $Periodo);
+            
+            if($statement->execute()){
+                header('Location: ../vista/APerregistro.php' . $Ruta);
+            } else{
+                header('Location: ../vista/APerregistro.php' . $Ruta);
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeAdicionado);
+        }
+    }
+
+    public function deletePeriodoARegistro($Registro, $Periodo, $Ruta){
+        $mensajeEliminado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento aún no puede ser eliminado, parece que otros registros dependen de este";
+        try{
+            $statement = $this->db->prepare("DELETE FROM reg_per WHERE idReg = :Registro AND idPer = :Periodo");
+            $statement->bindParam(':Registro', $Registro);
+            $statement->bindParam(':Periodo', $Periodo);
+            
+            if($statement->execute()){
+                header('Location: ../vista/APerregistro.php' . $Ruta);
+            } else{
+                header('Location: ../vista/APerregistro.php' . $Ruta);
+            }
+        }catch(Exception $e){
+            header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeEliminado);
+        }
     }
 
     // Fin métodos "Registros"

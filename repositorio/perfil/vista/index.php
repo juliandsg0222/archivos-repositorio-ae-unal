@@ -52,7 +52,7 @@ $Id = $ModeloUsuarios->getId();
 
             <div class="form-group">
                 <label>Nueva Contraseña</label>
-                <input type="password" class="form-control" placeholder="Escriba su nueva contraseña" name="contrasena" autocomplete="off" required>
+                <input type="password" class="form-control" placeholder="Escriba su nueva contraseña" name="contrasena" autocomplete="off" required="">
             </div>
             
             <div class="clearfix"></div>

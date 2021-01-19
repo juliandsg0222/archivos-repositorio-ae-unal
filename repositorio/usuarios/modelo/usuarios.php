@@ -58,6 +58,14 @@ class Usuarios extends Conexion {
         }
     }
 
+    public function validateSessionEditor(){
+        if($_SESSION['ID'] != null){
+            if($_SESSION['ROL'] != 'ADMINISTRADOR' || $_SESSION['ROL'] != 'EDITOR'){
+                header('Location: ../../rol-editar/vista/index.php');
+            }
+        }
+    }
+
     public function salir(){
         $_SESSION['USUARIO'] = null;
         $_SESSION['ID'] = null;
