@@ -30,7 +30,6 @@ CREATE TABLE categoria
     idCat INT NOT NULL AUTO_INCREMENT,
     nomCat VARCHAR(50) NOT NULL,
     desCat VARCHAR(400) NOT NULL,
-    imaCat BLOB NOT NULL,
     PRIMARY KEY (idCat)
 )
 
@@ -40,7 +39,6 @@ CREATE TABLE tema
     idTem INT NOT NULL AUTO_INCREMENT,
     nomTem VARCHAR(50) NOT NULL,
     desTem VARCHAR(400) NOT NULL,
-    imaTem BLOB NOT NULL,
     PRIMARY KEY (idTem)
 )
 
