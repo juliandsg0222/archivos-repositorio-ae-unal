@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.BarraLateral{
+    float: left;
+    /* border: green 1px solid; */
+    width: 272px; 
+    height: 520px;
+}
+
+.BarraLateral li{
+    background: #212529;
+    list-style: none;
+    text-align: left;
+    padding: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #ddd;
+    font-size: 23px;
+    color: white;
+}
+
+.BarraLateral li:hover{
+    background: rgb(148, 180, 59);
+    cursor: pointer;
+}
+
+#EspacioConsulta{
+    background-image: url('../images/portada_manizales.png');
+    margin-left: 274px;
+    margin-right: 0px;
+    height: auto;
+    min-height: 520px;
+}
+
+#tablas{
+    float: left;
+    width: 98%;
+    /* border: pink 1px solid; */
+    margin:0;
+    margin-left:1%;
+    margin-right:1%;
+}
+
+#titAdmin{
+    color: rgb(30, 111, 193);
+    font-style: italic;
+    font-size:3.2em;
+    text-align: center;
+    /* margin-right: 30%; */
+}
+
+.table{
+    font-size: 1.5em;
+}
+
+.btn-success{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 23px;
+    float:left;
+    margin-left: 1%;
+}
