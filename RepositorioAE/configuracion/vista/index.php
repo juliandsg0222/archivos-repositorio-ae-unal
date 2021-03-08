@@ -183,28 +183,26 @@ $ModeloConfiguracion = new Configuracion();
       </div>
       <!-- Fin título del sitio plantilla unal -->
 
-        <!-- Inicio buscador plantilla unal -->
-        <div class="buscador" id="buscador">
-          <div class="gcse-searchbox-only" data-resultsurl="https://unal.edu.co/resultados-de-la-busqueda/"
-            data-newwindow="true"></div>
+      <!-- Inicio buscador plantilla unal -->
+      <div class="buscador" id="buscador">
+        <div class="gcse-searchbox-only" data-resultsurl="https://unal.edu.co/resultados-de-la-busqueda/" data-newwindow="true"></div>
+      </div>
+      <!-- Fin buscador plantilla unal -->
+
+      <!-- Inicio main menu plantilla unal -->
+      <div class="navbar-dark mainMenu" id="main_menu_container">
+
+        <!-- Inicio items menú principal plantilla unal -->
+        <div class="btn-group">
+          <div class="btn btn-default"><span class="caret"></span></div>
         </div>
-        <!-- Fin buscador plantilla unal -->
+        <!-- Fin items menú principal plantilla unal -->
 
-        <!-- Inicio main menu plantilla unal -->
-        <div class="navbar-dark mainMenu" id="main_menu_container">
-
-          <!-- Inicio items menú principal plantilla unal -->
-          <div class="btn-group">
-            <div class="btn btn-default"><span
-                class="caret"></span></div>
-          </div>
-          <!-- Fin items menú principal plantilla unal -->
-
-          <!-- Inicio items menú secundario plantilla unal -->
-          <div class="btn-group">
-            <a class="btn btn-default"></a>
-          </div>
-          <!-- Fin items menú secundario plantilla unal -->
+        <!-- Inicio items menú secundario plantilla unal -->
+        <div class="btn-group">
+          <a class="btn btn-default"></a>
+        </div>
+        <!-- Fin items menú secundario plantilla unal -->
 
         <!-- Inicio sedes plantilla unal -->
         <div class="btn-group menu_sedes">
@@ -383,7 +381,7 @@ $ModeloConfiguracion = new Configuracion();
                                                                                                                                                                                                                                                             $cont = 1;
                                                                                                                                                                                                                                                             if ($Usuarios != null) {
                                                                                                                                                                                                                                                               foreach ($Usuarios as $usu) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $usu["usuUsu"] ?></td><td><?php echo $usu["nomUsu"] ?></td><td><?php echo $usu["nomRol"] ?></td><td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Uusuario.php?transaction=<?php echo $usu['idUsu'] ?>"><i class="fas fa-edit" title="Editar"></i></a>   <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dusuario.php?transaction=<?php echo $usu['idUsu'] ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td></tr><?php }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              } ?></tbody></table>';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        } ?></tbody></table>';
                   }
 
                   function llamarPeriodos() {
@@ -393,7 +391,7 @@ $ModeloConfiguracion = new Configuracion();
                                                                                                                                                                                                         $cont = 1;
                                                                                                                                                                                                         if ($Periodos != null) {
                                                                                                                                                                                                           foreach ($Periodos as $peri) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $peri["nomPer"] ?></td><td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Uperiodo.php?transaction=<?php echo $peri['idPer'] ?>"><i class="fas fa-edit" title="Editar"></i></a>   <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dperiodo.php?transaction=<?php echo $peri['idPer'] ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td></tr><?php }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      } ?></tbody></table>';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              } ?></tbody></table>';
                   }
 
                   function llamarProgramas() {
@@ -403,7 +401,7 @@ $ModeloConfiguracion = new Configuracion();
                                                                                                                                                                                                           $cont = 1;
                                                                                                                                                                                                           if ($Programas != null) {
                                                                                                                                                                                                             foreach ($Programas as $prog) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $prog["nomProg"] ?></td><td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Uprograma.php?transaction=<?php echo $prog['idProg'] ?>"><i class="fas fa-edit" title="Editar"></i></a>   <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dprograma.php?transaction=<?php echo $prog['idProg'] ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td></tr><?php }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } ?></tbody></table>';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      } ?></tbody></table>';
                   }
 
 
@@ -414,7 +412,7 @@ $ModeloConfiguracion = new Configuracion();
                                                                                                                                                                                                                                           $cont = 1;
                                                                                                                                                                                                                                           if ($Categorias != null) {
                                                                                                                                                                                                                                             foreach ($Categorias as $cate) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $cate["nomCat"] ?></td><td><?php echo $cate["desCat"] ?></td><td><a style="text-decoration: none; color: rgb(70, 107, 63)" href="Acategoria.php?transaction=<?php echo $cate['idCat'] ?>"><i class="fas fa-link" title="Asociar Temas"></i></a>   <a style="text-decoration: none; color: rgb(244, 183, 61)" href="Ucategoria.php?transaction=<?php echo $cate['idCat'] ?>"><i class="fas fa-edit" title="Editar"></i></a>   <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dcategoria.php?transaction=<?php echo $cate['idCat'] ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td></tr><?php }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          } ?></tbody></table>';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              } ?></tbody></table>';
                   }
 
                   function llamarTemas() {
@@ -424,7 +422,7 @@ $ModeloConfiguracion = new Configuracion();
                                                                                                                                                                                                                                       $cont = 1;
                                                                                                                                                                                                                                       if ($Temas != null) {
                                                                                                                                                                                                                                         foreach ($Temas as $tem) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $tem["nomTem"] ?></td><td><?php echo $tem["desTem"] ?></td><td><a style="text-decoration: none; color: rgb(70, 107, 63)" href="Atema.php?transaction=<?php echo $tem['idTem'] ?>"><i class="fas fa-link" title="Asociar Indicadores"></i></a>   <a style="text-decoration: none; color: rgb(244, 183, 61)" href="Utema.php?transaction=<?php echo $tem['idTem'] ?>"><i class="fas fa-edit" title="Editar"></i></a>   <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dtema.php?transaction=<?php echo $tem['idTem'] ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td></tr><?php }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  } ?></tbody></table>';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      } ?></tbody></table>';
                   }
 
                   function llamarIndicadores() {
@@ -434,7 +432,7 @@ $ModeloConfiguracion = new Configuracion();
                                                                                                                                                                                                                                                               $cont = 1;
                                                                                                                                                                                                                                                               if ($Indicadores != null) {
                                                                                                                                                                                                                                                                 foreach ($Indicadores as $ind) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $ind["numInd"] ?></td><td style="text-align: justify"><?php echo $ind["nomInd"] ?></td><td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Uindicador.php?transaction=<?php echo $ind['idInd'] ?>"><i class="fas fa-edit" title="Editar"></i></a>   <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dindicador.php?transaction=<?php echo $ind['idInd'] ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td></tr><?php }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        } ?></tbody></table>';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        } ?></tbody></table>';
                   }
 
                   function llamarRelaciones() {
@@ -444,7 +442,7 @@ $ModeloConfiguracion = new Configuracion();
                                                                                                                                                                                                                 $cont = 1;
                                                                                                                                                                                                                 if ($Relaciones != null) {
                                                                                                                                                                                                                   foreach ($Relaciones as $rela) { ?><tr><th scope="row"><?php echo $rela['nomCat'] ?></th><td><?php echo $rela['nomTem'] ?></td><td><?php echo $rela['numInd'] ?></td></tr><?php }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        } ?></tbody></table>';
+                                                                                                                                                                                                                                                                                                                                                                                        } ?></tbody></table>';
                   }
 
                   function llamarFuentes() {
@@ -454,7 +452,7 @@ $ModeloConfiguracion = new Configuracion();
                                                                                                                                                                                                         $cont = 1;
                                                                                                                                                                                                         if ($Fuentes != null) {
                                                                                                                                                                                                           foreach ($Fuentes as $fue) { ?><tr><th scope="row"><?php echo $cont++ ?></th><td><?php echo $fue["nomFue"] ?></td><td><a style="text-decoration: none; color: rgb(244, 183, 61)" href="Ufuente.php?transaction=<?php echo $fue['idFue'] ?>"><i class="fas fa-edit" title="Editar"></i></a>   <a style="text-decoration: none; color: rgb(166, 28, 49)" href="Dfuente.php?transaction=<?php echo $fue['idFue'] ?>"><i class="fas fa-trash-alt" title="Eliminar"></i></a></td></tr><?php }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          } ?></tbody></table>';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        } ?></tbody></table>';
                   }
 
 
@@ -507,17 +505,17 @@ $ModeloConfiguracion = new Configuracion();
         <div class="row footer-info-spacing">
           <p class="col-lg-6 col-md-12 col-sm-12 col-6 contacto">
             <b>Contacto página web:</b><br />
-            Dirección ...<br />
-            Edificio ...<br />
-            Bogotá D.C., Colombia<br />
-            (+57 1) 316 5000 Ext.
+            Carrera 27 # 64-60<br />
+            Campus Palogrande<br />
+            Manizales, Colombia<br />
+            Línea 01 8000 916956
           </p>
           <p class="col-lg-6 col-md-12 col-sm-12 col-6 derechos">
             &copy; Copyright 2021<br />
             Algunos derechos reservados.<br />
-            <a title="Comuníquese con el administrador de este sitio web" href="mailto:EMAIL@unal.edu.co">EMAIL@unal.edu.co</a><br />
+            <a title="Comuníquese con el administrador de este sitio web" href="mailto:diracade_man@unal.edu.co">diracade_man@unal.edu.co</a><br />
             <a href="#">Acerca de este sitio web</a><br />
-            Actualización:07/01/2021
+            Actualización: 08/03/21
           </p>
         </div>
       </div>

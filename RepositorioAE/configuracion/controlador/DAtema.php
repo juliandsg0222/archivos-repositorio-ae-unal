@@ -5,6 +5,7 @@ require_once('../modelo/configuracion.php');
     $ModeloConfiguracion = new Configuracion();
     $IdTem = $_GET['transporte'];
     $IdInd = $_GET['transaction'];
-    $ModeloConfiguracion->deleteIndicadorATema($IdTem, $IdInd);
+    $Ruta = "?transaction=" . $IdTem;
+    $ModeloConfiguracion->deleteIndicadorATema($IdTem, $IdInd, $Ruta);
 
 ?>

@@ -6,6 +6,7 @@ require_once('../../usuarios/modelo/usuarios.php');
 
 $ModeloUsuario = new Usuarios();
 $ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionEditor();
 
 
 $ModeloConfiguracion = new Configuracion();
@@ -32,7 +33,14 @@ $IdTemas = $_GET['tema'];
     <div class="container" id="advanced-search-form">
         <h2><b>Nuevo Registro<b></h2>
         <form method="POST" action="../controlador/addRegistro.php">
-        <input type="hidden" name="IdTemas" value="<?php echo $IdTemas ?>">
+            <input type="hidden" name="IdTemas" value="<?php echo $IdTemas ?>">
+
+            <div class="form-group">
+                <label>Fecha</label>
+                <input type="date" class="form-control" name="fecha" autocomplete="off" required="">
+            </div>
+            <div class="clearfix"></div>
+
             <div class="form-group">
                 <label>Nombre del Registro</label>
                 <input type="text" class="form-control" placeholder="Nombre del Registro" name="nombre" autocomplete="off" required="">

@@ -50,10 +50,6 @@ $InformacionUsuario = $ModeloConfiguracion->getByIdUsuario($Id);
             </div>
             <div class="clearfix"></div>
 
-            <div class="form-group">
-                <label>Contraseña</label>
-                <input type="password" class="form-control" placeholder="Contraseña" name="contrasena" autocomplete="off" value="<?php echo $info['passUsu'] ?>" required="" minlength="8">
-            </div>
             <div class="clearfix"></div>
 
             <div class="form-group">

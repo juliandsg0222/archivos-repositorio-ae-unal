@@ -2,6 +2,11 @@
 
 require_once('../../configuracion/modelo/configuracion.php');
 require_once('../modelo/registros.php');
+require_once('../../usuarios/modelo/usuarios.php');
+
+$ModeloUsuario = new Usuarios();
+$ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionEditor();
 
 $ModeloConfiguracion = new Configuracion();
 $ModeloRegistros = new Registros();
@@ -95,7 +100,7 @@ $InformacionRegistros = $ModeloRegistros->getByIdRegistro($IdReg);
                     if ($Periodos != null) {
                         foreach ($Periodos as $periodos) { ?><tr>
                             <td style="text-align: center;"><?php echo $periodos["nomPer"] ?></td>
-                            <td style="text-align: center;"><a style="text-decoration: none; color: rgb(166, 28, 49)" href="../controlador/DAPerregistro.php?periodo=<?php echo $periodos['idPer'] ?>&registro=<?php echo $IdReg ?>&tema=<?php echo $IdTemas?>"><i class="fas fa-trash-alt" title="Desasociar"></i></a></td>
+                            <td style="text-align: center;"><a style="text-decoration: none; color: rgb(166, 28, 49)" href="../controlador/DAPerregistro.php?periodo=<?php echo $periodos['idPer'] ?>&registro=<?php echo $IdReg ?>&tema=<?php echo $IdTemas ?>"><i class="fas fa-trash-alt" title="Desasociar"></i></a></td>
                         </tr>
                 <?php
                         }

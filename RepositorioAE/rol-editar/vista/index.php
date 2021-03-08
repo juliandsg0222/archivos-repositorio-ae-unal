@@ -56,7 +56,7 @@ $Perfil = $ModeloUsuario->getPerfil();
   <!-- Fin head plantilla base -->
 
   <!-- Inicio head plantilla rol-editar -->
-  <link rel="stylesheet" type="text/css" href="../../estilos/css/rol-editar.css" media="all">
+  <link rel="stylesheet" type="text/css" href="../../estilos/css/home.css" media="all">
   <!-- Fin head plantilla rol-editar -->
 
 </head>
@@ -348,7 +348,7 @@ $Perfil = $ModeloUsuario->getPerfil();
                   <div class="col-md-5 col-sm-8 col-xs-12">
                     <div class="card hovereffect2" style="width: 100%;">
                       <img class="card-img-top img-responsive" src="../../estilos/images/editor.jpg" alt="Sans &amp; Sans-Serif">
-                      <div class="overlay2">
+                      <div class="registro">
                         <h2>Registro de Información</h2>
                         <a class="info2" href="../../categorias/vista/index.php"></a>
                       </div>
@@ -448,17 +448,17 @@ $Perfil = $ModeloUsuario->getPerfil();
         <div class="row footer-info-spacing">
           <p class="col-lg-6 col-md-12 col-sm-12 col-6 contacto">
             <b>Contacto página web:</b><br />
-            Dirección ...<br />
-            Edificio ...<br />
-            Bogotá D.C., Colombia<br />
-            (+57 1) 316 5000 Ext.
+            Carrera 27 # 64-60<br />
+            Campus Palogrande<br />
+            Manizales, Colombia<br />
+            Línea 01 8000 916956
           </p>
           <p class="col-lg-6 col-md-12 col-sm-12 col-6 derechos">
             &copy; Copyright 2021<br />
             Algunos derechos reservados.<br />
-            <a title="Comuníquese con el administrador de este sitio web" href="mailto:EMAIL@unal.edu.co">EMAIL@unal.edu.co</a><br />
+            <a title="Comuníquese con el administrador de este sitio web" href="mailto:diracade_man@unal.edu.co">diracade_man@unal.edu.co</a><br />
             <a href="#">Acerca de este sitio web</a><br />
-            Actualización:07/01/21
+            Actualización: 08/03/21
           </p>
         </div>
       </div>

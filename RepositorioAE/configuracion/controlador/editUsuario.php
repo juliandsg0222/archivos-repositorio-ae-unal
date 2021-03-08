@@ -7,10 +7,9 @@ if($_POST){
 
     $Id = $_POST['Id'];
     $Nombre = $_POST['nombre'];
-    $Contrasena = $_POST['contrasena'];
     $Rol = $_POST['rol'];
 
-    $ModeloConfiguracion->updateUsuario($Id, $Nombre, $Contrasena, $Rol);
+    $ModeloConfiguracion->updateUsuario($Id, $Nombre, $Rol);
 
 }else{
     header('Location: ../../index.php');

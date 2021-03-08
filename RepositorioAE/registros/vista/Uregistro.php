@@ -6,6 +6,7 @@ require_once('../../usuarios/modelo/usuarios.php');
 
 $ModeloUsuario = new Usuarios();
 $ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionEditor();
 
 
 $ModeloConfiguracion = new Configuracion();
@@ -43,6 +44,11 @@ $InformacionRegistros = $ModeloRegistros->getByIdRegistro($IdReg);
                 foreach ($InformacionRegistros as $info) {
             ?>
 
+                    <div class="form-group">
+                        <label>Fecha</label>
+                        <input type="date" class="form-control" name="fecha" autocomplete="off" value="<?php echo $info['fechaReg'] ?>" required="">
+                    </div>
+                    <div class="clearfix"></div>
 
                     <div class="form-group">
                         <label>Nombre del Registro</label>
@@ -79,11 +85,11 @@ $InformacionRegistros = $ModeloRegistros->getByIdRegistro($IdReg);
                                     } else {
                                     ?>
                                         <option value="<?php echo $idIndicador ?>"><?php echo $numIndicador ?></option>
-                    <?php
+                            <?php
                                     }
                                 }
                             }
-                    ?>
+                            ?>
 
                         </select>
                     </div>

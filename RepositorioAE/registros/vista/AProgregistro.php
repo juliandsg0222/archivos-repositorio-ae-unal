@@ -2,6 +2,11 @@
 
 require_once('../../configuracion/modelo/configuracion.php');
 require_once('../modelo/registros.php');
+require_once('../../usuarios/modelo/usuarios.php');
+
+$ModeloUsuario = new Usuarios();
+$ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionEditor();
 
 $ModeloConfiguracion = new Configuracion();
 $ModeloRegistros = new Registros();

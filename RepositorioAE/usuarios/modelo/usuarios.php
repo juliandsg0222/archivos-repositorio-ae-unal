@@ -61,7 +61,7 @@ class Usuarios extends Conexion
     {
         if ($_SESSION['ID'] != null) {
             if ($_SESSION['ROL'] != 'ADMINISTRADOR') {
-                header('Location: ../../rol-editar/vista/index.php');
+                header('Location: ../../rol-editar/index.php');
             }
         }
     }
@@ -69,8 +69,8 @@ class Usuarios extends Conexion
     public function validateSessionEditor()
     {
         if ($_SESSION['ID'] != null) {
-            if ($_SESSION['ROL'] != 'ADMINISTRADOR' || $_SESSION['ROL'] != 'EDITOR') {
-                header('Location: ../../rol-editar/vista/index.php');
+            if ($_SESSION['ROL'] != 'ADMINISTRADOR' && $_SESSION['ROL'] != 'EDITOR') {
+                header('Location: ../../rol-editar/index.php');
             }
         }
     }

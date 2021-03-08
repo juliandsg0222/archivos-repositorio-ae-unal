@@ -38,14 +38,12 @@ class Configuracion extends Conexion{
         }
     }
 
-    public function updateUsuario($Id, $Nombre, $Contrasena, $Rol){
+    public function updateUsuario($Id, $Nombre, $Rol){
         $mensajeAdicionado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento '--Seleccione--' no puede asociarse";
         try{
-            $Contrasena = password_hash($Contrasena, PASSWORD_DEFAULT, ['cost' => 10]);
-            $statement = $this->db->prepare("UPDATE usuario SET nomUsu = :Nombre, passUsu = :Contrasena, rolUsu = :Rol WHERE idUsu = :Id");
+            $statement = $this->db->prepare("UPDATE usuario SET nomUsu = :Nombre, rolUsu = :Rol WHERE idUsu = :Id");
             $statement->bindParam(':Id', $Id);
             $statement->bindParam(':Nombre', $Nombre);
-            $statement->bindParam(':Contrasena', $Contrasena);
             $statement->bindParam(':Rol', $Rol);
             
             if($statement->execute()){
@@ -513,7 +511,7 @@ class Configuracion extends Conexion{
     }
 
     
-    public function addTemaACategoria($Categoria, $Tema){
+    public function addTemaACategoria($Categoria, $Tema, $Ruta){
         $mensajeAdicionado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento '--Seleccione--' no puede asociarse";
         try{
             $statement = $this->db->prepare("INSERT INTO cat_tema (idCat, idTem) VALUE (:Categoria, :Tema)");
@@ -521,9 +519,9 @@ class Configuracion extends Conexion{
             $statement->bindParam(':Tema', $Tema);
             
             if($statement->execute()){
-                header('Location: ../vista/index.php');
+                header('Location: ../vista/Acategoria.php' . $Ruta);
             } else{
-                header('Location: ../vista/Acategoria.php');
+                header('Location: ../vista/Acategoria.php' . $Ruta);
             }
         }catch(Exception $e){
             header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeAdicionado);
@@ -531,7 +529,7 @@ class Configuracion extends Conexion{
     }
 
         
-    public function deleteTemaACategoria($IdCat, $IdTem){
+    public function deleteTemaACategoria($IdCat, $IdTem, $Ruta){
         $mensajeEliminado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento aún no puede ser eliminado, parece que otros registros dependen de este";
         try{
             $statement = $this->db->prepare("DELETE FROM cat_tema WHERE idCat = :IdCat AND idTem = :IdTem");
@@ -539,9 +537,9 @@ class Configuracion extends Conexion{
             $statement->bindParam(':IdTem', $IdTem);
             
             if($statement->execute()){
-                header('Location: ../vista/index.php');
+                header('Location: ../vista/Acategoria.php' . $Ruta);
             } else{
-                header('Location: ../vista/Acategoria.php');
+                header('Location: ../vista/Acategoria.php' . $Ruta);
             }
         }catch(Exception $e){
             header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeEliminado);
@@ -573,7 +571,7 @@ class Configuracion extends Conexion{
         return $rows;
     }
 
-    public function addIndicadorATema($Tema, $Indicador){
+    public function addIndicadorATema($Tema, $Indicador, $Ruta){
         $mensajeAdicionado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento '--Seleccione--' no puede asociarse";
         try{
             $statement = $this->db->prepare("INSERT INTO tema_ind (idTem, idInd) VALUE (:Tema, :Indicador)");
@@ -581,16 +579,16 @@ class Configuracion extends Conexion{
             $statement->bindParam(':Indicador', $Indicador);
             
             if($statement->execute()){
-                header('Location: ../vista/index.php');
+                header('Location: ../vista/Atema.php' . $Ruta);
             } else{
-                header('Location: ../vista/Atema.php');
+                header('Location: ../vista/Atema.php' . $Ruta);
             }
         }catch(Exception $e){
             header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeAdicionado);
         }
     }
 
-    public function deleteIndicadorATema($IdTem, $IdInd){
+    public function deleteIndicadorATema($IdTem, $IdInd, $Ruta){
         $mensajeEliminado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento aún no puede ser eliminado, parece que otros registros dependen de este";
         try{
             $statement = $this->db->prepare("DELETE FROM tema_ind WHERE idTem = :IdTem AND idInd = :IdInd");
@@ -598,9 +596,9 @@ class Configuracion extends Conexion{
             $statement->bindParam(':IdInd', $IdInd);
             
             if($statement->execute()){
-                header('Location: ../vista/index.php');
+                header('Location: ../vista/Atema.php' . $Ruta);
             } else{
-                header('Location: ../vista/Atema.php');
+                header('Location: ../vista/Atema.php' . $Ruta);
             }
         }catch(Exception $e){
             header('Location: ../../404/index.php?exception=' . substr($e->getMessage(), 0, 53) . '&mensaje=' . $mensajeEliminado);

@@ -7,8 +7,9 @@ if($_POST){
 
     $Tema = $_POST['Id'];
     $Indicador = $_POST['indicador'];
+    $Ruta = "?transaction=" . $Tema;
 
-    $ModeloConfiguracion->addIndicadorATema($Tema, $Indicador);
+    $ModeloConfiguracion->addIndicadorATema($Tema, $Indicador, $Ruta);
 
 }else{
     header('Location: ../../index.php');

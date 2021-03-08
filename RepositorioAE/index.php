@@ -379,17 +379,17 @@
         <div class="row footer-info-spacing">
           <p class="col-lg-6 col-md-12 col-sm-12 col-6 contacto">
             <b>Contacto página web:</b><br />
-            Dirección ...<br />
-            Edificio ...<br />
-            Bogotá D.C., Colombia<br />
-            (+57 1) 316 5000 Ext.
+            Carrera 27 # 64-60<br />
+            Campus Palogrande<br />
+            Manizales, Colombia<br />
+            Línea  01 8000 916956
           </p>
           <p class="col-lg-6 col-md-12 col-sm-12 col-6 derechos">
             &copy; Copyright 2021<br />
             Algunos derechos reservados.<br />
-            <a title="Comuníquese con el administrador de este sitio web" href="mailto:EMAIL@unal.edu.co">EMAIL@unal.edu.co</a><br />
-            <a href="#">Acerca de este sitio web</a><br />
-            Actualización:07/01/21
+            <a title="Comuníquese con el administrador de este sitio web" href="mailto:diracade_man@unal.edu.co">diracade_man@unal.edu.co</a><br />
+            <a href="informacion.php">Acerca de este sitio web</a><br />
+            Actualización: 08/03/21
           </p>
         </div>
       </div>

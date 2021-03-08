@@ -14,9 +14,6 @@ $IdReg = $_GET['transaction'];
 $IdTemas = $_GET['tema'];
 $InformacionRegistros = $ModeloRegistros->getByIdRegistro($IdReg);
 
-
-
-
 ?>
 
 
@@ -44,6 +41,11 @@ $InformacionRegistros = $ModeloRegistros->getByIdRegistro($IdReg);
                 foreach ($InformacionRegistros as $info) {
             ?>
 
+                    <div class="form-group">
+                        <label>Fecha</label>
+                        <input type="date" class="form-control" name="fecha" autocomplete="off" value="<?php echo $info['fechaReg'] ?>" required="" disabled="">
+                    </div>
+                    <div class="clearfix"></div>
 
                     <div class="form-group">
                         <label>Nombre del Registro</label>
@@ -59,7 +61,7 @@ $InformacionRegistros = $ModeloRegistros->getByIdRegistro($IdReg);
 
                     <div class="form-group">
                         <label>Link de Acceso</label>
-                        <a href="<?php echo $info['linkReg']?>" target="_blank"><input type="url" class="form-control" placeholder="Link de acceso" name="acceso" autocomplete="off" required="" value="<?php echo $info['linkReg'] ?>" disabled="" style="cursor: pointer"></a>
+                        <a href="<?php echo $info['linkReg'] ?>" target="_blank"><input type="url" class="form-control" placeholder="Link de acceso" name="acceso" autocomplete="off" required="" value="<?php echo $info['linkReg'] ?>" disabled="" style="cursor: pointer"></a>
                     </div>
                     <div class="clearfix"></div>
 

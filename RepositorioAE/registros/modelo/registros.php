@@ -11,7 +11,7 @@ class Registros extends Conexion{
     // Inicio métodos "Registros"
     public function getRegistros($IdTema){
         $rows = null;
-        $statement = $this->db->prepare("SELECT idReg, nomReg, desReg, linkReg, registro.idInd, numInd, nomFue FROM registro LEFT JOIN fuente ON registro.idFue = fuente.idFue LEFT JOIN indicador ON indicador.idInd = registro.idInd WHERE registro.idInd IN (SELECT tema_ind.idInd FROM tema LEFT JOIN tema_ind ON tema.idTem = tema_ind.idTem LEFT JOIN indicador ON tema_ind.idInd = indicador.idInd WHERE tema_ind.idTem = :IdTema)");
+        $statement = $this->db->prepare("SELECT idReg, fechaReg, nomReg, desReg, linkReg, registro.idInd, numInd, nomFue FROM registro LEFT JOIN fuente ON registro.idFue = fuente.idFue LEFT JOIN indicador ON indicador.idInd = registro.idInd WHERE registro.idInd IN (SELECT tema_ind.idInd FROM tema LEFT JOIN tema_ind ON tema.idTem = tema_ind.idTem LEFT JOIN indicador ON tema_ind.idInd = indicador.idInd WHERE tema_ind.idTem = :IdTema) ORDER BY fechaReg DESC, nomReg ASC");
         $statement->bindParam(':IdTema', $IdTema);
         $statement->execute();
         while($result = $statement->fetch()){
@@ -31,10 +31,11 @@ class Registros extends Conexion{
         return $rows;
     }
 
-    public function addRegistro($Nombre, $Descripcion, $Link, $Indicador, $Fuente, $Ruta){
+    public function addRegistro($Fecha, $Nombre, $Descripcion, $Link, $Indicador, $Fuente, $Ruta){
         $mensajeAdicionado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento '--Seleccione--' no puede asociarse";
         try{
-            $statement = $this->db->prepare("INSERT INTO registro (nomReg, desReg, linkReg, idInd, idFue) VALUE (:Nombre, :Descripcion, :Link, :Indicador, :Fuente)");
+            $statement = $this->db->prepare("INSERT INTO registro (fechaReg, nomReg, desReg, linkReg, idInd, idFue) VALUE (:Fecha, :Nombre, :Descripcion, :Link, :Indicador, :Fuente)");
+            $statement->bindParam(':Fecha', $Fecha);
             $statement->bindParam(':Nombre', $Nombre);
             $statement->bindParam(':Descripcion', $Descripcion);
             $statement->bindParam(':Link', $Link);
@@ -51,10 +52,11 @@ class Registros extends Conexion{
         }
     }
 
-    public function updateRegistro($Id, $Nombre, $Descripcion, $Link, $Indicador, $Fuente, $Ruta, $Ruta2){
+    public function updateRegistro($Id, $Fecha, $Nombre, $Descripcion, $Link, $Indicador, $Fuente, $Ruta, $Ruta2){
         $mensajeAdicionado = "INTENTO DE VIOLACIÓN DE INTEGRIDAD REFERENCIAL: El elemento '--Seleccione--' no puede asociarse";
         try{
-            $statement = $this->db->prepare("UPDATE registro SET nomReg = :Nombre, desReg = :Descripcion, linkReg = :Link, idInd = :Indicador, idFue = :Fuente WHERE idReg = :Id");
+            $statement = $this->db->prepare("UPDATE registro SET fechaReg = :Fecha, nomReg = :Nombre, desReg = :Descripcion, linkReg = :Link, idInd = :Indicador, idFue = :Fuente WHERE idReg = :Id");
+            $statement->bindParam(':Fecha', $Fecha);
             $statement->bindParam(':Nombre', $Nombre);
             $statement->bindParam(':Descripcion', $Descripcion);
             $statement->bindParam(':Link', $Link);

@@ -7,6 +7,7 @@ $ModeloRegistros = new Registros();
 $IdTemas = $_GET['transaction'];
 $ModeloUsuario = new Usuarios();
 $ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionEditor();
 
 ?>
 
@@ -174,34 +175,32 @@ $ModeloUsuario->validateSession();
         <!-- Inicio menú inferior plantilla unal -->
         <div id="bs-navbar" class="navigation d-none d-md-block">
 
-      <!-- Inicio título del sitio plantilla unal -->
-      <div class="site-url" id="subdominio">
-        <a>repositorio.manizales.unal.edu.co</a>
-      </div>
-      <!-- Fin título del sitio plantilla unal -->
+            <!-- Inicio título del sitio plantilla unal -->
+            <div class="site-url" id="subdominio">
+                <a>repositorio.manizales.unal.edu.co</a>
+            </div>
+            <!-- Fin título del sitio plantilla unal -->
 
-        <!-- Inicio buscador plantilla unal -->
-        <div class="buscador" id="buscador">
-          <div class="gcse-searchbox-only" data-resultsurl="https://unal.edu.co/resultados-de-la-busqueda/"
-            data-newwindow="true"></div>
-        </div>
-        <!-- Fin buscador plantilla unal -->
+            <!-- Inicio buscador plantilla unal -->
+            <div class="buscador" id="buscador">
+                <div class="gcse-searchbox-only" data-resultsurl="https://unal.edu.co/resultados-de-la-busqueda/" data-newwindow="true"></div>
+            </div>
+            <!-- Fin buscador plantilla unal -->
 
-        <!-- Inicio main menu plantilla unal -->
-        <div class="navbar-dark mainMenu" id="main_menu_container">
+            <!-- Inicio main menu plantilla unal -->
+            <div class="navbar-dark mainMenu" id="main_menu_container">
 
-          <!-- Inicio items menú principal plantilla unal -->
-          <div class="btn-group">
-            <div class="btn btn-default"><span
-                class="caret"></span></div>
-          </div>
-          <!-- Fin items menú principal plantilla unal -->
+                <!-- Inicio items menú principal plantilla unal -->
+                <div class="btn-group">
+                    <div class="btn btn-default"><span class="caret"></span></div>
+                </div>
+                <!-- Fin items menú principal plantilla unal -->
 
-          <!-- Inicio items menú secundario plantilla unal -->
-          <div class="btn-group">
-            <a class="btn btn-default"></a>
-          </div>
-          <!-- Fin items menú secundario plantilla unal -->
+                <!-- Inicio items menú secundario plantilla unal -->
+                <div class="btn-group">
+                    <a class="btn btn-default"></a>
+                </div>
+                <!-- Fin items menú secundario plantilla unal -->
 
                 <!-- Inicio sedes plantilla unal -->
                 <div class="btn-group menu_sedes">
@@ -399,6 +398,7 @@ $ModeloUsuario->validateSession();
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th scope="col">#</th>
+                                                <th scope="col">FECHA</th>
                                                 <th scope="col">NOMBRE</th>
                                                 <th scope="col">ARCHIVO</th>
                                                 <th scope="col">INDICADOR ESPECÍFICO</th>
@@ -424,6 +424,14 @@ $ModeloUsuario->validateSession();
                                             ?>
                                                     <tr>
                                                         <th scope="row"><?php echo $cont++ ?></th>
+                                                        <td>
+                                                            <?php
+                                                            $dia = substr($reg['fechaReg'], 8);
+                                                            $mes = substr($reg['fechaReg'], 5,-3);
+                                                            $anio = substr($reg['fechaReg'],0,-6);
+                                                            echo $anio . '-' . $mes . '-' . $dia;
+                                                            ?>
+                                                        </td>
                                                         <td><?php echo $reg['nomReg'] ?></td>
                                                         <td><a style="text-decoration: none; color:black" href="<?php echo $reg['linkReg'] ?>" target="_blank"><i class="fas fa-link" title="Archivo"></i></a></td>
 
@@ -512,17 +520,17 @@ $ModeloUsuario->validateSession();
                 <div class="row footer-info-spacing">
                     <p class="col-lg-6 col-md-12 col-sm-12 col-6 contacto">
                         <b>Contacto página web:</b><br />
-                        Dirección ...<br />
-                        Edificio ...<br />
-                        Bogotá D.C., Colombia<br />
-                        (+57 1) 316 5000 Ext.
+                        Carrera 27 # 64-60<br />
+                        Campus Palogrande<br />
+                        Manizales, Colombia<br />
+                        Línea 01 8000 916956
                     </p>
                     <p class="col-lg-6 col-md-12 col-sm-12 col-6 derechos">
                         &copy; Copyright 2021<br />
                         Algunos derechos reservados.<br />
-                        <a title="Comuníquese con el administrador de este sitio web" href="mailto:EMAIL@unal.edu.co">EMAIL@unal.edu.co</a><br />
+                        <a title="Comuníquese con el administrador de este sitio web" href="mailto:diracade_man@unal.edu.co">diracade_man@unal.edu.co</a><br />
                         <a href="#">Acerca de este sitio web</a><br />
-                        Actualización:07/01/21
+                        Actualización: 08/03/21
                     </p>
                 </div>
             </div>

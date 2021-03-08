@@ -4,8 +4,8 @@ require_once('../../usuarios/modelo/usuarios.php');
 require_once('../modelo/configuracion.php');
 
 $ModeloUsuario = new Usuarios();
-// $ModeloUsuario->validateSession();
-// $ModeloUsuario->validateSessionAdministrator();
+$ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionAdministrator();
 
 $ModeloConfiguracion = new Configuracion();
 

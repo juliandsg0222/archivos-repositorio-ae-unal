@@ -6,6 +6,7 @@ require_once('../../usuarios/modelo/usuarios.php');
 
 $ModeloUsuario = new Usuarios();
 $ModeloUsuario->validateSession();
+$ModeloUsuario->validateSessionEditor();
 
 
 $ModeloConfiguracion = new Configuracion();
@@ -45,6 +46,12 @@ $InformacionRegistros = $ModeloRegistros->getByIdRegistro($IdReg);
 
 
                     <div class="form-group">
+                        <label>Fecha</label>
+                        <input type="date" class="form-control" name="fecha" autocomplete="off" value="<?php echo $info['fechaReg'] ?>" required="" disabled="">
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="form-group">
                         <label>Nombre del Registro</label>
                         <input type="text" class="form-control" placeholder="Nombre del Registro" name="nombre" autocomplete="off" value="<?php echo $info['nomReg'] ?>" required="" disabled="">
                     </div>
@@ -79,11 +86,11 @@ $InformacionRegistros = $ModeloRegistros->getByIdRegistro($IdReg);
                                     } else {
                                     ?>
                                         <option value="<?php echo $idIndicador ?>"><?php echo $numIndicador ?></option>
-                    <?php
+                            <?php
                                     }
                                 }
                             }
-                    ?>
+                            ?>
 
                         </select>
                     </div>

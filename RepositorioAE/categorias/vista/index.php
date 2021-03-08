@@ -354,7 +354,7 @@ $Perfil = $ModeloUsuario->getPerfil();
               ?>
                     <div class="row" style="width: 100%; margin-bottom: 48px">
                       <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="card hovereffect2" style="width: 400px; height:230px; margin-left: 55% !important">
+                        <div class="card hovereffect2">
                           <?php
                           if ($cont % 2 == 0) {
                           ?>
@@ -378,7 +378,7 @@ $Perfil = $ModeloUsuario->getPerfil();
                     ?>
 
                       <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="card hovereffect2" style="width: 400px; height:230px; margin-left: 55% !important">
+                        <div class="card hovereffect2">
                           <?php
                           if ($cont % 2 == 0) {
                           ?>
@@ -403,7 +403,7 @@ $Perfil = $ModeloUsuario->getPerfil();
                   } else {
                   ?>
                     <div class="col-md-4 col-sm-6 col-xs-12">
-                      <div class="card hovereffect2" style="width: 400px; height:230px; margin-left: 55% !important">
+                      <div class="card hovereffect2">
                         <?php
                         if ($cont % 2 == 0) {
                         ?>
@@ -465,18 +465,18 @@ $Perfil = $ModeloUsuario->getPerfil();
       <div class="col-lg-4 col-md-4 col-sm-4 col-12 footer-info">
         <div class="row footer-info-spacing">
           <p class="col-lg-6 col-md-12 col-sm-12 col-6 contacto">
-            <b>Contacto página web:</b><br />
-            Dirección ...<br />
-            Edificio ...<br />
-            Bogotá D.C., Colombia<br />
-            (+57 1) 316 5000 Ext.
+          <b>Contacto página web:</b><br />
+            Carrera 27 # 64-60<br />
+            Campus Palogrande<br />
+            Manizales, Colombia<br />
+            Línea 01 8000 916956
           </p>
           <p class="col-lg-6 col-md-12 col-sm-12 col-6 derechos">
             &copy; Copyright 2021<br />
             Algunos derechos reservados.<br />
-            <a title="Comuníquese con el administrador de este sitio web" href="mailto:EMAIL@unal.edu.co">EMAIL@unal.edu.co</a><br />
+            <a title="Comuníquese con el administrador de este sitio web" href="mailto:diracade_man@unal.edu.co">diracade_man@unal.edu.co</a><br />
             <a href="#">Acerca de este sitio web</a><br />
-            Actualización:07/01/21
+            Actualización: 08/03/21
           </p>
         </div>
       </div>

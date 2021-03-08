@@ -7,8 +7,9 @@ if($_POST){
 
     $Categoria = $_POST['Id'];
     $Tema = $_POST['tema'];
+    $Ruta = "?transaction=" . $Categoria;
 
-    $ModeloConfiguracion->addTemaACategoria($Categoria, $Tema);
+    $ModeloConfiguracion->addTemaACategoria($Categoria, $Tema, $Ruta);
 
 }else{
     header('Location: ../../index.php');

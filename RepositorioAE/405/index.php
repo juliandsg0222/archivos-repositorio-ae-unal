@@ -1,15 +1,3 @@
-<?php
-
-if ($_GET['exception'] == null || $_GET['mensaje'] == null) {
-	header('Location: ../405/index.php');
-} else {
-	$Error = $_GET['exception'];
-	$Mensaje = $_GET['mensaje'];
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -45,8 +33,7 @@ if ($_GET['exception'] == null || $_GET['mensaje'] == null) {
 				<h1>Oops!</h1>
 			</div>
 			<h2>Error</h2>
-			<p><?php echo $Mensaje ?></p>
-			<p>DETALLE: <?php echo $Error ?></p>
+			<p>Parece que no deberías estar aquí</p>
 			<a href="../rol-editar/vista/index.php">Volver a la Página Principal</a>
 		</div>
 	</div>

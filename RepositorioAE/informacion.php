@@ -323,7 +323,13 @@
                 <div class="card-body" style="margin-bottom:0;">
                     <div class="version2">
                         <div class="jumbotron jumbotron-fluid2"></div>
-                        <div class="container" style="width: 100%;"></div>
+                        <div class="container" style="width: 96%; margin:30px">
+                            <br>
+                            <h1 style="color: rgb(30, 111, 193); font-size: 4.5em"><b>Repositorio de Autoevaluación</b></h1>
+                            <br><br>
+                            <h4 style="text-align: justify; margin:30px; font-size: 3.5em;">Es una herramienta para el equipo de Autoevaluación con el fin de centralizar, organizar y facilitar el acceso a la información suministrada por las diferentes fuentes institucionales de manera que la actualización constante de los indicadores requeridos para el proceso de autoevaluación y acreditación se convierta en un proceso más eficiente de realizar.</h4>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -362,17 +368,17 @@
                 <div class="row footer-info-spacing">
                     <p class="col-lg-6 col-md-12 col-sm-12 col-6 contacto">
                         <b>Contacto página web:</b><br />
-                        Dirección ...<br />
-                        Edificio ...<br />
-                        Bogotá D.C., Colombia<br />
-                        (+57 1) 316 5000 Ext.
+                        Carrera 27 # 64-60<br />
+                        Campus Palogrande<br />
+                        Manizales, Colombia<br />
+                        Línea 01 8000 916956
                     </p>
                     <p class="col-lg-6 col-md-12 col-sm-12 col-6 derechos">
                         &copy; Copyright 2021<br />
                         Algunos derechos reservados.<br />
-                        <a title="Comuníquese con el administrador de este sitio web" href="mailto:EMAIL@unal.edu.co">EMAIL@unal.edu.co</a><br />
+                        <a title="Comuníquese con el administrador de este sitio web" href="mailto:diracade_man@unal.edu.co">diracade_man@unal.edu.co</a><br />
                         <a href="#">Acerca de este sitio web</a><br />
-                        Actualización:07/01/21
+                        Actualización: 08/03/21
                     </p>
                 </div>
             </div>
